@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'dart:convert';
-import 'prettyPrint.dart';
+import 'pretty_print.dart';
 import 'package:args/args.dart';
 
 void main(List<String> args) async {
