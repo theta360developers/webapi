@@ -16,6 +16,8 @@ RICOH THETA API requests for models V, Z1, and SC2. [API reference](https://api.
 
 ### POST example
 
+response from THETA SC2
+
 ![post state](images/post-state.png)
 
 ## Camera Firmware Tested
