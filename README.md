@@ -6,6 +6,8 @@ RICOH THETA API requests for models V, Z1, and SC2. [API reference](https://api.
 
 ![screenshot](doc/images/screenshot.png)
 
+Read about [why we're using Dart](doc/dart-growth/dart.md).
+
 ## Usage
 
 1. connect workstation to THETA with camera in access point (AP) mode
