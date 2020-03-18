@@ -1,5 +1,6 @@
 import 'package:apitest/get_info.dart';
 import 'package:args/args.dart';
+import 'package:apitest/post_state.dart';
 
 void main(List<String> args) async {
   print(args);
@@ -8,5 +9,6 @@ void main(List<String> args) async {
 
   // RICOH THETA info
   String url = 'http://192.168.1.1/osc/info';
-  getInfo(url);
+  // getInfo(url);
+  postState();
 }

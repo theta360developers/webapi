@@ -9,9 +9,14 @@ RICOH THETA API requests for models V, Z1, and SC2. [API reference](https://api.
 ## Usage
 
 1. connect workstation to THETA with camera in access point (AP) mode
-2. run `main.dart` file in `bin`
+2. open `main.dart` in an editor and uncomment the function you want to use
+3. run `main.dart` file in `bin`
 
     dart bin/main.dart
+
+### POST example
+
+![post state](images/post-state.png)
 
 ## Camera Firmware Tested
 
@@ -40,10 +45,12 @@ code with a known working API that returns a single JSON object, you can use a p
 
 ## References
 
-* [Dart HttpClient](https://codeburst.io/quick-tip-how-to-make-http-requests-in-dart-53fc407daf31)
+* [Dart HttpClient](https://itnext.io/learn-dart-perform-a-serverside-post-request-in-under-30-seconds-894fc889c551)
 * [Pretty Print JSON](https://colinstodd.com/posts/code/pretty-print-json-in-dart.html)
 
 ## Notes
 
-https://pub.dev/packages/args
+* [Jermaine Oppong's blog with lots of Dart info](https://itnext.io/@graphicbeacon)
+* [Dart args package](https://pub.dev/packages/args)
+
 
