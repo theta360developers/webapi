@@ -4,7 +4,7 @@ RICOH THETA API requests for models V, Z1, and SC2. [API reference](https://api.
 
 
 
-![screenshot](images/screenshot.png)
+![screenshot](doc/images/screenshot.png)
 
 ## Usage
 
@@ -18,7 +18,7 @@ RICOH THETA API requests for models V, Z1, and SC2. [API reference](https://api.
 
 response from THETA SC2
 
-![post state](images/post-state.png)
+![post state](doc/images/post-state.png)
 
 ## Camera Firmware Tested
 
@@ -26,7 +26,7 @@ response from THETA SC2
 * RICOH THETA SC 1.20
 * V 3.21.1
 
-![sc2 screenshot](images/sc2-screenshot.png)
+![sc2 screenshot](doc/images/sc2-screenshot.png)
 
 
 ## Troubleshooting Camera
@@ -69,7 +69,7 @@ Got dependencies!
 
 ### THETA V
 
-![THETA V Info](images/theta-v-info.png)
+![THETA V Info](doc/images/theta-v-info.png)
 
 
 ## References
