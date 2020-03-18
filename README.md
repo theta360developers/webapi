@@ -24,6 +24,7 @@ response from THETA SC2
 
 * Z1 1.31.1
 * RICOH THETA SC 1.20
+* V 3.21.1
 
 ![sc2 screenshot](images/sc2-screenshot.png)
 
@@ -44,6 +45,32 @@ code with a known working API that returns a single JSON object, you can use a p
 
     // String url = 'https://swapi.co/api/people/1';
     // String url = 'https://jsonplaceholder.typicode.com/users/1';
+
+## Configuration and Installation
+
+1. install [dart](https://dart.dev/)
+2. clone this repo
+3. run `pub get` to install dependencies
+
+```
+$ pub get
+Resolving dependencies... (1.2s)
+Downloading args 1.5.3...
+Downloading http 0.12.0+4...
+Downloading pedantic 1.9.0...
+Downloading async 2.4.0...
+Downloading source_span 1.6.0...
+Downloading charcode 1.1.3...
+Downloading meta 1.1.8...
+Got dependencies!
+```
+
+## Additional Screenshots
+
+### THETA V
+
+![THETA V Info](images/theta-v-info.png)
+
 
 ## References
 

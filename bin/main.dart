@@ -11,9 +11,9 @@ void main(List<String> args) async {
   /// RICOH THETA info 
   /// Official API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/info/
   /// uncomment the line below to test info API
-  // getInfo();
+  getInfo();
 
   /// camera state
   /// API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/state/
-  postState();
+  // postState();
 }
