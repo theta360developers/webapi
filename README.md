@@ -6,6 +6,21 @@ RICOH THETA API requests for models V, Z1, and SC2. [API reference](https://api.
 
 ![screenshot](images/screenshot.png)
 
+## Usage
+
+1. connect workstation to THETA with camera in access point (AP) mode
+2. run `main.dart` file in `bin`
+
+    dart bin/main.dart
+
+## Camera Firmware Tested
+
+* Z1 1.31.1
+* RICOH THETA SC 1.20
+
+![sc2 screenshot](images/sc2-screenshot.png)
+
+
 ## References
 
 * [Dart HttpClient](https://codeburst.io/quick-tip-how-to-make-http-requests-in-dart-53fc407daf31)
