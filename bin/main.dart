@@ -3,6 +3,7 @@ import 'package:args/args.dart';
 import 'package:apitest/post_state.dart';
 import 'package:apitest/take_picture.dart';
 import 'package:apitest/list_files.dart';
+import 'package:apitest/get_options.dart';
 
 
 void main(List<String> args) async {
@@ -25,5 +26,8 @@ void main(List<String> args) async {
 
   /// list files
   /// API reference: https://api.ricoh/docs/theta-web-api-v2.1/commands/camera.list_files/
-  listFiles();
+  // listFiles();
+
+  /// get options
+  getOptions();
 }
