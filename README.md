@@ -22,6 +22,17 @@ response from THETA SC2
 
 ![post state](doc/images/post-state.png)
 
+
+### Take Picture Example
+
+If you send a payload such as `{'name': 'camera.takePicture'}` as part of your 
+request, you must encode the body as JSON.  You can use `json.encode(your-payload-object)` 
+or the new `jsonEncode()` https://api.dart.dev/stable/2.7.1/dart-convert/jsonEncode.html
+
+
+![take picture](doc/images/take-picture.png)
+
+
 ## Camera Firmware Tested
 
 * Z1 1.31.1
