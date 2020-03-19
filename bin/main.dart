@@ -16,5 +16,8 @@ void main(List<String> args) async {
 
   /// camera state
   /// API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/state/
+  // postState();
+
+  /// take picture.  most pass payload that is json encoded
   takePicture();
 }

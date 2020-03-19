@@ -30,7 +30,29 @@ request, you must encode the body as JSON.  You can use `json.encode(your-payloa
 or the new `jsonEncode()` https://api.dart.dev/stable/2.7.1/dart-convert/jsonEncode.html
 
 
+
 ![take picture](doc/images/take-picture.png)
+
+Test from THETA V.  OK!
+
+
+Test from THETA SC2.  OK!
+
+Response from SC@ shown below.
+
+```javascript
+C:\Users\craigdev\Development\personal\dart>dart bin/main.dart
+[]
+200
+{
+  "name": "camera.takePicture",
+  "id": "1588",
+  "progress": {
+    "completion": 0.0
+  },
+  "state": "inProgress"
+}
+```
 
 
 ## Camera Firmware Tested
