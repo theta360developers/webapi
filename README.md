@@ -31,6 +31,7 @@ Working commands:
 * takePicture
 * listFiles
 * getOptions
+* downloadFile
 
 ## Explanation
 

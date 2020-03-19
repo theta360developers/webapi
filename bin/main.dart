@@ -9,7 +9,7 @@ import 'package:apitest/download_file.dart';
 void printUsage() {
   print("\n  usage: dart bin/main.py command");
   print("    command must be one of the following:");
-  print("    info, state, takePicture, listFiles, getOptions \n");
+  print("    info, state, takePicture, listFiles, getOptions, downloadFile \n");
   print("    example: dart bin/main.py info \n");
 }
 
@@ -65,6 +65,7 @@ void main(List<String> args) async {
       
       case "downloadFile":
         {
+          /// download a single file
           downloadFile();
         }
         break;
