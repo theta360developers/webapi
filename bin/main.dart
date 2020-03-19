@@ -2,6 +2,7 @@ import 'package:apitest/get_info.dart';
 import 'package:args/args.dart';
 import 'package:apitest/post_state.dart';
 import 'package:apitest/take_picture.dart';
+import 'package:apitest/list_files.dart';
 
 
 void main(List<String> args) async {
@@ -18,6 +19,11 @@ void main(List<String> args) async {
   /// API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/state/
   // postState();
 
-  /// take picture.  most pass payload that is json encoded
-  takePicture();
+  /// take picture.  must pass payload that is json encoded
+  /// API reference https://api.ricoh/docs/theta-web-api-v2.1/commands/camera.take_picture/
+  // takePicture();
+
+  /// list files
+  /// API reference: https://api.ricoh/docs/theta-web-api-v2.1/commands/camera.list_files/
+  listFiles();
 }
