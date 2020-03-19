@@ -163,7 +163,9 @@ Map data = {
   };
 ```
 
-The response is:
+The response from a THETA SC2 running firmware 1.20 is shown below.  Note
+that the `previewFormat` is giving 0 values.  This API is likely
+not supported at the moment.
 
 ```javascript
 {
@@ -184,6 +186,11 @@ The response is:
   }
 }
 ```
+
+For comparison, this is the response from a THETA V.  See the difference in the
+previewFormat information.
+
+![options output](doc/images/preview-format.png)
 
 
 ## Camera Firmware Tested
