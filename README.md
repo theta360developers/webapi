@@ -11,10 +11,28 @@ Read about [why we're using Dart](doc/dart-growth/dart.md).
 ## Usage
 
 1. connect workstation to THETA with camera in access point (AP) mode
-2. open `main.dart` in an editor and uncomment the function you want to use
-3. run `main.dart` file in `bin`
+2. run `main.dart` file in `bin` with the appropriate command
 
-    dart bin/main.dart
+
+### Example with info
+
+     dart bin/main.dart info
+
+Instead of info, you can also use other commands:
+
+### Example with state
+
+    dart bin/main.dart state
+
+Working commands:
+
+* info
+* state
+* takePicture
+* listFiles
+* getOptions
+
+## Explanation
 
 ### POST example
 
