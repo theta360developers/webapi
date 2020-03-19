@@ -2,7 +2,7 @@
 
 ![dart growth](images/dart2019.png)
 
-According to GitHub's [The State of the October](https://octoverse.github.com/#top-languages), Dart was the fastest growing language in 2019,
+According to GitHub's [The State of the Octoverse](https://octoverse.github.com/#top-languages), Dart was the fastest growing language in 2019,
 growing faster than Go, Rust, and TypeScript.  
 
 The interest in Dart is largely driven by [Flutter](https://flutter.dev/).
