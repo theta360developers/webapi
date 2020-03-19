@@ -4,6 +4,7 @@ import 'package:apitest/post_state.dart';
 import 'package:apitest/take_picture.dart';
 import 'package:apitest/list_files.dart';
 import 'package:apitest/get_options.dart';
+import 'package:apitest/download_file.dart';
 
 void printUsage() {
   print("\n  usage: dart bin/main.py command");
@@ -13,6 +14,8 @@ void printUsage() {
 }
 
 void main(List<String> args) async {
+
+
   var parser = ArgParser();
   parser.parse(args);
 
@@ -57,6 +60,12 @@ void main(List<String> args) async {
         {
           /// get options
           getOptions();
+        }
+        break;
+      
+      case "downloadFile":
+        {
+          downloadFile();
         }
         break;
 
