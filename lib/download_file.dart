@@ -10,7 +10,7 @@ void downloadFile() async {
   Map data = {
     'name': 'camera.listFiles',
     'parameters': {
-      'fileType': 'all',
+      'fileType': 'image',
       'entryCount': 1,
       'maxThumbSize': 0
     }
@@ -29,11 +29,12 @@ void downloadFile() async {
   // final testFileUrl = 'https://picsum.photos/200/300/?random';
 
   String imageFileUrl = thetaImage['results']['entries'][0]['fileUrl'];
-  print("Writing file");
+  print("Writing file from the following URL");
   print(imageFileUrl);
 
-
-  await File('ricohThetaImage.jpg').writeAsBytes(await http.readBytes(imageFileUrl));
+  String imageFileName = imageFileUrl.split("/")[6];
+  
+  await File(imageFileName).writeAsBytes(await http.readBytes(imageFileUrl));
 
 }
 
