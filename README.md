@@ -32,6 +32,7 @@ Working commands:
 * listFiles
 * getOptions
 * downloadFile
+* getMetadata
 
 ## Explanation
 

@@ -5,11 +5,14 @@ import 'package:apitest/take_picture.dart';
 import 'package:apitest/list_files.dart';
 import 'package:apitest/get_options.dart';
 import 'package:apitest/download_file.dart';
+import 'package:apitest/get_last_image_url.dart';
+import 'package:apitest/get_metadata.dart';
 
 void printUsage() {
   print("\n  usage: dart bin/main.py command");
   print("    command must be one of the following:");
   print("    info, state, takePicture, listFiles, getOptions, downloadFile \n");
+  print("    getMetadata");
   print("    example: dart bin/main.py info \n");
 }
 
@@ -67,6 +70,14 @@ void main(List<String> args) async {
         {
           /// download a single file
           downloadFile();
+        }
+        break;
+
+      case "getMetadata":
+        {
+          getLastImageUrl().then((url) {
+            getMetadata(url);
+          });
         }
         break;
 
