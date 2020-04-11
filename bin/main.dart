@@ -1,3 +1,4 @@
+import 'package:apitest/download_ready.dart';
 import 'package:apitest/firmware_version.dart';
 import 'package:apitest/get_info.dart';
 import 'package:args/args.dart';
@@ -17,7 +18,7 @@ void printUsage() {
   print("\n  usage: dart bin/main.py command");
   print("    command must be one of the following:");
   print("    info, state, takePicture, listFiles, getOptions, downloadFile \n");
-  print("    getMetadata, firmware");
+  print("    getMetadata, firmware, downloadReady");
   print("    example: dart bin/main.py info \n");
 }
 
@@ -96,6 +97,12 @@ void main(List<String> args) async {
       case "firmware":
         {
           firmwareVersion();
+        }
+        break;
+
+      case "downloadReady":
+        {
+          downloadReady();
         }
         break;
 

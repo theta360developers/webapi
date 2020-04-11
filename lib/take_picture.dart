@@ -17,7 +17,8 @@ Future<http.Response> takePicture () async {
       headers: {"Content-Type": "application/json;charset=utf-8"},
       body: body
   );
-  print("${response.statusCode}");
+  print("The HTTP response code is: ${response.statusCode}");
+  print("The HTTP response from camera.takePicture is:");
   prettyPrint("${response.body}");
   return response;
 }

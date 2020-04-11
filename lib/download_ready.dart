@@ -22,14 +22,14 @@ Future<String> isDone(String id) async {
   Map<String, dynamic> status = jsonDecode(response.body);
   String state = status['state'];
   
-  print(state);
-
   return state;
   
 }
 
-Future<String> test () async {
+Future<String> downloadReady () async {
 
+  print("Test of taking picture and then checking to see if picture is ready for download");
+  print("---");
   var takePictureResponse = await takePicture();
   // print(takePictureResponse);
   Map<String, dynamic> pictureInfo = jsonDecode(takePictureResponse.body);
@@ -41,7 +41,7 @@ Future<String> test () async {
 
   while (keepGoing) {
     var currentStatus = await isDone(id);
-    print(currentStatus);
+    // print(currentStatus);
 
     await new Future.delayed(const Duration(seconds: 1));
     print("Elapsed time: $elapsedSeconds seconds. State: $currentStatus");

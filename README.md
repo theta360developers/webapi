@@ -34,6 +34,7 @@ Working commands:
 * downloadFile
 * getMetadata
 * firmware - prints firmware version and camera model
+* downloadReady - takes pictures and checks if picture is ready for download
 
 ## Explanation
 
@@ -212,6 +213,12 @@ For comparison, this is the response from a THETA V.  See the difference in the
 previewFormat information.
 
 ![options output](doc/images/preview-format.png)
+
+## Checking if Camera Picture is Ready to Download
+
+![check camera progress](doc/images/check-camera-progress.png)
+
+![get status](doc/images/camera-status-state.png)
 
 
 ## Camera Firmware Tested
