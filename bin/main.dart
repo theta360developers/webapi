@@ -1,3 +1,4 @@
+import 'package:apitest/firmware_version.dart';
 import 'package:apitest/get_info.dart';
 import 'package:args/args.dart';
 import 'package:apitest/post_state.dart';
@@ -7,12 +8,16 @@ import 'package:apitest/get_options.dart';
 import 'package:apitest/download_file.dart';
 import 'package:apitest/get_last_image_url.dart';
 import 'package:apitest/get_metadata.dart';
+import 'package:apitest/test.dart';
+
+/// Official API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/info/
+
 
 void printUsage() {
   print("\n  usage: dart bin/main.py command");
   print("    command must be one of the following:");
   print("    info, state, takePicture, listFiles, getOptions, downloadFile \n");
-  print("    getMetadata");
+  print("    getMetadata, firmware");
   print("    example: dart bin/main.py info \n");
 }
 
@@ -26,11 +31,18 @@ void main(List<String> args) async {
     printUsage();
   } else {
     switch (args[0]) {
+
+      /// test case is for scratch data that you can 
+      /// throw away after you run an API test
+      case "test":
+        {
+          test();
+        }
+        break;
+
       case "info":
         {
           /// RICOH THETA info
-          /// Official API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/info/
-          /// uncomment the line below to test info API
           getInfo();
         }
         break;
@@ -78,6 +90,12 @@ void main(List<String> args) async {
           getLastImageUrl().then((url) {
             getMetadata(url);
           });
+        }
+        break;
+
+      case "firmware":
+        {
+          firmwareVersion();
         }
         break;
 
