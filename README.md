@@ -33,6 +33,7 @@ Working commands:
 * getOptions
 * downloadFile
 * getMetadata
+* firmware - prints firmware version and camera model
 
 ## Explanation
 
