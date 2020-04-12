@@ -11,8 +11,11 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:apitest/download_ready.dart';
-  
+import 'package:apitest/firmware_version.dart';
+
 Future<String> takeAndDownload() async {
+
+  firmwareVersion();
 
   String readyStatus = await downloadReady();
 
