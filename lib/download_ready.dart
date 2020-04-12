@@ -51,7 +51,7 @@ Future<String> downloadReady () async {
     }
   }
 
-  String fileUrl = await getLastImageUrl();
-  print("picture ready for download at $fileUrl");
-  return fileUrl;
+  // String fileUrl = await getLastImageUrl();
+  print("picture ready for download");
+  return 'ready';
 }
