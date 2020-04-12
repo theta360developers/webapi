@@ -35,6 +35,7 @@ Working commands:
 * getMetadata
 * firmware - prints firmware version and camera model
 * downloadReady - takes pictures and checks if picture is ready for download
+* takeAndDownload - take picture and download using osc/state to get file URL
 
 ## Explanation
 
