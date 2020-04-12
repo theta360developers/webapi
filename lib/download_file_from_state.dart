@@ -27,7 +27,7 @@ Future<String> takeAndDownload() async {
   Map<String, dynamic> thetaState = jsonDecode(response.body);
 
 
-  print(thetaState);
+  // print(thetaState);
   String imageFileUrl = thetaState['state']['_latestFileUrl'];
   print("Writing file from the following URL");
   print(imageFileUrl);
