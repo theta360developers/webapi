@@ -37,6 +37,7 @@ Working commands:
 * downloadReady - takes pictures and checks if picture is ready for download
 * takeAndDownload - take picture and download using osc/state to get file URL
 * setExposureDelayFive - set self-timer to five
+* setExposureDelayZero - turn off self-timer
 
 ## Explanation
 
