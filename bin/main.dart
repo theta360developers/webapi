@@ -11,6 +11,7 @@ import 'package:apitest/get_last_image_url.dart';
 import 'package:apitest/get_metadata.dart';
 import 'package:apitest/test.dart';
 import 'package:apitest/download_file_from_state.dart';
+import 'package:apitest/set_exposure_delay.dart';
 
 /// Official API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/info/
 
@@ -19,7 +20,7 @@ void printUsage() {
   print("\n  usage: dart bin/main.py command");
   print("    command must be one of the following:");
   print("    info, state, takePicture, listFiles, getOptions, downloadFile \n");
-  print("    getMetadata, firmware, downloadReady, takeAndDownload");
+  print("    getMetadata, firmware, downloadReady, takeAndDownload, setExposureDelayFive \n");
   print("    example: dart bin/main.py info \n");
 }
 
@@ -110,6 +111,12 @@ void main(List<String> args) async {
       case "takeAndDownload":
         {
           takeAndDownload();
+        }
+        break;
+      
+      case "setExposureDelayFive":
+        {
+          setExposureDelayFive();
         }
         break;
 

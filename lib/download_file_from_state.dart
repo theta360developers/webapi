@@ -4,7 +4,7 @@
 /// 1. takePicture
 /// 2. check on status of take picture and make sure state is done
 /// 3. if the status does not show state as done, then loop back to the check
-/// 4. if the status shows state as down, then get the URL of the last image with state
+/// 4. if the status shows state as done, then get the URL of the last image with state
 /// 5. download file and save to disk.  This only works on the command line
 
 import 'dart:io';
