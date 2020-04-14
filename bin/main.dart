@@ -9,7 +9,7 @@ import 'package:apitest/commands/get_options.dart';
 import 'package:apitest/download_file.dart';
 import 'package:apitest/get_last_image_url.dart';
 import 'package:apitest/commands/get_metadata.dart';
-import 'package:apitest/test.dart';
+import 'package:apitest/scratch/test.dart';
 import 'package:apitest/download_file_from_state.dart';
 import 'package:apitest/options/set_exposure_delay_five.dart';
 import 'package:apitest/options/set_exposure_delay_zero.dart';
