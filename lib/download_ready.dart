@@ -1,9 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:apitest/pretty_print.dart';
-import 'package:apitest/take_picture.dart';
-import 'package:apitest/get_last_image_url.dart';
+import 'package:apitest/commands/take_picture.dart';
 
 
 Future<String> isDone(String id) async {

@@ -1,18 +1,18 @@
+import 'package:apitest/protocols/info.dart';
+import 'package:apitest/protocols/state.dart';
 import 'package:apitest/download_ready.dart';
 import 'package:apitest/firmware_version.dart';
-import 'package:apitest/get_info.dart';
 import 'package:args/args.dart';
-import 'package:apitest/post_state.dart';
-import 'package:apitest/take_picture.dart';
+import 'package:apitest/commands/take_picture.dart';
 import 'package:apitest/list_files.dart';
-import 'package:apitest/get_options.dart';
+import 'package:apitest/commands/get_options.dart';
 import 'package:apitest/download_file.dart';
 import 'package:apitest/get_last_image_url.dart';
-import 'package:apitest/get_metadata.dart';
+import 'package:apitest/commands/get_metadata.dart';
 import 'package:apitest/test.dart';
 import 'package:apitest/download_file_from_state.dart';
-import 'package:apitest/set_exposure_delay_five.dart';
-import 'package:apitest/set_exposure_delay_zero.dart';
+import 'package:apitest/options/set_exposure_delay_five.dart';
+import 'package:apitest/options/set_exposure_delay_zero.dart';
 
 
 /// Official API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/info/
