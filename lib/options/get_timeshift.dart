@@ -1,33 +1,18 @@
+/// only works on SC2 For Business
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:apitest/pretty_print.dart';
 
 
-Future<http.Response> getOptions () async {
+Future<http.Response> getTimeShift () async {
   var url ='http://192.168.1.1/osc/commands/execute';
-
-/// example 1 for iso and iso support
-  // Map data = {
-  //   'name': 'camera.getOptions',
-  //   'parameters': {
-  //     'optionNames': [
-  //       "iso",
-  //       "isoSupport"
-  //     ]
-  //   }
-  // };
 
  Map data = {
     'name': 'camera.getOptions',
     'parameters': {
       'optionNames': [
-        "offDelay",
-        "sleepDelay",
-        "remainingSpace",
-        "_colorTemperature",
-        "previewFormat",
-        "captureMode"
+        "_timeShift"
       ]
     }
   };
