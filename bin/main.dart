@@ -15,6 +15,7 @@ import 'package:apitest/options/set_exposure_delay_five.dart';
 import 'package:apitest/options/set_exposure_delay_zero.dart';
 import 'package:apitest/options/get_timeshift.dart';
 import 'package:apitest/options/set_capture_preset.dart';
+import 'package:apitest/options/set_hdr.dart';
 
 
 /// Official API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/info/
@@ -25,7 +26,7 @@ void printUsage() {
   print("    command must be one of the following:");
   print("    info, state, takePicture, listFiles, getOptions, downloadFile \n");
   print("    getMetadata, firmware, downloadReady, takeAndDownload, setExposureDelayFive \n");
-  print("    setExposureDelayZero");
+  print("    setExposureDelayZero, setCapturePreset, setHdr");
   print("    example: dart bin/main.py info \n");
 }
 
@@ -140,6 +141,12 @@ void main(List<String> args) async {
       case "setCapturePreset":
         {
           setPreset();
+        }
+        break;
+
+      case "setHdr":
+        {
+          setHdr();
         }
         break;
 

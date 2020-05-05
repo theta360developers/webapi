@@ -1,35 +1,22 @@
+/// disable exposure delay
+/// 
+/// https://api.ricoh/docs/theta-web-api-v2.1/commands/camera.set_options/
+/// https://api.ricoh/docs/theta-web-api-v2.1/options/exposure_delay/
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:apitest/pretty_print.dart';
 
 
-Future<http.Response> getOptions () async {
+Future<http.Response> setHdr () async {
   var url ='http://192.168.1.1/osc/commands/execute';
 
-/// example 1 for iso and iso support
-  // Map data = {
-  //   'name': 'camera.getOptions',
-  //   'parameters': {
-  //     'optionNames': [
-  //       "iso",
-  //       "isoSupport"
-  //     ]
-  //   }
-  // };
-
  Map data = {
-    'name': 'camera.getOptions',
+    'name': 'camera.setOptions',
     'parameters': {
-      'optionNames': [
-        "offDelay",
-        "sleepDelay",
-        "remainingSpace",
-        "_colorTemperature",
-        "previewFormat",
-        "captureMode",
-        "_filter"
-      ]
+      'options': {
+        "_filter": "hdr",
+      }
     }
   };
 
