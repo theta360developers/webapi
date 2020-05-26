@@ -16,6 +16,7 @@ import 'package:apitest/options/set_exposure_delay_zero.dart';
 import 'package:apitest/options/get_timeshift.dart';
 import 'package:apitest/options/set_capture_preset.dart';
 import 'package:apitest/options/set_hdr.dart';
+import 'package:apitest/options/set_shutter.dart';
 
 
 /// Official API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/info/
@@ -147,6 +148,12 @@ void main(List<String> args) async {
       case "setHdr":
         {
           setHdr();
+        }
+        break;
+
+      case "setShutter":
+        {
+          setShutter();
         }
         break;
 

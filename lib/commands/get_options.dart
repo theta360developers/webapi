@@ -13,7 +13,8 @@ Future<http.Response> getOptions () async {
   //   'parameters': {
   //     'optionNames': [
   //       "iso",
-  //       "isoSupport"
+  //       "isoSupport",
+  //       "shutterSpeedSupport"
   //     ]
   //   }
   // };
@@ -28,7 +29,9 @@ Future<http.Response> getOptions () async {
         "_colorTemperature",
         "previewFormat",
         "captureMode",
-        "_filter"
+        "_filter",
+        "shutterSpeed"
+
       ]
     }
   };
