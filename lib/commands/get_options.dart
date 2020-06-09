@@ -30,8 +30,8 @@ Future<http.Response> getOptions () async {
         "previewFormat",
         "captureMode",
         "_filter",
-        "shutterSpeed"
-
+        "shutterSpeed",
+        "_autoBracket"
       ]
     }
   };

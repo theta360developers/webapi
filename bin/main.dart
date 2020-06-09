@@ -1,3 +1,4 @@
+import 'package:apitest/options/set_autobracket.dart';
 import 'package:apitest/protocols/info.dart';
 import 'package:apitest/protocols/state.dart';
 import 'package:apitest/download_ready.dart';
@@ -17,6 +18,7 @@ import 'package:apitest/options/get_timeshift.dart';
 import 'package:apitest/options/set_capture_preset.dart';
 import 'package:apitest/options/set_hdr.dart';
 import 'package:apitest/options/set_shutter.dart';
+import 'package:apitest/commands/start_capture.dart';
 
 
 /// Official API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/info/
@@ -157,6 +159,17 @@ void main(List<String> args) async {
         }
         break;
 
+      case "autoBracket":
+        {
+          autoBracket();
+        }
+        break;
+
+      case "startCapture":
+        {
+          startCapture();
+        }
+        break;
 
 
       default:
