@@ -7,6 +7,15 @@ import 'package:apitest/pretty_print.dart';
 Future<http.Response> getOptions () async {
   var url ='http://192.168.1.1/osc/commands/execute';
 
+  // Map data = {
+  //     'name': 'camera.getOptions',
+  //     'parameters': {
+  //       'optionNames': [
+  //         "_filter",
+  //       ]
+  //     }
+  //   };  
+
 /// example 1 for iso and iso support
   // Map data = {
   //   'name': 'camera.getOptions',
@@ -31,7 +40,8 @@ Future<http.Response> getOptions () async {
         "captureMode",
         "_filter",
         "shutterSpeed",
-        "_autoBracket"
+        "_autoBracket",
+        "exposureCompensation"
       ]
     }
   };

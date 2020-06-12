@@ -19,6 +19,10 @@ import 'package:apitest/options/set_capture_preset.dart';
 import 'package:apitest/options/set_hdr.dart';
 import 'package:apitest/options/set_shutter.dart';
 import 'package:apitest/commands/start_capture.dart';
+import 'package:apitest/options/set_my_setting.dart';
+import 'package:apitest/options/set_exposure_compensation_two.dart';
+import 'package:apitest/options/filter_off.dart';
+
 
 
 /// Official API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/info/
@@ -171,6 +175,24 @@ void main(List<String> args) async {
         }
         break;
 
+      case "saveHdr":
+        {
+          saveHdr();
+        }
+        break;
+
+
+      case "exposureCompensation":
+        {
+          setExposureCompensationTwo();
+        }
+        break;
+
+      case "filterOff":
+        {
+          filterOff();
+        }
+        break;        
 
       default:
         {
