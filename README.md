@@ -1,6 +1,9 @@
-# RICOH THETA Dart HTTP Request tests
+# RICOH THETA SC2 HTTP Request tests
 
-RICOH THETA API Tests for SC2. 
+![screenshot](doc/images/sc2-top-banner.png)
+
+Tested with SC2 firmware version 1.31.
+Last updated July 17, 2020. 
 
 The SC2 API has many differences from the API used with the V and Z1.  As of June 17, 2020, the online
 [API documentation](https://api.ricoh/docs/theta-web-api-v2.1/) on the RICOH
@@ -9,9 +12,7 @@ reference to build SC2 applications.
 
 
 
-![screenshot](doc/images/sc2-top-banner.png)
 
-Read about [why we're using Dart](doc/dart-growth/dart.md).
 
 ## Usage
 
@@ -320,3 +321,7 @@ Downloading charcode 1.1.3...
 Downloading meta 1.1.8...
 Got dependencies!
 ```
+
+## More
+
+Read about [why we're using Dart](doc/dart-growth/dart.md).
