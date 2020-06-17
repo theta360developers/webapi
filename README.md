@@ -1,10 +1,15 @@
 # RICOH THETA Dart HTTP Request tests
 
-RICOH THETA API requests for models V, Z1, and SC2. [API reference](https://api.ricoh/docs/theta-web-api-v2.1/)
+RICOH THETA API Tests for SC2. 
+
+The SC2 API has many differences from the API used with the V and Z1.  As of June 17, 2020, the online
+[API documentation](https://api.ricoh/docs/theta-web-api-v2.1/) on the RICOH
+site is not an accurate
+reference to build SC2 applications. 
 
 
 
-![screenshot](doc/images/screenshot.png)
+![screenshot](doc/images/sc2-top-banner.png)
 
 Read about [why we're using Dart](doc/dart-growth/dart.md).
 
@@ -16,28 +21,86 @@ Read about [why we're using Dart](doc/dart-growth/dart.md).
 
 ### Example with info
 
-     dart bin/main.dart info
+```dart
+$ dart bin/main.dart info
+{
+  "manufacturer": "RICOH",
+  "model": "RICOH THETA SC2",
+  "serialNumber": "20001005",
+  "firmwareVersion": "01.31",
+  "supportUrl": "https://theta360.com/en/support/",
+  "gps": false,
+  "gyro": true,
+  "endpoints": {
+    "httpPort": 80,
+    "httpUpdatesPort": 80
+  },
+  "apiLevel": [
+    2
+  ],
+  "api": [
+    "/osc/info",
+    "/osc/state",
+    "/osc/checkForUpdates",
+    "/osc/commands/execute",
+    "/osc/commands/status"
+  ],
+  "uptime": 2709,
+  "_wlanMacAddress": "58:38:79:2b:ad:c5",
+  "_bluetoothMacAddress": "6c:21:a2:47:d9:05"
+}
+```
+
 
 Instead of info, you can also use other commands:
 
 ### Example with state
 
-    dart bin/main.dart state
+```
+$ dart bin/main.dart state
+{
+  "fingerprint": "FIG_0001",
+  "state": {
+    "batteryLevel": 0.8,
+    "storageUri": "http://192.168.1.1/files/thetasc26c21a247d9055838792badc5",
+    "_apiVersion": 2,
+    "_batteryState": "charged",
+    "_cameraError": [],
+    "_captureStatus": "idle",
+    "_capturedPictures": 0,
+    "_latestFileUrl": "http://192.168.1.1/files/thetasc26c21a247d9055838792badc5/100RICOH/R0010095.JPG",
+    "_recordableTime": 0,
+    "_recordedTime": 0,
+    "_function": "normal"
+  }
+}
+```
 
 Working commands:
 
 * info
 * state
 * takePicture
-* listFiles
-* getOptions
-* downloadFile
-* getMetadata
+* listFiles - list last 10 files taken
+* getOptions - specify list of options you want to get
+* downloadFile - example of downloading the last file taken
+* getMetadata - show all metadata.  Does not fully work on SC with firmware 1.31
 * firmware - prints firmware version and camera model
 * downloadReady - takes pictures and checks if picture is ready for download
 * takeAndDownload - take picture and download using osc/state to get file URL
 * setExposureDelayFive - set self-timer to five
 * setExposureDelayZero - turn off self-timer
+* getTimeShift - check if SC2 is in timeshift mode, takes two pictures, one lens at a time
+* setCapturePreset - set SC2-specific preset modes to SC2. "face", "nightView", "lensbylensExposure"
+* setHdr - SC2-specific command to set the _filter option that controls HDR mode
+* setShutter - set shutter speed
+* autoBracket - set SC2 to take bracketed images
+* startCapture - start continuous shooting.  The type of shooting is controlled by `_mode`.
+* saveHdr - uses `_setMySetting to save` `_filter` as hdr.  If you don't save the setting, it will revert back to _filter off.
+* filterOff - turns off SC2 image filter.  This disables hdr, Hh hdr, Noise Reduction, DR Comp.  The _filter value is normally turned off when the camera goes to sleep or the Wi-Fi connection is dropped.
+
+
+
 
 ## Explanation
 
@@ -58,12 +121,10 @@ or the new `jsonEncode()` https://api.dart.dev/stable/2.7.1/dart-convert/jsonEnc
 
 ![take picture](doc/images/take-picture.png)
 
-Test from THETA V.  OK!
-
 
 Test from THETA SC2.  OK!
 
-Response from SC@ shown below.
+Response from SC2 shown below.
 
 ```javascript
 C:\Users\craigdev\Development\personal\dart>dart bin/main.dart
@@ -224,15 +285,6 @@ previewFormat information.
 ![get status](doc/images/camera-status-state.png)
 
 
-## Camera Firmware Tested
-
-* Z1 1.31.1
-* RICOH THETA SC 1.20
-* V 3.21.1
-
-![sc2 screenshot](doc/images/sc2-screenshot.png)
-
-
 ## Troubleshooting Camera
 
 ### Testing Connection with GET info
@@ -268,22 +320,3 @@ Downloading charcode 1.1.3...
 Downloading meta 1.1.8...
 Got dependencies!
 ```
-
-## Additional Screenshots
-
-### THETA V
-
-![THETA V Info](doc/images/theta-v-info.png)
-
-
-## References
-
-* [Dart HttpClient](https://itnext.io/learn-dart-perform-a-serverside-post-request-in-under-30-seconds-894fc889c551)
-* [Pretty Print JSON](https://colinstodd.com/posts/code/pretty-print-json-in-dart.html)
-
-## Notes
-
-* [Jermaine Oppong's blog with lots of Dart info](https://itnext.io/@graphicbeacon)
-* [Dart args package](https://pub.dev/packages/args)
-
-
