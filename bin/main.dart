@@ -1,6 +1,7 @@
 import 'package:apitest/options/set_autobracket.dart';
 import 'package:apitest/protocols/info.dart';
 import 'package:apitest/protocols/state.dart';
+import '../lib/protocols/status.dart';
 import 'package:apitest/download_ready.dart';
 import 'package:apitest/firmware_version.dart';
 import 'package:args/args.dart';
@@ -23,23 +24,19 @@ import 'package:apitest/options/set_my_setting.dart';
 import 'package:apitest/options/set_exposure_compensation_two.dart';
 import 'package:apitest/options/filter_off.dart';
 
-
-
 /// Official API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/info/
-
 
 void printUsage() {
   print("\n  usage: dart bin/main.py command");
   print("    command must be one of the following:");
   print("    info, state, takePicture, listFiles, getOptions, downloadFile \n");
-  print("    getMetadata, firmware, downloadReady, takeAndDownload, setExposureDelayFive \n");
+  print(
+      "    getMetadata, firmware, downloadReady, takeAndDownload, setExposureDelayFive \n");
   print("    setExposureDelayZero, setCapturePreset, setHdr");
   print("    example: dart bin/main.py info \n");
 }
 
 void main(List<String> args) async {
-
-
   var parser = ArgParser();
   parser.parse(args);
 
@@ -48,7 +45,7 @@ void main(List<String> args) async {
   } else {
     switch (args[0]) {
 
-      /// test case is for scratch data that you can 
+      /// test case is for scratch data that you can
       /// throw away after you run an API test
       case "test":
         {
@@ -93,7 +90,7 @@ void main(List<String> args) async {
           getOptions();
         }
         break;
-      
+
       case "downloadFile":
         {
           /// download a single file
@@ -126,7 +123,7 @@ void main(List<String> args) async {
           takeAndDownload();
         }
         break;
-      
+
       case "setExposureDelayFive":
         {
           setExposureDelayFive();
@@ -181,7 +178,6 @@ void main(List<String> args) async {
         }
         break;
 
-
       case "exposureCompensation":
         {
           setExposureCompensationTwo();
@@ -192,8 +188,19 @@ void main(List<String> args) async {
         {
           filterOff();
         }
-        break;        
+        break;
 
+      case "status":
+        {
+          if (args[1] != null) {
+            status(args[1]);
+            break;
+          } else {
+            print('please supply id.  Example: dart main.dart status 306');
+            break;
+          }
+        }
+        break;
       default:
         {
           printUsage();

@@ -13,9 +13,27 @@ Future<http.Response> autoBracket() async {
         "_autoBracket": {
           "_bracketNumber": 3,
           "_bracketParameters": [
-            {"shutterSpeed": 0.004, "iso": 400, "_colorTemperature": 5100},
-            {"shutterSpeed": 0.004, "iso": 320, "_colorTemperature": 5100},
-            {"shutterSpeed": 0.004, "iso": 2500, "_colorTemperature": 5000}
+            {
+              "shutterSpeed": 0.004,
+              "iso": 400,
+              "_colorTemperature": 5100,
+              "exposureProgram": 1,
+              "whiteBalance": "auto"
+            },
+            {
+              "shutterSpeed": 0.004,
+              "iso": 320,
+              "_colorTemperature": 5100,
+              "exposureProgram": 1,
+              "whiteBalance": "auto"
+            },
+            {
+              "shutterSpeed": 0.004,
+              "iso": 2500,
+              "_colorTemperature": 5000,
+              "exposureProgram": 1,
+              "whiteBalance": "auto"
+            }
           ]
         }
       }
