@@ -23,6 +23,7 @@ import 'package:apitest/commands/start_capture.dart';
 import 'package:apitest/options/set_my_setting.dart';
 import 'package:apitest/options/set_exposure_compensation_two.dart';
 import 'package:apitest/options/filter_off.dart';
+import '../lib/options/set_language.dart';
 
 /// Official API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/info/
 
@@ -192,15 +193,29 @@ void main(List<String> args) async {
 
       case "status":
         {
-          if (args[1] != null) {
+          if (args.length == 2) {
             status(args[1]);
-            break;
           } else {
             print('please supply id.  Example: dart main.dart status 306');
-            break;
           }
         }
         break;
+
+      case "setLanguage":
+        {
+          if (args.length == 2) {
+            print('setting lang');
+            setLanguage(args[1]);
+          } else {
+            print(args.length);
+            print(
+                'please supply language.  Example: dart main.dart setLanguage en-US');
+            print(
+                'supported values: en-US, en-GB, ja, fr, de, zh-TW, zh-CN, it, ko');
+          }
+        }
+        break;
+
       default:
         {
           printUsage();
