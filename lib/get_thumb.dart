@@ -1,9 +1,11 @@
+/// returns base64 encoded string of the thumbnail
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:apitest/pretty_print.dart';
 
-Future<http.Response> listFiles() async {
+Future<String> getThumb(imageUrl) async {
   var url = 'http://192.168.1.1/osc/commands/execute';
 
   Map data = {
@@ -11,7 +13,8 @@ Future<http.Response> listFiles() async {
     'parameters': {
       'fileType': 'image',
       'entryCount': 5,
-      'maxThumbSize': 0,
+      '_startFileUrl': imageUrl,
+      'maxThumbSize': 640,
       '_detail': true,
     }
   };
@@ -22,5 +25,9 @@ Future<http.Response> listFiles() async {
       headers: {"Content-Type": "application/json;charset=utf-8"}, body: body);
   print("${response.statusCode}");
   prettyPrint("${response.body}");
-  return response;
+  Map<String, dynamic> imageInfo = jsonDecode(response.body);
+  String thumb64 = imageInfo['results']['entries'][0]['thumbnail'];
+  File('thumbnail.jpg').writeAsBytes(base64.decode(thumb64));
+
+  return thumb64;
 }

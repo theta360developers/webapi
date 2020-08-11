@@ -322,6 +322,15 @@ Downloading meta 1.1.8...
 Got dependencies!
 ```
 
+## Image Thumbnails
+
+There are problems with getting the image thumbnail using the 
+method explained in the official API documentation.  See the 
+document below for workarounds.
+
+* [getting SC2 image thumbnails](doc/thumbnails.md)
+
+
 ## More
 
 Read about [why we're using Dart](doc/dart-growth/dart.md).

@@ -24,6 +24,7 @@ import 'package:apitest/options/set_my_setting.dart';
 import 'package:apitest/options/set_exposure_compensation_two.dart';
 import 'package:apitest/options/filter_off.dart';
 import '../lib/options/set_language.dart';
+import '../lib/get_thumb.dart';
 
 /// Official API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/info/
 
@@ -213,6 +214,13 @@ void main(List<String> args) async {
             print(
                 'supported values: en-US, en-GB, ja, fr, de, zh-TW, zh-CN, it, ko');
           }
+        }
+        break;
+
+      case "getThumb":
+        {
+          String lastImageUrl = await getLastImageUrl();
+          getThumb(lastImageUrl);
         }
         break;
 
