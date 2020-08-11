@@ -6,13 +6,27 @@ import 'dart:io';
 int count = 5;
 int start = 0;
 
+Future<String> generateUrl() async {
+  var url = 'http://192.168.1.1/osc/commands/execute';
+
+  Map singleImage = {
+    'name': 'camera.listFiles',
+    'parameters': {'fileType': 'image', 'entryCount': '1', 'maxThumbSize': '0'}
+  };
+
+  var body = jsonEncode(singleImage);
+
+  var singleResponse = await http.post(url,
+      headers: {'Content-Type': 'application/json;charset=utf-8'}, body: body);
+
+  Map<String, dynamic> latestImage = jsonDecode(singleResponse.body);
+  var latestImageUrl = latestImage['results']['entries'][0]['fileUrl'];
+
+  return latestImageUrl;
+}
+
 Future<int> listAllThumbnails() async {
   var url = 'http://192.168.1.1/osc/commands/execute';
-  var stateUrl = 'http://192.168.1.1/osc/state';
-
-  var stateResponse = await http.post(stateUrl);
-  Map<String, dynamic> latestImage = jsonDecode(stateResponse.body);
-  String latestImageUrl = latestImage['state']['_latestFileUrl'];
 
   Map executeCommand = {
     'name': 'camera.listFiles',
@@ -21,7 +35,7 @@ Future<int> listAllThumbnails() async {
       'entryCount': count,
       'maxThumbSize': 640,
       '_detail': true,
-      '_startFileUrl': latestImageUrl
+      '_startFileUrl': await generateUrl()
     }
   };
 
@@ -29,9 +43,7 @@ Future<int> listAllThumbnails() async {
 
   var response = await http.post(url,
       headers: {'Content-Type': 'application/json; charset=utf-8'}, body: body);
-  // print(response.statusCode);
-  // prettyPrint(stateResponse.body);
-  // print(latestImageUrl);
+
   // prettyPrint(response.body);
 
   Map<String, dynamic> imageInfo = jsonDecode(response.body);

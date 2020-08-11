@@ -13,7 +13,7 @@ Future<http.Response> setExposureCompensationTwo () async {
     'name': 'camera.setOptions',
     'parameters': {
       'options': {
-        "exposureCompensation": 2.0,
+        "exposureCompensation": 1.0,
       }
     }
   };
