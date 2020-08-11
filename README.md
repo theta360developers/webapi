@@ -99,6 +99,10 @@ Working commands:
 * startCapture - start continuous shooting.  The type of shooting is controlled by `_mode`.
 * saveHdr - uses `_setMySetting to save` `_filter` as hdr.  If you don't save the setting, it will revert back to _filter off.
 * filterOff - turns off SC2 image filter.  This disables hdr, Hh hdr, Noise Reduction, DR Comp.  The _filter value is normally turned off when the camera goes to sleep or the Wi-Fi connection is dropped.
+* getThumb - get thumbnail from SC2 list files.  This is a workaround as the published
+API does not work with the SC2.  Saves thumbnail to local storage for testing.
+* setlanguage - set human language of device.  supported values: en-US, en-GB, ja, fr, de, zh-TW, zh-CN, it, ko
+* status - check camera status with ID
 
 
 

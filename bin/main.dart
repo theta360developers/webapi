@@ -1,3 +1,4 @@
+import 'package:apitest/commands/delete_all.dart';
 import 'package:apitest/options/set_autobracket.dart';
 import 'package:apitest/protocols/info.dart';
 import 'package:apitest/protocols/state.dart';
@@ -25,6 +26,7 @@ import 'package:apitest/options/set_exposure_compensation_two.dart';
 import 'package:apitest/options/filter_off.dart';
 import '../lib/options/set_language.dart';
 import '../lib/get_thumb.dart';
+import 'package:apitest/get_thumb_2.dart';
 
 /// Official API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/info/
 
@@ -221,6 +223,19 @@ void main(List<String> args) async {
         {
           String lastImageUrl = await getLastImageUrl();
           getThumb(lastImageUrl);
+        }
+        break;
+
+      case "getThumb2":
+        {
+          String lastImageUrl = await getLastImageUrl();
+          getThumb2(lastImageUrl);
+        }
+        break;
+
+      case 'deleteAll':
+        {
+          deleteAll();
         }
         break;
 
