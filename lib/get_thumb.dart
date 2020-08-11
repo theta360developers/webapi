@@ -12,7 +12,7 @@ Future<String> getThumb(imageUrl) async {
     'name': 'camera.listFiles',
     'parameters': {
       'fileType': 'image',
-      'entryCount': 5,
+      'entryCount': 1,
       '_startFileUrl': imageUrl,
       'maxThumbSize': 640,
       '_detail': true,
