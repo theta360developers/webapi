@@ -1,4 +1,5 @@
 import 'package:apitest/commands/delete_all.dart';
+import 'package:apitest/list_all_thumnails.dart';
 import 'package:apitest/options/set_autobracket.dart';
 import 'package:apitest/protocols/info.dart';
 import 'package:apitest/protocols/state.dart';
@@ -230,6 +231,12 @@ void main(List<String> args) async {
         {
           String lastImageUrl = await getLastImageUrl();
           getThumb2(lastImageUrl);
+        }
+        break;
+
+      case "listAllThumbnails":
+        {
+          listAllThumbnails();
         }
         break;
 

@@ -11,7 +11,9 @@ Future<http.Response> deleteAll() async {
   Map data = {
     'name': 'camera.delete',
     'parameters': {
-      'fileUrls': ['all']
+      'fileUrls': [
+        '/files/thetasc26c21a247d9055838792badc5/100RICOH/R0010128.JPG'
+      ]
     }
   };
   //encode Map to JSON
@@ -20,7 +22,6 @@ Future<http.Response> deleteAll() async {
   var response = await http.post(url,
       headers: {"Content-Type": "application/json;charset=utf-8"}, body: body);
   print("The HTTP response code is: ${response.statusCode}");
-  print("The HTTP response from camera.takePicture is:");
   prettyPrint("${response.body}");
   return response;
 }
