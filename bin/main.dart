@@ -1,4 +1,4 @@
-import 'package:apitest/commands/delete_all.dart';
+import 'package:apitest/scratch/delete_all.dart';
 import 'package:apitest/list_all_thumnails.dart';
 import 'package:apitest/options/set_autobracket.dart';
 import 'package:apitest/protocols/info.dart';
@@ -28,6 +28,8 @@ import 'package:apitest/options/filter_off.dart';
 import '../lib/options/set_language.dart';
 import '../lib/get_thumb.dart';
 import 'package:apitest/get_thumb_2.dart';
+import 'package:apitest/scratch/thumb_test.dart';
+import 'package:apitest/commands/reset.dart';
 
 /// Official API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/info/
 
@@ -240,9 +242,21 @@ void main(List<String> args) async {
         }
         break;
 
+      case "thumbTest":
+        {
+          thumbTest();
+        }
+        break;
+
       case 'deleteAll':
         {
           deleteAll();
+        }
+        break;
+
+      case "reset":
+        {
+          reset();
         }
         break;
 

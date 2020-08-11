@@ -21,7 +21,7 @@ Future<String> generateUrl() async {
 
   Map<String, dynamic> latestImage = jsonDecode(singleResponse.body);
   var latestImageUrl = latestImage['results']['entries'][0]['fileUrl'];
-
+  print(latestImageUrl);
   return latestImageUrl;
 }
 
@@ -36,6 +36,8 @@ Future<int> listAllThumbnails() async {
       'maxThumbSize': 640,
       '_detail': true,
       '_startFileUrl': await generateUrl()
+      // '_startFileUrl':
+      //     'http://192.168.1.1/files/thetasc26c21a247d9055838792badc5/100RICOH/R0010132.JPG'
     }
   };
 
