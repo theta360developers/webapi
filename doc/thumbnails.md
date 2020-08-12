@@ -185,7 +185,11 @@ Future<List<dynamic>> listUrls() async {
 ## Summary
 
 There appears to be a bug in the SC2 API that prevents it from
-returning thumbnails.  Developers can acquire the thumbnail with one of two
+returning thumbnails in the listing of listFiles. Additionally,
+in some cases, the documented method of acquiring the thumbnail
+may lock the camera. 
+cd
+Developers can acquire the thumbnail with one of two
 workarounds. When using `listFiles`, 
 specifying a String for `_startFileUrl` will give you a response with
 a base64 String that needs to be decoded into bytes.  The 
