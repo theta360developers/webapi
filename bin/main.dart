@@ -33,6 +33,8 @@ import 'package:apitest/scratch/thumb_test.dart';
 import 'package:apitest/commands/reset.dart';
 import 'package:apitest/options/sleep_off.dart';
 import 'package:apitest/options/off_off.dart';
+import 'package:apitest/list_urls.dart';
+import 'package:apitest/scratch/save_thumbs.dart';
 
 /// Official API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/info/
 
@@ -281,6 +283,17 @@ void main(List<String> args) async {
       case "resetMySetting":
         {
           resetMySetting();
+        }
+        break;
+
+      case "listUrls":
+        {
+          listUrls();
+        }
+        break;
+      case "saveThumbs":
+        {
+          saveThumbs(await listUrls());
         }
         break;
 
