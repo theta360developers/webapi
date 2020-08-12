@@ -1,3 +1,6 @@
+<img src="images/theta-dotguide-logo.png" width=20%>
+
+
 # RICOH THETA SC2 Image Thumbnails
 
 Last updated August 12, 2020.
@@ -33,9 +36,6 @@ a loop and manage async issues for the network and camera.
 Grab the URL of the file you want to get the thumbnail for and 
 then specify it in `_startFileUrl`.
 
-### Overview
-
-Using the 
 
 ### Example Request
 
@@ -156,7 +156,7 @@ Future<String> getThumb2(imageUrl) async {
 
 This example shows how to get the last five image URLs on the 
 camera and return it as a list.  You can then iterate through the
-last and grab the thumbnail for each image.
+list and grab the thumbnail for each image.
 
 ```dart
 /// list urls of images on camera
@@ -198,8 +198,8 @@ Future<List<dynamic>> listUrls() async {
 There appears to be a bug in the SC2 API that prevents it from
 returning thumbnails in the listing of listFiles. Additionally,
 in some cases, the documented method of acquiring the thumbnail
-may lock the camera. 
-cd
+may lock the camera.
+
 Developers can acquire the thumbnail with one of two
 workarounds. When using `listFiles`, 
 specifying a String for `_startFileUrl` will give you a response with
