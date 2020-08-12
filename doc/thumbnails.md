@@ -1,5 +1,16 @@
 # RICOH THETA SC2 Image Thumbnails
 
+Last updated August 12, 2020.
+
+This is a community document based on contributions of
+informal test results 
+from the [theta360.guide independent community](https://www2.theta360.guide/).  This is
+not an official RICOH document.  For official information, please
+contact RICOH.  You should confirm these community tips with your
+own tests prior to deployment in a business setting.  As these are
+unofficial tips, the official RICOH THETA API may change unexpectedly
+and these techniques could stop working. 
+
 ## Problem
 
 Using camera.listFiles does not return image thumbnails even
@@ -204,4 +215,8 @@ storage.
 ---
 This tip and many more SC2 developer articles are available on the 
 [SC2 Developers Community Site](https://theta360.guide/special/sc2/).
-Markdown to PDF conversion done with [Grip](https://github.com/joeyespo/grip).
+Markdown to PDF conversion done with [Grip](https://github.com/joeyespo/grip). 
+
+__This is not an official RICOH document. It is produced by
+an independent community.  Please contact RICOH for official
+information.__ 
