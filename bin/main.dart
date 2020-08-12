@@ -30,17 +30,20 @@ import '../lib/get_thumb.dart';
 import 'package:apitest/get_thumb_2.dart';
 import 'package:apitest/scratch/thumb_test.dart';
 import 'package:apitest/commands/reset.dart';
+import 'package:apitest/options/sleep_off.dart';
+import 'package:apitest/options/off_off.dart';
 
 /// Official API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/info/
 
 void printUsage() {
   print("\n  usage: dart bin/main.py command");
   print("    command must be one of the following:");
-  print("    info, state, takePicture, listFiles, getOptions, downloadFile \n");
-  print(
-      "    getMetadata, firmware, downloadReady, takeAndDownload, setExposureDelayFive \n");
+  print("    info, state, takePicture, listFiles, getOptions, downloadFile");
+  print("    getMetadata, firmware, downloadReady, takeAndDownload");
+  print("    setExposureDelayFive");
   print("    setExposureDelayZero, setCapturePreset, setHdr");
-  print("    example: dart bin/main.py info \n");
+  print("    filterOff, sleepOff, offOff");
+  print("    example: dart bin/main.py info");
 }
 
 void main(List<String> args) async {
@@ -257,6 +260,18 @@ void main(List<String> args) async {
       case "reset":
         {
           reset();
+        }
+        break;
+
+      case "sleepOff":
+        {
+          sleepOff();
+        }
+        break;
+
+      case "offOff":
+        {
+          offOff();
         }
         break;
 

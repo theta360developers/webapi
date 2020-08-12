@@ -19,11 +19,7 @@ Future<http.Response> getOptions() async {
   // Map data = {
   //   'name': 'camera.getOptions',
   //   'parameters': {
-  //     'optionNames': [
-  //       "iso",
-  //       "isoSupport",
-  //       "shutterSpeedSupport"
-  //     ]
+  //     'optionNames': ["iso", "isoSupport", "shutterSpeedSupport"]
   //   }
   // };
 
@@ -41,8 +37,8 @@ Future<http.Response> getOptions() async {
         "shutterSpeed",
         "_autoBracket",
         "exposureCompensation",
-        "_language",
-        "dateTimeZone"
+        "dateTimeZone",
+        "sleepDelay"
       ]
     }
   };
