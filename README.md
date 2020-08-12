@@ -106,7 +106,8 @@ Working commands:
 API does not work with the SC2.  Saves thumbnail to local storage for testing.
 * setlanguage - set human language of device.  supported values: en-US, en-GB, ja, fr, de, zh-TW, zh-CN, it, ko
 * status - check camera status with ID
-
+* resetMySetting - resets camera settings stored in MySetting. This could include
+HDR, exposure compensation, whiteBalance, iso, shutterSpeed, and _colorTemperature
 
 
 

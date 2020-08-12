@@ -1,3 +1,4 @@
+import 'package:apitest/options/reset_my_setting.dart';
 import 'package:apitest/scratch/delete_all.dart';
 import 'package:apitest/list_all_thumnails.dart';
 import 'package:apitest/options/set_autobracket.dart';
@@ -43,7 +44,7 @@ void printUsage() {
   print("    getMetadata, firmware, downloadReady, takeAndDownload");
   print("    setExposureDelayFive, setExposureDelayZero, exposureCompensation");
   print("    getTimeShift, setCapturePreset, setHdr, saveHdr, setShutter");
-  print("    filterOff, sleepOff, offOff, reset");
+  print("    filterOff, sleepOff, offOff, reset, resetMySetting");
   print("    autoBracket, startCapture, setLanguage, getThumb");
   print("    example: dart bin/main.py info");
 }
@@ -274,6 +275,12 @@ void main(List<String> args) async {
       case "offOff":
         {
           offOff();
+        }
+        break;
+
+      case "resetMySetting":
+        {
+          resetMySetting();
         }
         break;
 
