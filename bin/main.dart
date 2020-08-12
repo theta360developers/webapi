@@ -38,11 +38,13 @@ import 'package:apitest/options/off_off.dart';
 void printUsage() {
   print("\n  usage: dart bin/main.py command");
   print("    command must be one of the following:");
-  print("    info, state, takePicture, listFiles, getOptions, downloadFile");
+  print("    info, state, status, takePicture");
+  print("    listFiles, getOptions, downloadFile");
   print("    getMetadata, firmware, downloadReady, takeAndDownload");
-  print("    setExposureDelayFive");
-  print("    setExposureDelayZero, setCapturePreset, setHdr");
-  print("    filterOff, sleepOff, offOff");
+  print("    setExposureDelayFive, setExposureDelayZero, exposureCompensation");
+  print("    getTimeShift, setCapturePreset, setHdr, saveHdr, setShutter");
+  print("    filterOff, sleepOff, offOff, reset");
+  print("    autoBracket, startCapture, setLanguage, getThumb");
   print("    example: dart bin/main.py info");
 }
 
@@ -91,6 +93,12 @@ void main(List<String> args) async {
           /// list files
           /// API reference: https://api.ricoh/docs/theta-web-api-v2.1/commands/camera.list_files/
           listFiles();
+        }
+        break;
+
+      case "saveHdr":
+        {
+          saveHdr();
         }
         break;
 
@@ -179,12 +187,6 @@ void main(List<String> args) async {
       case "startCapture":
         {
           startCapture();
-        }
-        break;
-
-      case "saveHdr":
-        {
-          saveHdr();
         }
         break;
 
