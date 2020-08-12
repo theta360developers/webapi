@@ -1,8 +1,14 @@
+.vscode
+
+# documentation files
+*.pdf
+
 # See https://www.dartlang.org/guides/libraries/private-files
 #
 # RICOH Image Files
 
 *.JPG
+*.jpg
 
 # Files and directories created by pub
 .dart_tool/

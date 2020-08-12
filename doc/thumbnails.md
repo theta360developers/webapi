@@ -200,3 +200,8 @@ Adding `?type=thumb` to the end of the fileUrl and sending the
 URL as a GET HTTP request will give you a binary image
 file that you can display to the mobile app screen or save to local 
 storage.
+
+---
+This tip and many more SC2 developer articles are available on the 
+[SC2 Developers Community Site](https://theta360.guide/special/sc2/).
+Markdown to PDF conversion done with [Grip](https://github.com/joeyespo/grip).
