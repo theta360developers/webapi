@@ -45,7 +45,7 @@ void printUsage() {
   print("    setExposureDelayFive, setExposureDelayZero, exposureCompensation");
   print("    getTimeShift, setCapturePreset, setHdr, saveHdr, setShutter");
   print("    filterOff, sleepOff, offOff, reset, resetMySetting");
-  print("    autoBracket, startCapture, setLanguage, getThumb");
+  print("    autoBracket, startCapture, setLanguage, getThumb, getThumb2");
   print("    example: dart bin/main.py info");
 }
 

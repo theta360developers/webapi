@@ -104,6 +104,7 @@ Working commands:
 * reset - reset camera to default settings (SC2 does not reset all settings)
 * getThumb - get thumbnail from SC2 list files.  This is a workaround as the published
 API does not work with the SC2.  Saves thumbnail to local storage for testing.
+* getThumb2 - alternate method of getting thumbnails using type=thumb
 * setlanguage - set human language of device.  supported values: en-US, en-GB, ja, fr, de, zh-TW, zh-CN, it, ko
 * status - check camera status with ID
 * resetMySetting - resets camera settings stored in MySetting. This could include

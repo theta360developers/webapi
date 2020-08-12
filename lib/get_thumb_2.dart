@@ -11,10 +11,8 @@ Future<String> getThumb2(imageUrl) async {
   var response = await http.get('${imageUrl}?type=thumb',
       headers: {"Content-Type": "application/json;charset=utf-8"});
   print("${response.statusCode}");
-  prettyPrint("${response.body}");
-  // Map<String, dynamic> imageInfo = jsonDecode(response.body);
-  // String thumb64 = imageInfo['results']['entries'][0]['thumbnail'];
-  // File('thumbnail.jpg').writeAsBytes(base64.decode(thumb64));
+
+  File('thumbnail.jpg').writeAsBytes(response.bodyBytes);
 
   return response.body;
 }
