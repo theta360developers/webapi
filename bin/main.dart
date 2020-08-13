@@ -36,6 +36,7 @@ import 'package:apitest/list_urls.dart';
 import 'package:apitest/thumbnails/save_thumbs.dart';
 import 'package:apitest/thumbnails/get_all_thumbs.dart';
 import 'package:apitest/thumbnails/write_all_thumbs.dart';
+import 'package:apitest/commands/delete_test.dart';
 
 /// Official API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/info/
 
@@ -303,6 +304,12 @@ void main(List<String> args) async {
       case "writeAllThumbs":
         {
           writeAllThumbs();
+        }
+        break;
+
+      case "deleteTest":
+        {
+          deleteTest();
         }
         break;
 
