@@ -16,7 +16,7 @@ Future<List<dynamic>> getAllThumbs(urls) async {
     // loop through list of urls
     for (var i = 0; i < urls.length; i++) {
       var response =
-          await client.get('${urls[0]}?type=thumb', headers: headers);
+          await client.get('${urls[i]}?type=thumb', headers: headers);
       print(response.statusCode);
       print('loading file ${i + 1}');
       thumbs.add(response.bodyBytes);
