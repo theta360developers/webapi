@@ -6,38 +6,45 @@ import 'package:http/http.dart' as http;
 import 'package:apitest/pretty_print.dart';
 import 'package:apitest/list_files.dart';
 
-Future<http.Response> deleteAll() async {
-  var url = 'http://192.168.1.1/osc/commands/execute';
+var url = 'http://192.168.1.1/osc/commands/execute';
+Map<String, String> headers = {
+  "Content-Type": "application/json;charset=utf-8"
+};
+
+Future<void> deleteAll() async {
+  var client = http.Client();
   http.Response allFilesResponse = await listFiles();
   var fileListing = jsonDecode(allFilesResponse.body)["results"]["entries"];
   print('there are ${fileListing.length} images in the camera');
 
   var urlList = [];
+  var numberOfImages = fileListing.length;
 
-  for (var i = 0; i < fileListing.length; i++) {
-    urlList.add(fileListing[0]["fileUrl"]);
+  for (var i = 0; i < numberOfImages; i++) {
+    urlList.add(fileListing[i]["fileUrl"]);
   }
 
-  urlList.forEach((currentUrl) {
-    print('deleting $currentUrl');
-    Future.delayed(const Duration(seconds: 1), () async {
-      print("delay a second");
-      Map data = await {
+// loop through images on camera and delete all images
+
+  try {
+    for (var i = 0; i < numberOfImages; i++) {
+      print('getting response');
+
+      var body = jsonEncode({
         'name': 'camera.delete',
         'parameters': {
-          'fileUrls': [currentUrl]
+          'fileUrls': [urlList[i]]
         }
-      };
-      //encode Map to JSON
-      var body = await jsonEncode(data);
+      });
 
-      var response = await http.post(url,
-          headers: {"Content-Type": "application/json;charset=utf-8"},
-          body: body);
-      print("The HTTP response code is: ${response.statusCode}");
-      prettyPrint("${response.body}");
-    });
-  });
+      var testResponse = await client.post(url, headers: headers, body: body);
 
-  return allFilesResponse;
+      print('http status code: ${testResponse.statusCode}');
+    }
+  } catch (e) {
+    print(e);
+  } finally {
+    client.close();
+    print('closed client');
+  }
 }

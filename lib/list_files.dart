@@ -10,7 +10,7 @@ Future<http.Response> listFiles() async {
     'name': 'camera.listFiles',
     'parameters': {
       'fileType': 'image',
-      'entryCount': 5,
+      'entryCount': 100,
       'maxThumbSize': 0,
       '_detail': true,
     }
