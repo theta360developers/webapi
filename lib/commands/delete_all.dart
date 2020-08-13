@@ -28,7 +28,7 @@ Future<void> deleteAll() async {
 
   try {
     for (var i = 0; i < numberOfImages; i++) {
-      print('deleting file ${urlList[i]}');
+      print('Attempting to delete file ${i + 1} at ${urlList[i]}');
 
       var body = jsonEncode({
         'name': 'camera.delete',
@@ -38,7 +38,8 @@ Future<void> deleteAll() async {
       });
       var testResponse = await client.post(url, headers: headers, body: body);
       if (testResponse.statusCode == 200) {
-        print('successfully deleted');
+        print('successfully deleted image ${i + 1}');
+        print('------------------------------------\n');
       } else {
         print(
             'Something went wrong.  Check http status code: ${testResponse.statusCode}');
