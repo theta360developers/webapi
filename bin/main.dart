@@ -1,6 +1,6 @@
 import 'package:apitest/options/reset_my_setting.dart';
 import 'package:apitest/commands/delete_all.dart';
-import 'package:apitest/list_all_thumnails.dart';
+import 'package:apitest/thumbnails/not-working-list_all_thumnails.dart';
 import 'package:apitest/options/set_autobracket.dart';
 import 'package:apitest/protocols/info.dart';
 import 'package:apitest/protocols/state.dart';
@@ -27,14 +27,15 @@ import 'package:apitest/options/set_my_setting.dart';
 import 'package:apitest/options/set_exposure_compensation_two.dart';
 import 'package:apitest/options/filter_off.dart';
 import '../lib/options/set_language.dart';
-import '../lib/get_thumb.dart';
-import 'package:apitest/get_thumb_2.dart';
-import 'package:apitest/scratch/thumb_test.dart';
+import 'package:apitest/thumbnails/get_thumb.dart';
+import 'package:apitest/thumbnails/get_thumb_2.dart';
 import 'package:apitest/commands/reset.dart';
 import 'package:apitest/options/sleep_off.dart';
 import 'package:apitest/options/off_off.dart';
 import 'package:apitest/list_urls.dart';
-import 'package:apitest/save_thumbs.dart';
+import 'package:apitest/thumbnails/save_thumbs.dart';
+import 'package:apitest/thumbnails/get_all_thumbs.dart';
+import 'package:apitest/thumbnails/write_all_thumbs.dart';
 
 /// Official API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/info/
 
@@ -252,12 +253,6 @@ void main(List<String> args) async {
         }
         break;
 
-      case "thumbTest":
-        {
-          thumbTest();
-        }
-        break;
-
       case 'deleteAll':
         {
           deleteAll();
@@ -296,6 +291,18 @@ void main(List<String> args) async {
       case "saveThumbs":
         {
           saveThumbs(await listUrls());
+        }
+        break;
+
+      case "getAllThumbs":
+        {
+          getAllThumbs(await listUrls());
+        }
+        break;
+
+      case "writeAllThumbs":
+        {
+          writeAllThumbs();
         }
         break;
 
