@@ -347,7 +347,7 @@ Got dependencies!
 method explained in the official API documentation.  See the 
 document this document for workarounds [getting SC2 image thumbnails](doc/thumbnails.md)
 * __delete multiple images__: SC2 can't delete multiple images with a single API call.  See
-this document for workarounds - [SC2 API camera.delete problems and workaround](doc/delete.md).
+this document for workarounds - [SC2 API camera.delete problems and workaround](doc/delete/delete_main.md).
 
 ## Running http commands in sequence
 

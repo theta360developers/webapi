@@ -14,12 +14,18 @@ own tests prior to deployment in a business setting.  As these are
 unofficial tips, the official RICOH THETA API may change unexpectedly
 and these techniques could stop working. 
 
+![thumbnail with camera](images/thumbnail-camera.png)
+
 ## Problem
 
 Using camera.listFiles does not return image thumbnails even
 when the maxThumbSize is set to 640.  In community tests, the
 SC2 hangs or freezes when 640 was specified as the maxThumbSize. No
 thumbnail was returned.
+
+As the thumbnail is usually under 40kB compared to 3.5MB to 4MB for the SC2 image,
+using the full-size image as the visual tool to manage the 
+images on the camera will slow down your mobile app during network transfer. 
 
 
 ## Workarounds Overview and Limitations
@@ -192,6 +198,87 @@ Future<List<dynamic>> listUrls() async {
   return urls;
 }
 ```
+
+## Get All Thumbnails in a Loop
+
+![all thumbnails](images/all-thumbs.png)
+
+In the next example, I'm loading 29 thumbnails into an array of bytes.
+
+The sequence of actions on my app is:
+
+1. create http client object
+2. open http connection to camera
+3. grab each thumbnail individually, once per loop.  Loop runs 29 times.
+4. add bytes of thumbnail into array each time through the loop
+5. close http connection
+6. return array
+
+### Load Array of thumbnails as bytes
+
+```dart
+import 'dart:async';
+import 'package:http/http.dart' as http;
+
+Map<String, String> headers = {
+  "Content-Type": "application/json;charset=utf-8"
+};
+
+Future<List<dynamic>> getAllThumbs(urls) async {
+  // use httpClient instead of a one-off http.get command to
+  // keep network connection open
+  var client = http.Client();
+
+  List<dynamic> thumbs = [];
+
+  try {
+    // loop through list of urls
+    for (var i = 0; i < urls.length; i++) {
+      var response =
+          await client.get('${urls[0]}?type=thumb', headers: headers);
+      print(response.statusCode);
+      print('loading file ${i + 1}');
+      thumbs.add(response.bodyBytes);
+    }
+  } catch (e) {
+    print(e);
+  } finally {
+    client.close();
+  }
+  return thumbs;
+}
+
+```
+
+
+### Write Thumbnails to Local Storage
+
+Once you have the array of thumbnails as bytes, you can display
+it to your mobile app screen or save the bytes to local storage.
+The files are JPG images of 320x160px
+
+```dart
+/// test of receiving thumbnails as an array of bytes
+/// and writing thumbnails to local storage
+/// intend to use as basis for Flutter app to display
+/// thumbnails to mobile app screen
+import 'package:apitest/thumbnails/get_all_thumbs.dart';
+import 'package:apitest/list_urls.dart';
+import 'dart:io';
+
+Future<void> writeAllThumbs() async {
+  // get thumbs in byte format
+  try {
+    var thumbs = await getAllThumbs(await listUrls());
+    for (var i = 0; i < thumbs.length; i++) {
+      File('thumbnail-$i.jpg').writeAsBytes(thumbs[i]);
+    }
+  } catch (e) {
+    print(e);
+  }
+}
+```
+
 
 ## Summary
 
