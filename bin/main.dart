@@ -1,5 +1,5 @@
 import 'package:apitest/options/reset_my_setting.dart';
-import 'package:apitest/scratch/delete_all.dart';
+import 'package:apitest/commands/delete_all.dart';
 import 'package:apitest/list_all_thumnails.dart';
 import 'package:apitest/options/set_autobracket.dart';
 import 'package:apitest/protocols/info.dart';
@@ -48,6 +48,7 @@ void printUsage() {
   print("    getTimeShift, setCapturePreset, setHdr, saveHdr, setShutter");
   print("    filterOff, sleepOff, offOff, reset, resetMySetting");
   print("    autoBracket, startCapture, setLanguage, getThumb, getThumb2");
+  print("    deleteAll");
   print("    example: dart bin/main.py info");
 }
 
