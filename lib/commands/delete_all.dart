@@ -36,6 +36,10 @@ Future<void> deleteAll() async {
           'fileUrls': [urlList[i]]
         }
       });
+      // use client.post instead of http.post to keep the network connection
+      // open to send multiple commands.
+      // make sure to close the connection with client.close() at the
+      // end of the command sequence
       var testResponse = await client.post(url, headers: headers, body: body);
       if (testResponse.statusCode == 200) {
         print('successfully deleted image ${i + 1}');

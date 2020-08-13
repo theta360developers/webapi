@@ -317,11 +317,17 @@ code with a known working API that returns a single JSON object, you can use a p
 
 ## Configuration and Installation
 
-1. install [dart](https://dart.dev/)
+1. install [dart](https://dart.dev/) (*)
 2. clone this repo
 3. run `pub get` to install dependencies
 
-```
+(*) Flutter 1.21 includes Dart.  If you plan to install Flutter, then you do not need to 
+install a standalone version of Dart.  You must adjust the PATH of your system to 
+use the Dart version that comes with Flutter. On my system, I installed Flutter 
+in `/home/username/opt/flutter`.  My dart binary is in `/home/username/opt/flutter/bin`.
+You must also add the dart-sdk tools to your PATH.`/home/username/opt/flutter/bin/cache/dart-sdk/bin`
+
+```bash
 $ pub get
 Resolving dependencies... (1.2s)
 Downloading args 1.5.3...
@@ -334,13 +340,13 @@ Downloading meta 1.1.8...
 Got dependencies!
 ```
 
-## Image Thumbnails
+## Problems and Workarounds
 
-There are problems with getting the image thumbnail using the 
+* __Image Thumbnails__: There are problems with getting the image thumbnail using the 
 method explained in the official API documentation.  See the 
-document below for workarounds.
-
-* [getting SC2 image thumbnails](doc/thumbnails.md)
+document this document for workarounds [getting SC2 image thumbnails](doc/thumbnails.md)
+* __delete multiple images__: SC2 can't delete multiple images with a single API call.  See
+this document for workarounds - [SC2 API camera.delete problems and workaround](doc/delete.md).
 
 ## Running http commands in sequence
 
