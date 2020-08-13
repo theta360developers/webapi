@@ -34,7 +34,7 @@ import 'package:apitest/commands/reset.dart';
 import 'package:apitest/options/sleep_off.dart';
 import 'package:apitest/options/off_off.dart';
 import 'package:apitest/list_urls.dart';
-import 'package:apitest/scratch/save_thumbs.dart';
+import 'package:apitest/save_thumbs.dart';
 
 /// Official API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/info/
 
@@ -47,7 +47,8 @@ void printUsage() {
   print("    setExposureDelayFive, setExposureDelayZero, exposureCompensation");
   print("    getTimeShift, setCapturePreset, setHdr, saveHdr, setShutter");
   print("    filterOff, sleepOff, offOff, reset, resetMySetting");
-  print("    autoBracket, startCapture, setLanguage, getThumb, getThumb2");
+  print("    autoBracket, startCapture, setLanguage");
+  print("    saveThumbs, getThumb, getThumb2");
   print("    deleteAll");
   print("    example: dart bin/main.py info");
 }

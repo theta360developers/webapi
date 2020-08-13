@@ -103,7 +103,7 @@ Working commands:
 * offOff - disable camera auto power off
 * reset - reset camera to default settings (SC2 does not reset all settings)
 * getThumb - get thumbnail from SC2 list files.  This is a workaround as the published
-API does not work with the SC2.  Saves thumbnail to local storage for testing.
+API does not work with the SC2.  Saves single thumbnail to local storage for testing. Uses last image taken.
 * getThumb2 - alternate method of getting thumbnails using type=thumb
 * setlanguage - set human language of device.  supported values: en-US, en-GB, ja, fr, de, zh-TW, zh-CN, it, ko
 * status - check camera status with ID
@@ -112,6 +112,7 @@ HDR, exposure compensation, whiteBalance, iso, shutterSpeed, and _colorTemperatu
 * deleteAll - delete all files on SC2.  Uses listFiles to get the number of files, then deletes each file
 in a loop.  The SC2 API has a bug that prevents deletion of multiple files from the command with a single
 API call.
+* saveThumbs - save last 100 or less thumbnails to local storage for testing
 
 
 

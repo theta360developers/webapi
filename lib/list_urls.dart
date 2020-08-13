@@ -12,7 +12,7 @@ Future<List<dynamic>> listUrls() async {
     'name': 'camera.listFiles',
     'parameters': {
       'fileType': 'image',
-      'entryCount': 5,
+      'entryCount': 50,
       'maxThumbSize': 0,
       '_detail': true,
     }
