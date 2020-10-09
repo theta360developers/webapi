@@ -5,15 +5,15 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:apitest/pretty_print.dart';
 
-Future<http.Response> setPreset() async {
+Future<http.Response> setModeImage() async {
   var url = 'http://192.168.1.1/osc/commands/execute';
 
-  /// For SC2 and SC2B preset can be "face", "nightView", "lensbylensExposure"
-  /// For SC2B, in addition, the preset can be "room"
+  /// setting mode to image will override the _preset.
+  /// this will take it out of "room" mode preset
   Map data = {
     'name': 'camera.setOptions',
     'parameters': {
-      'options': {"captureMode": "_preset", "_preset": "room"}
+      'options': {"captureMode": "image"}
     }
   };
 

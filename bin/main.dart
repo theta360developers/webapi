@@ -37,6 +37,7 @@ import 'package:apitest/thumbnails/save_thumbs.dart';
 import 'package:apitest/thumbnails/get_all_thumbs.dart';
 import 'package:apitest/thumbnails/write_all_thumbs.dart';
 import 'package:apitest/commands/delete_test.dart';
+import 'package:apitest/options/set_mode_image.dart';
 
 /// Official API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/info/
 
@@ -51,7 +52,7 @@ void printUsage() {
   print("    filterOff, sleepOff, offOff, reset, resetMySetting");
   print("    autoBracket, startCapture, setLanguage");
   print("    saveThumbs, getThumb, getThumb2");
-  print("    deleteAll");
+  print("    deleteAll, setModeImage");
   print("    example: dart bin/main.py info");
 }
 
@@ -106,6 +107,12 @@ void main(List<String> args) async {
       case "saveHdr":
         {
           saveHdr();
+        }
+        break;
+
+      case "setModeImage":
+        {
+          setModeImage();
         }
         break;
 
