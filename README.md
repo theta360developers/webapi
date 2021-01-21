@@ -1,23 +1,35 @@
-# RICOH THETA SC2 HTTP Request tests
+# RICOH THETA API HTTP Tests
 
-![screenshot](doc/images/sc2-top-banner.png)
+Camera models tests:
 
-Tested with SC2 firmware version 1.31.
-Last updated July 17, 2020. 
+* SC2 with firmware 1.31
+* Z1
 
-The SC2 API has many differences from the API used with the V and Z1.  As of June 17, 2020, the online
+Last updated January 21, 2021.
+
+The SC2 API has many differences from the API used with the V and Z1.  As of January 21, 2021, the online
 [API documentation](https://api.ricoh/docs/theta-web-api-v2.1/) on the RICOH
 site is not an accurate
 reference to build SC2 applications. 
 
+## Update Camera Firmware
 
-
-
+Firmware for RICOH THETA cameras can be updated with the desktop app on Mac or Windows or the mobile app on Android or iOS. 
+The desktop app connects with a USB cable and is good, stable connection. 
 
 ## Usage
 
 1. connect workstation to THETA with camera in access point (AP) mode
 2. run `main.dart` file in `bin` with the appropriate command
+
+### Camera to Workstation Connection
+
+This sample application only connects with Wi-Fi in access point mode. You computer will need to connect to the camera as a hotspot.
+The IP address of the camera will always be 192.168.1.1. You cannot change the IP address.  
+
+To connect to the Internet, you must have two network interfaces on your computer.  For example, your computer can connect to your
+home router with Ethernet and use Wi-Fi to connect to the THETA.  You can also use the existing Wi-Fi of your laptop to connect
+to the Internet and a USB Wi-Fi adapter to connect to the THETA.
 
 
 ### Example with info
