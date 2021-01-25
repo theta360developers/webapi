@@ -1,16 +1,108 @@
-# RICOH THETA API HTTP Tests
+# RICOH THETA API HTTP Community Tests
+
+Last updated January 21, 2021.
+
+This is a community document based on contributions of
+informal test results 
+from the [theta360.guide independent community](https://www2.theta360.guide/).  This is
+not an official RICOH document.  For official information, please
+contact RICOH.  You should confirm these community tips with your
+own tests prior to deployment in a business setting.  As these are
+unofficial tips, the official RICOH THETA API may change unexpectedly
+and these techniques could stop working. 
+
+Official API reference information from RICOH:
+
+* [RICOH Developer Connection THETA Web API v2.1](https://api.ricoh/docs/theta-web-api-v2.1/)
+* [THETA API 2.1 Android SDK on RICOH Official GitHub Repository](https://github.com/ricohapi/theta-api2.1-android-sdk)
+* [THETA API 2.1 iOS SDK on RICOH Official GitHub Repository](https://github.com/ricohapi/theta-api2.1-ios-sdk)
+
+
+## Overview
+
+The RICOH THETA WebAPI is based on the [Google Open Spherical Camera API](https://developers.google.com/streetview/open-spherical-camera/reference).  Developers build mobile apps that communicate with the RICOH THETA camera using Wi-Fi and a HTTP protocol using GET and POST commands. 
+
+Our community examples test the HTTP request and response behavior of the RICOH THETA using Dart. You can also use 
+[curl](https://curl.se/) from the command line or a HTTP API tester such as [Postman](https://www.postman.com/). 
+
+Our examples are designed so that you can easily read the JSON request without any knowledge of Dart.
+The contents of the HTTP request will be identical in any programming language.  
+In the example below, Dart code is used to get the state of the 
+RICOH THETA camera.  The response is in JSON.
+
+```dart
+void postState() async {
+  var response = await http.post('http://192.168.1.1/osc/state');
+  prettyPrint(response.body);
+}
+```
+
+### Reading the Example Code
+
+In the example below, the relevant pieces of information to focus on are:
+
+* HTTP endpoint: `http://192.168.1.1/osc/commands/execute`
+* data payload: `{'name': 'camera.takePicture'}`
+* HTTP header: `{"Content-Type": "application/json;charset=utf-8"}`
+* HTTP request method: POST
+
+```dart
+Future<http.Response> takePicture () async {
+  var url ='http://192.168.1.1/osc/commands/execute';
+
+  Map data = {
+    'name': 'camera.takePicture'
+  };
+  //encode Map to JSON
+  var body = jsonEncode(data);
+
+  var response = await http.post(url,
+      headers: {"Content-Type": "application/json;charset=utf-8"},
+      body: body
+  );
+  print("The HTTP response code is: ${response.statusCode}");
+  print("The HTTP response from camera.takePicture is:");
+  prettyPrint("${response.body}");
+  return response;
+}
+```
+
+By using the Dart examples as a reference, you can build your own tests with languages such
+as Swift or Kotlin. 
+
+Dart is new and we understand that most people are not using Dart to build their mobile and desktop apps. 
+These two tips will help you to use the Dart examples with another language.
+
+1. Although Dart looks like JavaScript, it does not store information as JavaScript objects.
+The requests from Dart are contructed in a Dart map, which looks very similar to JSON. Just 
+be aware that the examples use `jsonEncode` and `jsonDecode` to convert between JSON and Dart maps.
+
+2. Similar to other languages, Dart uses the concepts `async`/`await` and futures for asynchronous programming.
+If these concepts are new, you can largely ignore them for curl, Python, bash, and Postman tests.  Focus on the http endpoint and JSON payload.
+
+
+## Status
 
 Camera models tests:
 
 * SC2 with firmware 1.31
 * Z1
 
-Last updated January 21, 2021.
 
-The SC2 API has many differences from the API used with the V and Z1.  As of January 21, 2021, the online
-[API documentation](https://api.ricoh/docs/theta-web-api-v2.1/) on the RICOH
-site is not an accurate
-reference to build SC2 applications. 
+The SC2 API has many differences from the API used with the V and Z1.  
+
+As of January 25, 2021, 
+
+* the official RICOH online [API documentation](https://api.ricoh/docs/theta-web-api-v2.1/) is not an accurate
+reference to build SC2 applications. Differences include:
+  * thumbnail display
+  * camera presets
+  * reset settings
+  * use of state and status to see when the camera is ready for the next command after you take a picture
+  * metadata injection into image file not working
+* the iOS and Android SDKs on the RICOH GitHub repo have problems with the getLivePreview motionJPEG response.
+
+
 
 ## Update Camera Firmware
 
