@@ -1,6 +1,6 @@
 # RICOH THETA API HTTP Community Tests
 
-Last updated January 21, 2021.
+Last updated January 25, 2021.
 
 This is a community document based on contributions of
 informal test results 
