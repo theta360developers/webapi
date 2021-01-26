@@ -20,7 +20,10 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 {% endhighlight %}
 
-## Jekyll Themes
+## Additional Information
 
-* [http://jekyllthemes.org/](http://jekyllthemes.org/)
+* [Jekyll Themes](http://jekyllthemes.org/)
+* [Jekyll Forum](https://talk.jekyllrb.com/)
+
+
 
