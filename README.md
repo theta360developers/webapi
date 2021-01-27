@@ -2,14 +2,16 @@
 
 Last updated January 27, 2021.
 
-This is a community document based on contributions of
-informal test results 
+Welcome to our repository of RICOH THETA WebAPI tests based on contributions of
 from the [theta360.guide independent community](https://www2.theta360.guide/).  This is
 not an official RICOH document.  For official information, please
 contact RICOH.  You should confirm these community tips with your
 own tests prior to deployment in a business setting.  As these are
 unofficial tips, the official RICOH THETA API may change unexpectedly
 and these techniques could stop working. 
+
+Updates to the community document are posted to the web at
+[https://theta360developers.github.io/webapi/](https://theta360developers.github.io/webapi/)
 
 Official API reference information from RICOH:
 
@@ -109,10 +111,32 @@ Differences we discovered through testing include:
 Firmware for RICOH THETA cameras can be updated with the desktop app on Mac or Windows or the mobile app on Android or iOS. 
 The desktop app connects with a USB cable and is good, stable connection. 
 
-## Usage
+## Installation
 
+1. install [dart](https://dart.dev/) (*)
+1. clone this repo
+1. run `pub get` to install dependencies
 1. connect workstation to THETA with camera in access point (AP) mode
-2. run `main.dart` file in `bin` with the appropriate command
+1. run `main.dart` file in `bin` with the appropriate command
+
+(*) Flutter 1.21 includes Dart.  If you plan to install Flutter, then you do not need to 
+install a standalone version of Dart.  You must adjust the PATH of your system to 
+use the Dart version that comes with Flutter. On my system, I installed Flutter 
+in `/home/username/opt/flutter`.  My dart binary is in `/home/username/opt/flutter/bin`.
+You must also add the dart-sdk tools to your PATH.`/home/username/opt/flutter/bin/cache/dart-sdk/bin`
+
+```bash
+$ pub get
+Resolving dependencies... (1.2s)
+Downloading args 1.5.3...
+Downloading http 0.12.0+4...
+Downloading pedantic 1.9.0...
+Downloading async 2.4.0...
+Downloading source_span 1.6.0...
+Downloading charcode 1.1.3...
+Downloading meta 1.1.8...
+Got dependencies!
+```
 
 ### Camera to Workstation Connection
 
@@ -123,8 +147,26 @@ To connect to the Internet, you must have two network interfaces on your compute
 home router with Ethernet and use Wi-Fi to connect to the THETA.  You can also use the existing Wi-Fi of your laptop to connect
 to the Internet and a USB Wi-Fi adapter to connect to the THETA.
 
+## Running Documentation Locally
 
-### Example with info
+The documents for these code examples are stored in docs.  You can read them
+online in a blog-like format at [https://theta360developers.github.io/webapi/](https://theta360developers.github.io/webapi/).  If you want to edit the blog locally and 
+contribute content, you can run Jekyll locally.
+
+One time installation of required Ruby gems.
+
+```
+bundle install
+```
+
+To view the documents locally:
+
+```
+bundle exec jekyll serve
+```
+
+
+### Example Use 
 
 ```dart
 $ dart bin/main.dart info
@@ -304,68 +346,6 @@ Response from a THETA SC2 running firmware 1.20 is shown below.
 }
 ```
 
-#### Addtional Options
-
-In my tests, there are significant differences between the THETA V options
-and the options for SC2.  In your tests, you can try each option individually
-to see what is supported.
-
-Note that in the test of the SC2 below, the previewFormat is not returning 
-the correct values.
-
-The payload is:
-
-```javascript
-Map data = {
-    'name': 'camera.getOptions',
-    'parameters': {
-      'optionNames': [
-        "offDelay",
-        "sleepDelay",
-        "remainingSpace",
-        "_colorTemperature",
-        "previewFormat"
-      ]
-    }
-  };
-```
-
-The response from a THETA SC2 running firmware 1.20 is shown below.  Note
-that the `previewFormat` is giving 0 values.  This API is likely
-not supported at the moment.
-
-```javascript
-{
-  "name": "camera.getOpions",
-  "state": "done",
-  "results": {
-    "options": {
-      "offDelay": 65535,
-      "sleepDelay": 65535,
-      "remainingSpace": 2168410112,
-      "_colorTemperature": 2500,
-      "previewFormat": {
-        "width": 0,
-        "height": 0
-      },
-      "framerate": 0
-    }
-  }
-}
-```
-
-For comparison, this is the response from a THETA V.  See the difference in the
-previewFormat information.
-
-![options output](docs/images/preview-format.png)
-
-## Checking if Camera Picture is Ready to Download
-
-![check camera progress](docs/images/check-camera-progress.png)
-
-![get status](docs/images/camera-status-state.png)
-
-
 ## Troubleshooting Camera
 
 ### Testing Connection with GET info
@@ -383,30 +363,6 @@ code with a known working API that returns a single JSON object, you can use a p
     // String url = 'https://swapi.co/api/people/1';
     // String url = 'https://jsonplaceholder.typicode.com/users/1';
 
-## Configuration and Installation
-
-1. install [dart](https://dart.dev/) (*)
-2. clone this repo
-3. run `pub get` to install dependencies
-
-(*) Flutter 1.21 includes Dart.  If you plan to install Flutter, then you do not need to 
-install a standalone version of Dart.  You must adjust the PATH of your system to 
-use the Dart version that comes with Flutter. On my system, I installed Flutter 
-in `/home/username/opt/flutter`.  My dart binary is in `/home/username/opt/flutter/bin`.
-You must also add the dart-sdk tools to your PATH.`/home/username/opt/flutter/bin/cache/dart-sdk/bin`
-
-```bash
-$ pub get
-Resolving dependencies... (1.2s)
-Downloading args 1.5.3...
-Downloading http 0.12.0+4...
-Downloading pedantic 1.9.0...
-Downloading async 2.4.0...
-Downloading source_span 1.6.0...
-Downloading charcode 1.1.3...
-Downloading meta 1.1.8...
-Got dependencies!
-```
 
 ## Problems and Workarounds
 
