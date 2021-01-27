@@ -143,25 +143,6 @@ To connect to the Internet, you must have two network interfaces on your compute
 home router with Ethernet and use Wi-Fi to connect to the THETA.  You can also use the existing Wi-Fi of your laptop to connect
 to the Internet and a USB Wi-Fi adapter to connect to the THETA.
 
-## Running Documentation Locally
-
-The documents for these code examples are stored in docs.  You can read them
-online in a blog-like format at [https://theta360developers.github.io/webapi/](https://theta360developers.github.io/webapi/).  If you want to edit the blog locally and 
-contribute content, you can run Jekyll locally.
-
-One time installation of required Ruby gems.
-
-```
-bundle install
-```
-
-To view the documents locally:
-
-```
-bundle exec jekyll serve
-```
-
-
 ### Example Use 
 
 ```dart
@@ -212,3 +193,23 @@ code with a known working API that returns a single JSON object, you can use a p
 
     // String url = 'https://swapi.co/api/people/1';
     // String url = 'https://jsonplaceholder.typicode.com/users/1';
+
+
+## Running Documentation Locally
+
+The documents for these code examples are stored in docs.  You can read them
+online in a blog-like format at [https://theta360developers.github.io/webapi/](https://theta360developers.github.io/webapi/).  If you want to edit the blog locally and 
+contribute content, you can run Jekyll locally.
+
+One time installation of required Ruby gems.
+
+```
+bundle install
+```
+
+To view the documents locally:
+
+```
+bundle exec jekyll serve
+```
+
