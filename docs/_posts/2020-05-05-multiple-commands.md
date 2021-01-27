@@ -1,6 +1,6 @@
 ---
 title:  "Running Multiple Commands in Sequence"
-tags: dart
+tags: state dart
 date:   2020-05-05
 categories: basic
 cover: https://cdn.pixabay.com/photo/2015/11/15/07/44/mathematics-1044080_960_720.jpg
