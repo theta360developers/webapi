@@ -1,6 +1,6 @@
 # RICOH THETA API HTTP Community Tests
 
-Last updated January 25, 2021.
+Last updated January 27, 2021.
 
 This is a community document based on contributions of
 informal test results 
@@ -89,12 +89,12 @@ Camera models tests:
 * Z1
 
 
-The SC2 API has many differences from the API used with the V and Z1.  
+The SC2 API has many differences from the API used with the V and Z1.  To test the
+SC2 API, we used the the official RICOH online [API documentation](https://api.ricoh/docs/theta-web-api-v2.1/) as a starting point and supplemented our own tests with trial and 
+error.  When necessary, we used a protocol packet analyzer with the 
+official RICOH mobile app connected to an SC2 to find the parameters needed for our tests.
 
-As of January 25, 2021, 
-
-* the official RICOH online [API documentation](https://api.ricoh/docs/theta-web-api-v2.1/) is not an accurate
-reference to build SC2 applications. Differences include:
+Differences we discovered through testing include:
   * thumbnail display
   * camera presets
   * reset settings
@@ -455,7 +455,3 @@ try {
 }
 
 ```
-
-## More
-
-Read about [why we're using Dart](docs/dart-growth/dart.md).
