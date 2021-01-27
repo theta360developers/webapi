@@ -1,6 +1,7 @@
 ---
 title: Bug in SC2 Preview Format header
 tags: preview
+date:   2020-04-26 5:22:40 -0800
 article_header:
   type: cover
   image:
