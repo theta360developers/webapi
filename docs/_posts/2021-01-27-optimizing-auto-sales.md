@@ -19,6 +19,8 @@ article_header:
     src: /images/industry/automotive/car_lineup.png
 license: false
 author: Jesse Casman
+aside:
+  toc: true
 ---
 
 Used cars and salvage cars are increasingly sold in high volume by using 360° cameras for the inside of the vehicle with DSLR or mobile phone cameras used for the exterior of the vehicle.  Many commercial software packages exist that streamline the 360° photography workflow for automotive sales. 
