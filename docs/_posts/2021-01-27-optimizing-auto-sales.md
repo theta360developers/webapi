@@ -18,6 +18,7 @@ article_header:
     gradient: 'linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))'
     src: /images/industry/automotive/car_lineup.png
 license: false
+author: Jesse Casman
 ---
 
 Used cars and salvage cars are increasingly sold in high volume by using 360° cameras for the inside of the vehicle with DSLR or mobile phone cameras used for the exterior of the vehicle.  Many commercial software packages exist that streamline the 360° photography workflow for automotive sales. 
@@ -115,7 +116,8 @@ To assess development costs, you can review the available documentation and code
 # Talk to an Expert
 
 We talk to businesses and developers using 360 cameras all day, every day.  We've collected
-best practices over the past 5 years of focusing on expanding the RICOH THETA in industry use.
+best practices over the past 5 years of focusing on helping industries use the RICOH THETA to
+expand their businesses.
 
 For a free video meeting consultation that will help you in your evaluation, contact Jesse Casman, jcasman@oppkey.com.
 
