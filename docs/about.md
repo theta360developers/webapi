@@ -26,7 +26,7 @@ titles:
 key: page-about
 ---
 
-![theta](/sc2-public-code-examples/images/camera/theta.png)
+![theta](/webapi/images/camera/theta.png)
 
 Welcome to the community site for the RICOH THETA WebAPI community documents.
 
