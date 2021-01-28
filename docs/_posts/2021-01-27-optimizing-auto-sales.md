@@ -112,6 +112,17 @@ In addition to these factors, the camera cost also varies from a low of $299 for
 
 To assess development costs, you can review the available documentation and code examples. For image quality and workflow assessments, you can use the official mobile app.  If you have any questions, please contact me. 
 
+# Talk to an Expert
+
+We talk to businesses and developers using 360 cameras all day, every day.  We've collected
+best practices over the past 5 years of focusing on expanding the RICOH THETA in industry use.
+
+For a free video meeting consultation that will help you in your evaluation, contact Jesse Casman, jcasman@oppkey.com.
+
+![jesse](/webapi/images/oppkey/jesse.png)
+
+
+
 # Related Articles
 
 Please refer the 
