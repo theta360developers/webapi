@@ -121,9 +121,10 @@ We talk to businesses and developers using 360 cameras all day, every day.  We'v
 best practices over the past 5 years of focusing on helping industries use the RICOH THETA to
 expand their businesses.
 
-For a free video meeting consultation that will help you in your evaluation, contact Jesse Casman, jcasman@oppkey.com.
+For a free email consultation that will help you in your evaluation, contact Jesse Casman, jcasman@oppkey.com.
 
 ![jesse](/webapi/images/oppkey/jesse.png)
+![best-practices](webapi/images/oppkey/best-practices-small.png)
 
 
 

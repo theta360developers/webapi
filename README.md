@@ -1,6 +1,6 @@
 # RICOH THETA API HTTP Community Tests
 
-Last updated January 27, 2021.
+Last updated January 28, 2021.
 
 Welcome to our repository of RICOH THETA WebAPI tests based on contributions of
 from the [theta360.guide independent community](https://www2.theta360.guide/).  This is
@@ -22,7 +22,7 @@ Official API reference information from RICOH:
 
 ## Overview
 
-The RICOH THETA WebAPI is based on the [Google Open Spherical Camera API](https://developers.google.com/streetview/open-spherical-camera/reference).  Developers build mobile apps that communicate with the RICOH THETA camera using Wi-Fi and a HTTP protocol using GET and POST commands. 
+The RICOH THETA WebAPI is based on the [Google Open Spherical Camera API](https://developers.google.com/streetview/open-spherical-camera/reference). Developers build mobile apps that communicate with the RICOH THETA camera using Wi-Fi and a HTTP protocol using GET and POST commands. 
 
 Our community examples test the HTTP request and response behavior of the RICOH THETA using Dart. You can also use 
 [curl](https://curl.se/) from the command line or a HTTP API tester such as [Postman](https://www.postman.com/). 
@@ -105,7 +105,7 @@ Differences we discovered through testing include:
 ## Update Camera Firmware
 
 Firmware for RICOH THETA cameras can be updated with the desktop app on Mac or Windows or the mobile app on Android or iOS. 
-The desktop app connects with a USB cable and is good, stable connection. 
+The desktop app connects with a USB cable and is a good, stable connection. 
 
 ## Installation
 
