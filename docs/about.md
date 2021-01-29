@@ -35,5 +35,6 @@ Additional information is available at:
 * [theta360.guide site](https://theta360.guide)
 * [discussion forum](https://community.theta360.guide)
 * email: info@oppkey.com
+* [GitHub Repo for code used in the examples on this site](https://github.com/theta360developers/webapi)
 
 This is an independent site run by [Oppkey](https://oppkey.com).
