@@ -124,7 +124,7 @@ expand their businesses.
 For a free email consultation that will help you in your evaluation, contact Jesse Casman, jcasman@oppkey.com.
 
 ![jesse](/webapi/images/oppkey/jesse.png)
-![best-practices](webapi/images/oppkey/best-practices-small.png)
+![best-practices](/webapi/images/oppkey/best-practices-small.png)
 
 
 
