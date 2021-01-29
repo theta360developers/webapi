@@ -7,7 +7,7 @@ cover: https://cdn.pixabay.com/photo/2018/01/29/13/03/internet-3116062_960_720.j
 license: false
 ---
 
-### Get Options
+# Get Options
 
 The camera options you want to get need to be specified individually in an array.
 I do not think you can get all the options with a wildcard or "all" specification.
