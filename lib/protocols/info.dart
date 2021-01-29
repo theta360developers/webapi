@@ -14,9 +14,12 @@ void getInfo() async {
   // human-readable form
   // there's a nice gist here
   // https://gist.github.com/kasperpeulen/d61029fc0bc6cd104602
+
   Map responseBody = jsonDecode(response.body);
-  // print the map with nice formatting
-  print(JsonEncoder.withIndent('  ').convert(responseBody));
-  // print single value from map
-  print("firmware: ${responseBody['firmwareVersion']}");
+  // // print single values from map
+  String firmware = responseBody['firmwareVersion'];
+  String cameraModel = responseBody['model'];
+  print('Your camera is a $cameraModel running firmware $firmware');
+  // // print the map with nice formatting
+  // print(JsonEncoder.withIndent('  ').convert(responseBody));
 }
