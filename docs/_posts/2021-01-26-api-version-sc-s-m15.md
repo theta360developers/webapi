@@ -5,7 +5,6 @@ date:   2021-01-26 5:22:40 -0800
 categories: version
 cover: /images/camera/theta.png
 license: false
-
 ---
 
 There are three versions of the WebAPI.
