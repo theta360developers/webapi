@@ -21,7 +21,9 @@ Future<Map<String, dynamic>> getInfo() async {
   // print single values from map
   String firmware = responseBody['firmwareVersion'];
   String cameraModel = responseBody['model'];
+  String serialNumber = responseBody['serialNumber'];
   print('Your camera is a $cameraModel running firmware $firmware');
+  print('The camera serial number is $serialNumber');
   // print the map with nice formatting
   print(JsonEncoder.withIndent('  ').convert(responseBody));
   return responseBody;
