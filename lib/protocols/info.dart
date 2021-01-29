@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-void getInfo() async {
+/// construct a map from the response body and get camera
+/// info, including firmware version and camera model
+Future<Map<String, dynamic>> getInfo() async {
   // test data to return a single JSON objects from Internet
   // String url = 'https://swapi.co/api/people/1';
   // String url = 'https://jsonplaceholder.typicode.com/users/1';
@@ -16,10 +18,11 @@ void getInfo() async {
   // https://gist.github.com/kasperpeulen/d61029fc0bc6cd104602
 
   Map responseBody = jsonDecode(response.body);
-  // // print single values from map
+  // print single values from map
   String firmware = responseBody['firmwareVersion'];
   String cameraModel = responseBody['model'];
   print('Your camera is a $cameraModel running firmware $firmware');
-  // // print the map with nice formatting
-  // print(JsonEncoder.withIndent('  ').convert(responseBody));
+  // print the map with nice formatting
+  print(JsonEncoder.withIndent('  ').convert(responseBody));
+  return responseBody;
 }
