@@ -100,7 +100,7 @@ void getInfo() async {
   }
 }
 ```
-Running the command from the test script in this repository.
+Running the command from the test script in the [repository of this site](https://github.com/theta360developers/webapi).
 
 ```
 C:>dart bin\main.dart info
