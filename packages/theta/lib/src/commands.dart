@@ -8,6 +8,7 @@ const Map<String, String> _headers = {
 };
 
 /// take picture
+/// https://api.ricoh/docs/theta-web-api-v2.1/commands/camera.take_picture/
 Future<Map<String, dynamic>> takePicture() async {
   var data = {'name': 'camera.takePicture'};
   //encode Map to JSON

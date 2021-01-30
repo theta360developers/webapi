@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-const String baseUrl = 'http://192.168.1.1/osc/';
-const Map<String, String> headers = {
+const String _baseUrl = 'http://192.168.1.1/osc/';
+const Map<String, String> _headers = {
   'Content-Type': 'application/json;charset=utf-8'
 };
 
@@ -35,9 +35,9 @@ const Map<String, String> headers = {
 ///   "_bluetoothMacAddress": "6c:21:a2:47:d9:05"
 /// }
 Future<Map<String, dynamic>> info() async {
-  var url = baseUrl + 'info'; // osc/info
+  var url = _baseUrl + 'info'; // osc/info
 
-  var response = await http.get(url, headers: headers);
+  var response = await http.get(url, headers: _headers);
   Map responseBody = jsonDecode(response.body);
   // print(JsonEncoder.withIndent('  ').convert(responseBody));
   // return a Dart map, not JSON
@@ -63,21 +63,21 @@ Future<Map<String, dynamic>> info() async {
 ///  }
 /// }
 Future<Map<String, dynamic>> state() async {
-  var url = baseUrl + 'state'; // osc/state
-  var response = await http.post(url, headers: headers);
+  var url = _baseUrl + 'state'; // osc/state
+  var response = await http.post(url, headers: _headers);
   Map responseBody = jsonDecode(response.body);
   return responseBody;
 }
 
 /// get camera status.  Request that ID is passed
 Future<Map<String, dynamic>> status(id) async {
-  var url = baseUrl + 'commands/status';
+  var url = _baseUrl + 'commands/status';
 
   var data = {'id': id};
   //encode Map to JSON
   var body = jsonEncode(data);
 
-  var response = await http.post(url, headers: headers, body: body);
+  var response = await http.post(url, headers: _headers, body: body);
   print('The HTTP response code is: ${response.statusCode}');
   print('The HTTP response from status is:');
   Map responseBody = jsonDecode(response.body);
