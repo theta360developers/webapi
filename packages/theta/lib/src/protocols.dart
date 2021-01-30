@@ -8,6 +8,7 @@ const Map<String, String> _headers = {
 
 /// construct a map from the response body and get camera
 /// info, including firmware version and camera model
+/// This is the request: GET http://192.168.1.1/osc/info
 /// Example output
 /// {
 ///   "manufacturer": "RICOH",
@@ -35,7 +36,8 @@ const Map<String, String> _headers = {
 ///   "_bluetoothMacAddress": "6c:21:a2:47:d9:05"
 /// }
 Future<Map<String, dynamic>> info() async {
-  var url = _baseUrl + 'info'; // osc/info
+  // GET http://192.168.1.1/osc/info
+  var url = _baseUrl + 'info';
 
   try {
     var response = await http.get(url, headers: _headers);
@@ -44,6 +46,7 @@ Future<Map<String, dynamic>> info() async {
       print('response status code: ${response.statusCode}');
       return {'error': 'failed with status code ${response.statusCode}'};
     } else {
+      print(response.request);
       Map responseBody = jsonDecode(response.body);
       // print(JsonEncoder.withIndent('  ').convert(responseBody));
       // return a Dart map, not JSON
