@@ -38,6 +38,7 @@ Future<Map<String, dynamic>> postState() async {
   return responseBody;
 }
 
+/// get camera status.  Request that ID is passed
 Future<Map<String, dynamic>> status(id) async {
   var url = 'http://192.168.1.1/osc/commands/status';
 
