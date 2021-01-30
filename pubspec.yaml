@@ -2,6 +2,8 @@ name: apitest
 dependencies:
   http: ^0.12.2
   args: ^1.5.3
+  theta:
+    path: packages/theta
 
 environment:
   sdk: '>=2.10.0 <3.0.0'

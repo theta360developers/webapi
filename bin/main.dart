@@ -1,10 +1,8 @@
+import 'package:theta/theta.dart';
 import 'package:apitest/options/reset_my_setting.dart';
 import 'package:apitest/commands/delete_all.dart';
 import 'package:apitest/thumbnails/not-working-list_all_thumnails.dart';
 import 'package:apitest/options/set_autobracket.dart';
-import 'package:apitest/protocols/info.dart';
-import 'package:apitest/protocols/state.dart';
-import '../lib/protocols/status.dart';
 import 'package:apitest/download_ready.dart';
 import 'package:apitest/firmware_version.dart';
 import 'package:args/args.dart';

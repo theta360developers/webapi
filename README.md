@@ -1,6 +1,8 @@
 # RICOH THETA API HTTP Community Tests
 
-Last updated January 28, 2021.
+Last updated January 29, 2021.
+
+IMPORTANT: some of the code examples are now in `/packages/theta/lib/src/`
 
 Welcome to our repository of RICOH THETA WebAPI tests based on contributions of
 from the [theta360.guide independent community](https://www2.theta360.guide/).  This is
@@ -86,8 +88,8 @@ If these concepts are new, you can largely ignore them for curl, Python, bash, a
 
 Camera models tests:
 
-* SC2 with firmware 1.31
-* Z1
+* SC2 with firmware 1.51
+* Z1 with firmware 1.60.1
 
 The SC2 API has many differences from the API used with the V and Z1.  To test the
 SC2 API, we used the the official RICOH online [API documentation](https://api.ricoh/docs/theta-web-api-v2.1/) as a starting point and supplemented our own tests with trial and 
