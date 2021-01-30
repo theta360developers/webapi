@@ -17,7 +17,7 @@ Future<void> saveThumbs(urls) async {
           await client.get('${urls[i]}?type=thumb', headers: headers);
       print(response.statusCode);
       print('writing file ${i + 1}');
-      File('thumbnail-${i + 1}.jpg').writeAsBytes(response.bodyBytes);
+      await File('thumbnail-${i + 1}.jpg').writeAsBytes(response.bodyBytes);
     }
   } catch (e) {
     print(e);

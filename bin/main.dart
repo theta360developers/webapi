@@ -1,14 +1,11 @@
 import 'dart:convert';
-
 import 'package:theta/theta.dart';
 import 'package:apitest/options/reset_my_setting.dart';
 import 'package:apitest/commands/delete_all.dart';
 import 'package:apitest/thumbnails/not-working-list_all_thumnails.dart';
 import 'package:apitest/options/set_autobracket.dart';
 import 'package:apitest/download_ready.dart';
-import 'package:apitest/firmware_version.dart';
 import 'package:args/args.dart';
-import 'package:apitest/commands/take_picture.dart';
 import 'package:apitest/list_files.dart';
 import 'package:apitest/commands/get_options.dart';
 import 'package:apitest/download_file.dart';
@@ -89,6 +86,7 @@ void main(List<String> args) async {
         {
           /// camera state
           /// API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/state/
+          /// example is in packages/theta/lib/src
           prettyPrint(await state());
         }
         break;
@@ -97,7 +95,7 @@ void main(List<String> args) async {
         {
           /// take picture.  must pass payload that is json encoded
           /// API reference https://api.ricoh/docs/theta-web-api-v2.1/commands/camera.take_picture/
-          takePicture();
+          prettyPrint(await takePicture());
         }
         break;
 
@@ -145,7 +143,7 @@ void main(List<String> args) async {
 
       case "firmware":
         {
-          firmwareVersion();
+          print(await firmware());
         }
         break;
 

@@ -4,6 +4,10 @@
 library theta;
 
 export 'src/theta_base.dart';
-export 'src/theta_protocols.dart';
+export 'src/protocols.dart';
+export 'src/utils.dart';
+export 'src/commands.dart';
+
+
 
 // TODO: Export any libraries intended for clients of this package.
