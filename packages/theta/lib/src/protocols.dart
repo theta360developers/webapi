@@ -39,9 +39,10 @@ Future<Map<String, dynamic>> info() async {
 
   try {
     var response = await http.get(url, headers: _headers);
-    print(response.body);
-    if (response.body.contains('404 Not Found')) {
-      print('file not found');
+    if (response.statusCode != 200) {
+      print('request failed.  Camera may not be connected');
+      print('response status code: ${response.statusCode}');
+      return {'error': 'failed with status code ${response.statusCode}'};
     } else {
       Map responseBody = jsonDecode(response.body);
       // print(JsonEncoder.withIndent('  ').convert(responseBody));
@@ -49,8 +50,6 @@ Future<Map<String, dynamic>> info() async {
       return responseBody;
     }
   } catch (error) {
-    //TODO:figure out format of error.  It is giving a format exception
-    // at the moment
     print('an error occurred');
     print(error.runtimeType);
     return {'error': error.toString()};
