@@ -37,11 +37,24 @@ const Map<String, String> _headers = {
 Future<Map<String, dynamic>> info() async {
   var url = _baseUrl + 'info'; // osc/info
 
-  var response = await http.get(url, headers: _headers);
-  Map responseBody = jsonDecode(response.body);
-  // print(JsonEncoder.withIndent('  ').convert(responseBody));
-  // return a Dart map, not JSON
-  return responseBody;
+  try {
+    var response = await http.get(url, headers: _headers);
+    print(response.body);
+    if (response.body.contains('404 Not Found')) {
+      print('file not found');
+    } else {
+      Map responseBody = jsonDecode(response.body);
+      // print(JsonEncoder.withIndent('  ').convert(responseBody));
+      // return a Dart map, not JSON
+      return responseBody;
+    }
+  } catch (error) {
+    //TODO:figure out format of error.  It is giving a format exception
+    // at the moment
+    print('an error occurred');
+    print(error.runtimeType);
+    return {'error': error.toString()};
+  }
 }
 
 /// POST request to get camera state
