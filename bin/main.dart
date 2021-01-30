@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:theta/theta.dart';
 import 'package:apitest/options/reset_my_setting.dart';
 import 'package:apitest/commands/delete_all.dart';
@@ -39,6 +41,10 @@ import 'package:apitest/options/set_mode_image.dart';
 
 /// Official API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/info/
 
+void prettyPrint(map) {
+  print(JsonEncoder.withIndent('  ').convert(map));
+}
+
 void printUsage() {
   print("\n  usage: dart bin/main.py command");
   print("    command must be one of the following:");
@@ -74,7 +80,8 @@ void main(List<String> args) async {
       case "info":
         {
           /// RICOH THETA info
-          getInfo();
+          /// example is in packages/theta/lib/src
+          prettyPrint(await info());
         }
         break;
 
@@ -82,7 +89,7 @@ void main(List<String> args) async {
         {
           /// camera state
           /// API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/state/
-          postState();
+          prettyPrint(await state());
         }
         break;
 
@@ -217,7 +224,7 @@ void main(List<String> args) async {
       case "status":
         {
           if (args.length == 2) {
-            status(args[1]);
+            prettyPrint(await status(args[1]));
           } else {
             print('please supply id.  Example: dart main.dart status 306');
           }
