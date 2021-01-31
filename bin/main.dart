@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:theta/theta.dart';
 import '../lib/help.dart';
 import 'package:apitest/options/reset_my_setting.dart';
@@ -45,12 +46,28 @@ void main(List<String> args) async {
   //TODO: implement args for better command line option flexibility
   //check in docs/_notes for a good tutorial video
   var parser = ArgParser();
-  var hdr = parser.addOption('hdr');
+  parser.addFlag('hdr',
+      help: 'specify internal camera hdr. Image is saved as JPG');
+
+  parser.addFlag('help', abbr: 'h', help: 'Print usage information');
 
   var parsedArguments = parser.parse(args);
 
   if (parsedArguments.wasParsed('hdr')) {
     print('setting hdr to ${parsedArguments['hdr']}');
+    if (parsedArguments['hdr']) {
+      await setHdr();
+      //TODO: print out current value of _filter
+    } else {
+      print('turn off hdr');
+      await filterOff();
+      //TODO: print out current value of _filter
+    }
+  }
+
+  if (parsedArguments.wasParsed('help')) {
+    print(parser.usage);
+    exit(0);
   }
 
   if (args.length < 1) {
@@ -332,12 +349,15 @@ void main(List<String> args) async {
       case "help":
         {
           print(help);
+          print(parser.usage);
         }
         break;
 
       default:
         {
           print(help);
+          print('command line options');
+          print(parser.usage);
         }
         break;
     }

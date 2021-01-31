@@ -1,6 +1,5 @@
 // this is not working
 import 'package:http/http.dart' as http;
-import '../pretty_print.dart';
 import 'dart:convert';
 import 'dart:io';
 
@@ -46,8 +45,6 @@ Future<int> listAllThumbnails() async {
 
   var response = await http.post(url,
       headers: {'Content-Type': 'application/json; charset=utf-8'}, body: body);
-
-  // prettyPrint(response.body);
 
   Map<String, dynamic> imageInfo = jsonDecode(response.body);
 
