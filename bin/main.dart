@@ -11,7 +11,7 @@ import 'package:apitest/commands/get_options.dart';
 import 'package:apitest/download_file.dart';
 import 'package:apitest/get_last_image_url.dart';
 import 'package:apitest/commands/get_metadata.dart';
-import 'package:apitest/scratch/test.dart';
+// import 'package:apitest/scratch/test.dart';
 import 'package:apitest/download_file_from_state.dart';
 import 'package:apitest/options/set_exposure_delay_five.dart';
 import 'package:apitest/options/set_exposure_delay_zero.dart';
@@ -36,25 +36,30 @@ import 'package:apitest/thumbnails/write_all_thumbs.dart';
 import 'package:apitest/commands/delete_test.dart';
 import 'package:apitest/options/set_mode_image.dart';
 
-/// Official API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/info/
-
 void prettyPrint(map) {
   print(JsonEncoder.withIndent('  ').convert(map));
 }
 
 void printUsage() {
-  print("\n  usage: dart bin/main.py command");
-  print("    command must be one of the following:");
-  print("    info, state, status, takePicture");
-  print("    listFiles, getOptions, downloadFile");
-  print("    getMetadata, firmware, downloadReady, takeAndDownload");
-  print("    setExposureDelayFive, setExposureDelayZero, exposureCompensation");
-  print("    getTimeShift, setCapturePreset, setHdr, saveHdr, setShutter");
-  print("    filterOff, sleepOff, offOff, reset, resetMySetting");
-  print("    autoBracket, startCapture, setLanguage");
-  print("    saveThumbs, getThumb, getThumb2");
-  print("    deleteAll, setModeImage");
-  print("    example: dart bin/main.py info");
+  print("\nusage: dart bin/main.py command\n");
+  print("command must be one of the following:");
+  print('info -   manufacturer, model, serialNumber, _wlanMacAddress, '
+      '_bluetoothMacAddress, firmwareVersion, supportUrl, gps, '
+      'gyro, uptime, api, endpoints, apiLevel\n\n'
+      'model -  THETA model. SC2, V, Z1, other\n'
+      'firmware - camera firmware.  example: 1.60.1\n'
+      'state - current camera information\n'
+      'status\n'
+      'takePicture\n');
+  print("listFiles, getOptions, downloadFile");
+  print("getMetadata, downloadReady, takeAndDownload");
+  print("setExposureDelayFive, setExposureDelayZero, exposureCompensation");
+  print("getTimeShift, setCapturePreset, setHdr, saveHdr, setShutter");
+  print("filterOff, sleepOff, offOff, reset, resetMySetting");
+  print("autoBracket, startCapture, setLanguage");
+  print("saveThumbs, getThumb, getThumb2");
+  print("deleteAll, setModeImage\n");
+  print('example: dart bin/main.py info\n');
 }
 
 void main(List<String> args) async {
@@ -70,15 +75,18 @@ void main(List<String> args) async {
       /// throw away after you run an API test
       case "test":
         {
-          test();
+          prettyPrint(await Camera.model);
+          // test();
         }
         break;
 
       case "info":
         {
           /// RICOH THETA info
-          /// example is in packages/theta/lib/src
-          prettyPrint(await info());
+          /// example is in packages/theta/lib/src/
+          // Official API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/info/
+
+          prettyPrint(await Camera.info);
         }
         break;
 
@@ -143,7 +151,13 @@ void main(List<String> args) async {
 
       case "firmware":
         {
-          print(await firmware());
+          print(await Camera.firmware);
+        }
+        break;
+
+      case "model":
+        {
+          print(await Camera.model);
         }
         break;
 

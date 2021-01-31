@@ -6,7 +6,7 @@ void main(List<String> args) async {
       {
         /// RICOH THETA info
         /// example is in packages/theta/lib/src
-        print(await info());
+        print(await Camera.info);
       }
       break;
   }

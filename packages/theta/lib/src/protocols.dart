@@ -6,56 +6,68 @@ const Map<String, String> _headers = {
   'Content-Type': 'application/json;charset=utf-8'
 };
 
-/// construct a map from the response body and get camera
-/// info, including firmware version and camera model
-/// This is the request: GET http://192.168.1.1/osc/info
-/// Example output
-/// {
-///   "manufacturer": "RICOH",
-///   "model": "RICOH THETA SC2",
-///   "serialNumber": "20001005",
-///   "firmwareVersion": "01.51",
-///   "supportUrl": "https://theta360.com/en/support/",
-///   "gps": false,
-///   "gyro": true,
-///   "endpoints": {
-///     "httpPort": 80,
-///     "httpUpdatesPort": 80
-///   },
-///     2
-///   ],
-///   "api": [
-///     "/osc/info",
-///     "/osc/state",
-///     "/osc/checkForUpdates",
-///     "/osc/commands/execute",
-///     "/osc/commands/status"
-///   ],
-///   "uptime": 219,
-///   "_wlanMacAddress": "58:38:79:2b:ad:c5",
-///   "_bluetoothMacAddress": "6c:21:a2:47:d9:05"
-/// }
-Future<Map<String, dynamic>> info() async {
-  // GET http://192.168.1.1/osc/info
-  var url = _baseUrl + 'info';
+class Camera {
+  /// construct a map from the response body and get camera
+  /// info, including firmware version and camera model
+  /// This is the request: GET http://192.168.1.1/osc/info
+  /// Example output
+  /// {
+  ///   "manufacturer": "RICOH",
+  ///   "model": "RICOH THETA SC2",
+  ///   "serialNumber": "20001005",
+  ///   "firmwareVersion": "01.51",
+  ///   "supportUrl": "https://theta360.com/en/support/",
+  ///   "gps": false,
+  ///   "gyro": true,
+  ///   "endpoints": {
+  ///     "httpPort": 80,
+  ///     "httpUpdatesPort": 80
+  ///   },
+  ///     2
+  ///   ],
+  ///   "api": [
+  ///     "/osc/info",
+  ///     "/osc/state",
+  ///     "/osc/checkForUpdates",
+  ///     "/osc/commands/execute",
+  ///     "/osc/commands/status"
+  ///   ],
+  ///   "uptime": 219,
+  ///   "_wlanMacAddress": "58:38:79:2b:ad:c5",
+  ///   "_bluetoothMacAddress": "6c:21:a2:47:d9:05"
+  /// }
+  static Future<Map<String, dynamic>> get info async {
+    // GET http://192.168.1.1/osc/info
+    var url = _baseUrl + 'info';
 
-  try {
-    var response = await http.get(url, headers: _headers);
-    if (response.statusCode != 200) {
-      print('request failed.  Camera may not be connected');
-      print('response status code: ${response.statusCode}');
-      return {'error': 'failed with status code ${response.statusCode}'};
-    } else {
-      print(response.request);
-      Map responseBody = jsonDecode(response.body);
-      // print(JsonEncoder.withIndent('  ').convert(responseBody));
-      // return a Dart map, not JSON
-      return responseBody;
+    try {
+      var response = await http.get(url, headers: _headers);
+      if (response.statusCode != 200) {
+        print('request failed.  Camera may not be connected');
+        print('response status code: ${response.statusCode}');
+        print('request: ${response.request}');
+        return {'error': 'failed with status code ${response.statusCode}'};
+      } else {
+        Map responseBody = jsonDecode(response.body);
+        // print(JsonEncoder.withIndent('  ').convert(responseBody));
+        // return a Dart map, not JSON
+        return responseBody;
+      }
+    } catch (error) {
+      print('an error occurred');
+      print(error.runtimeType);
+      return {'error': error.toString()};
     }
-  } catch (error) {
-    print('an error occurred');
-    print(error.runtimeType);
-    return {'error': error.toString()};
+  }
+
+  static Future<String> get firmware async {
+    var cameraInfo = await info;
+    return cameraInfo['firmwareVersion'];
+  }
+
+  static Future<String> get model async {
+    var cameraInfo = await info;
+    return cameraInfo['model'];
   }
 }
 
