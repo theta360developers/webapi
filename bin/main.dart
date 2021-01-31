@@ -57,7 +57,7 @@ void main(List<String> args) async {
     print('setting hdr to ${parsedArguments['hdr']}');
     if (parsedArguments['hdr']) {
       await setHdr();
-      //TODO: print out current value of _filter
+      // TODO: print out current value of _filter
     } else {
       print('turn off hdr');
       await filterOff();
@@ -70,21 +70,21 @@ void main(List<String> args) async {
     exit(0);
   }
 
-  if (args.length < 1) {
+  if (args.isEmpty) {
     print(help);
   } else {
     switch (args[0]) {
 
       /// test case is for scratch data that you can
       /// throw away after you run an API test
-      case "test":
+      case 'test':
         {
           prettyPrint(await Camera.model);
           // test();
         }
         break;
 
-      case "info":
+      case 'info':
         {
           /// RICOH THETA info
           /// example is in packages/theta/lib/src/
@@ -94,7 +94,7 @@ void main(List<String> args) async {
         }
         break;
 
-      case "state":
+      case 'state':
         {
           /// camera state
           /// API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/state/
@@ -108,7 +108,7 @@ void main(List<String> args) async {
         }
         break;
 
-      case "takePicture":
+      case 'takePicture':
         {
           /// take picture.  must pass payload that is json encoded
           /// API reference https://api.ricoh/docs/theta-web-api-v2.1/commands/camera.take_picture/
