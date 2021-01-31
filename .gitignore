@@ -1,6 +1,9 @@
 .vscode
 analysis_options.yaml
 
+# Android Studio
+.idea
+
 # documentation files
 *.pdf
 

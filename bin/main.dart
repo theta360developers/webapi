@@ -126,7 +126,7 @@ void main(List<String> args) async {
 
       case "saveHdr":
         {
-          saveHdr();
+          await saveHdr();
         }
         break;
 
@@ -150,7 +150,7 @@ void main(List<String> args) async {
         }
         break;
 
-      case "getMetadata":
+      case 'getMetadata':
         {
           getLastImageUrl().then((url) {
             getMetadata(url);
@@ -158,27 +158,27 @@ void main(List<String> args) async {
         }
         break;
 
-      case "firmware":
+      case 'firmware':
         {
           print(await Camera.firmware);
         }
         break;
 
-      case "model":
+      case 'model':
         {
           print(await Camera.model);
         }
         break;
 
-      case "downloadReady":
+      case 'downloadReady':
         {
-          downloadReady();
+          await downloadReady();
         }
         break;
 
-      case "takeAndDownload":
+      case 'takeAndDownload':
         {
-          takeAndDownload();
+          await takeAndDownload();
         }
         break;
 
