@@ -17,6 +17,12 @@ The specific THETA model support is documented on the [THETA API Introduction](h
 
 ![api versions](/webapi/images/2021_01/api_versions.png)
 
-Most cameras, including the S, SC, V, SC2, SC2, and Z1 use the v2.1 API specification.  This API is easier to
+The V, SC2, SC2 for Business, and Z1 use the v2.1 API specification exclusively.  
+
+The S used both 1.0 and 2.0 as a "hybrid" configuration.
+
+The SC can use either 2.0 and 2.1, the version has to be specified in the code.
+
+v2.1 is easier to
 use as it does not require specifying a session ID.  Images on the camera can be downloaded with a simple
 GET call to the URI of the image.  You can get the URI of the images from listImages.
