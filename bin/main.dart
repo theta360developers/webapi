@@ -42,8 +42,16 @@ void prettyPrint(map) {
 }
 
 void main(List<String> args) async {
+  //TODO: implement args for better command line option flexibility
+  //check in docs/_notes for a good tutorial video
   var parser = ArgParser();
-  parser.parse(args);
+  var hdr = parser.addOption('hdr');
+
+  var parsedArguments = parser.parse(args);
+
+  if (parsedArguments.wasParsed('hdr')) {
+    print('setting hdr to ${parsedArguments['hdr']}');
+  }
 
   if (args.length < 1) {
     print(help);

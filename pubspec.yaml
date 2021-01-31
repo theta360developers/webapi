@@ -1,7 +1,7 @@
 name: apitest
 dependencies:
   http: ^0.12.2
-  args: ^1.5.3
+  args: ^1.6.0
   theta:
     path: packages/theta
 
