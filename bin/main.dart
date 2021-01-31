@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:theta/theta.dart';
+import '../lib/help.dart';
 import 'package:apitest/options/reset_my_setting.dart';
 import 'package:apitest/commands/delete_all.dart';
 import 'package:apitest/thumbnails/not-working-list_all_thumnails.dart';
@@ -40,34 +41,12 @@ void prettyPrint(map) {
   print(JsonEncoder.withIndent('  ').convert(map));
 }
 
-void printUsage() {
-  print("\nusage: dart bin/main.py command\n");
-  print("command must be one of the following:");
-  print('info -   manufacturer, model, serialNumber, _wlanMacAddress, '
-      '_bluetoothMacAddress, firmwareVersion, supportUrl, gps, '
-      'gyro, uptime, api, endpoints, apiLevel\n\n'
-      'model -  THETA model. SC2, V, Z1, other\n'
-      'firmware - camera firmware.  example: 1.60.1\n'
-      'state - current camera information\n'
-      'status\n'
-      'takePicture\n');
-  print("listFiles, getOptions, downloadFile");
-  print("getMetadata, downloadReady, takeAndDownload");
-  print("setExposureDelayFive, setExposureDelayZero, exposureCompensation");
-  print("getTimeShift, setCapturePreset, setHdr, saveHdr, setShutter");
-  print("filterOff, sleepOff, offOff, reset, resetMySetting");
-  print("autoBracket, startCapture, setLanguage");
-  print("saveThumbs, getThumb, getThumb2");
-  print("deleteAll, setModeImage\n");
-  print('example: dart bin/main.py info\n');
-}
-
 void main(List<String> args) async {
   var parser = ArgParser();
   parser.parse(args);
 
   if (args.length < 1) {
-    printUsage();
+    print(help);
   } else {
     switch (args[0]) {
 
@@ -95,7 +74,12 @@ void main(List<String> args) async {
           /// camera state
           /// API reference https://api.ricoh/docs/theta-web-api-v2.1/protocols/state/
           /// example is in packages/theta/lib/src
-          prettyPrint(await state());
+          prettyPrint(await Camera.state);
+        }
+        break;
+      case 'batteryLevel':
+        {
+          print(await Camera.batteryLevel);
         }
         break;
 
@@ -236,7 +220,7 @@ void main(List<String> args) async {
       case "status":
         {
           if (args.length == 2) {
-            prettyPrint(await status(args[1]));
+            prettyPrint(await Camera.status(args[1]));
           } else {
             print('please supply id.  Example: dart main.dart status 306');
           }
@@ -337,9 +321,15 @@ void main(List<String> args) async {
         }
         break;
 
+      case "help":
+        {
+          print(help);
+        }
+        break;
+
       default:
         {
-          printUsage();
+          print(help);
         }
         break;
     }
