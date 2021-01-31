@@ -1,6 +1,6 @@
 # RICOH THETA API HTTP Community Tests
 
-Last updated January 29, 2021.
+Last updated January 30, 2021.
 
 IMPORTANT: some of the code examples are now in `/packages/theta/lib/src/`
 
@@ -177,6 +177,7 @@ $ dart bin/main.dart info
 }
 ```
 
+Use `dart bin/main.dart help` for more usage information.
 
 
 ## Troubleshooting Camera
