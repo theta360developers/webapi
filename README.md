@@ -210,7 +210,7 @@ One time installation of required Ruby gems.
 bundle install
 ```
 
-To view the documents locally:
+The Gemfile will be saved to the /docs directory. To view the documents locally, run the following command while in the /docs directory:
 
 ```
 bundle exec jekyll serve
