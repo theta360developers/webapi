@@ -34,8 +34,8 @@ import 'package:apitest/thumbnails/get_all_thumbs.dart';
 import 'package:apitest/thumbnails/write_all_thumbs.dart';
 import 'package:apitest/commands/delete_test.dart';
 import 'package:apitest/options/set_mode_image.dart';
-import 'package:args/command_runner.dart';
-import 'package:apitest/hdr_command.dart';
+// import 'package:args/command_runner.dart';
+// import 'package:apitest/hdr_command.dart';
 
 void prettyPrint(map) {
   print(JsonEncoder.withIndent('  ').convert(map));
@@ -45,6 +45,7 @@ void main(List<String> args) async {
   //check in docs/_notes for a good tutorial video
   // https://youtu.be/kcF-cakpNo8
   // addOption has these additional parameters: allowed, defaultsTo
+
   var parser = ArgParser()
     ..addSeparator('=== HDR and Image Filter Settings')
     ..addFlag('hdr', help: 'specify internal camera hdr. Image is saved as JPG')

@@ -15,26 +15,26 @@ import 'download_ready.dart';
 Future<String> takeAndDownload() async {
   var readyStatus = await downloadReady();
 
-  if (readyStatus == "ready") {
+  if (readyStatus == 'ready') {
     var url = 'http://192.168.1.1/osc/state';
 
     var response = await http
-        .post(url, headers: {"Content-Type": "application/json;charset=utf-8"});
+        .post(url, headers: {'Content-Type': 'application/json;charset=utf-8'});
 
     Map<String, dynamic> thetaState = jsonDecode(response.body);
 
     // print(thetaState);
     String imageFileUrl = thetaState['state']['_latestFileUrl'];
-    print("Writing file from the following URL");
+    print('Writing file from the following URL');
     print(imageFileUrl);
 
     var imageFileName = imageFileUrl.split('/')[6];
 
     await File(imageFileName).writeAsBytes(await http.readBytes(imageFileUrl));
-    print("download complete");
-    return "success";
+    print('download complete');
+    return 'success';
   } else {
-    print("download failed");
-    return "fail";
+    print('download failed');
+    return 'fail';
   }
 }

@@ -7,12 +7,12 @@ import 'get_last_image_url.dart';
 
 Future<String> isDone(String id) async {
   var url = 'http://192.168.1.1/osc/commands/status';
-  Map data = {'id': id};
+  var data = {'id': id};
 
   var payload = jsonEncode(data);
 
   var response = await http.post(url,
-      headers: {"Content-Type": "application/json;charset=utf-8"},
+      headers: {'Content-Type': 'application/json;charset=utf-8'},
       body: payload);
 
   Map<String, dynamic> status = jsonDecode(response.body);

@@ -1,3 +1,4 @@
+import 'package:args/args.dart';
 import 'package:args/command_runner.dart';
 import 'package:theta/theta.dart';
 import 'dart:io';
@@ -11,14 +12,24 @@ class HdrCommand extends Command {
 
   @override
   void run() async {
-    print(argResults.arguments);
-    print(argParser.usage);
-    if (argResults.arguments.first == 'set') {
-      print('setting hdr');
-      // await CameraOption.hdrSet();
-      // print(await CameraOption.filterSetting);
-      // exit(0);
-    }
+    print('running hdr');
+    var hdrParser = ArgParser();
+
+    print(hdrParser.options);
+    hdrParser.addOption('enable',
+        help: 'enable HDR until camera is put to sleep or turned off');
+
+    print(hdrParser.usage);
+
+    // if (argResults.arguments.isNotEmpty) {
+    //   manageHdr(argResults.arguments.first);
+    // } else {
+    //   print(argParser.usage);
+    // }
+
+    // await CameraOption.hdrSet();
+    // print(await CameraOption.filterSetting);
+    // exit(0);
     // else {
     //     await CameraOption.filterOff();
     //     print(await CameraOption.filterSetting);
