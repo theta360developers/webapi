@@ -13,7 +13,7 @@ Future<http.Response> setLanguage(lang) async {
   var data = {
     'name': 'camera.setOptions',
     'parameters': {
-      'options': {"_language": lang}
+      'options': {'_language': lang}
     }
   };
 
@@ -21,8 +21,8 @@ Future<http.Response> setLanguage(lang) async {
   var body = jsonEncode(data);
 
   var response = await http.post(url,
-      headers: {"Content-Type": "application/json;charset=utf-8"}, body: body);
-  print("${response.statusCode}");
-  prettyPrint("${response.body}");
+      headers: {'Content-Type': 'application/json;charset=utf-8'}, body: body);
+  print('${response.statusCode}');
+  prettyPrint('${response.body}');
   return response;
 }

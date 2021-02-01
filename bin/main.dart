@@ -34,30 +34,29 @@ import 'package:apitest/thumbnails/get_all_thumbs.dart';
 import 'package:apitest/thumbnails/write_all_thumbs.dart';
 import 'package:apitest/commands/delete_test.dart';
 import 'package:apitest/options/set_mode_image.dart';
+import 'package:args/command_runner.dart';
+import 'package:apitest/hdr_command.dart';
 
 void prettyPrint(map) {
   print(JsonEncoder.withIndent('  ').convert(map));
 }
 
 void main(List<String> args) async {
-  //TODO: implement args for better command line option flexibility
   //check in docs/_notes for a good tutorial video
   // https://youtu.be/kcF-cakpNo8
-  var parser = ArgParser();
-  parser.addFlag('hdr',
-      help: 'specify internal camera hdr. Image is saved as JPG');
-
-  parser.addFlag('filter-show',
-      help: 'show current image filter. Example: hdr', negatable: false);
-
-  parser.addFlag('filter-save-show',
-      help: 'show current saved filter. Example: hdr', negatable: false);
-
-  parser.addFlag('hdr-save',
-      help: 'save hdr filter to mySetting to survive reboot');
-
-  parser.addFlag('help',
-      abbr: 'h', help: 'Print usage information', negatable: false);
+  // addOption has these additional parameters: allowed, defaultsTo
+  var parser = ArgParser()
+    ..addSeparator('=== HDR and Image Filter Settings')
+    ..addFlag('hdr', help: 'specify internal camera hdr. Image is saved as JPG')
+    ..addFlag('filter-show',
+        help: 'show current image filter. Example: hdr', negatable: false)
+    ..addFlag('filter-save-show',
+        help: 'show current saved filter. Example: hdr', negatable: false)
+    ..addFlag('hdr-save',
+        help: 'save hdr filter to mySetting to survive reboot')
+    ..addSeparator('=== Help')
+    ..addFlag('help',
+        abbr: 'h', help: 'Print usage information', negatable: false);
 
   var parsedArguments = parser.parse(args);
 
@@ -95,6 +94,12 @@ void main(List<String> args) async {
     print(await CameraOption.filterSavedSetting);
     exit(0);
   }
+
+//TODO: implement command runner
+  // final runner = CommandRunner('theta', 'access RICOH WebAPI')
+  //   ..addCommand(HdrCommand());
+
+  // await runner.run(args);
 
   if (args.isEmpty) {
     print(help);
@@ -374,7 +379,7 @@ void main(List<String> args) async {
       case 'help':
         {
           print(help);
-          print(parser.usage);
+          // print(parser.usage);
         }
         break;
 
@@ -382,7 +387,7 @@ void main(List<String> args) async {
         {
           print('\nfor extended usage information');
           print('dart bin/main.dart help');
-          print(parser.usage);
+          // print(parser.usage);
           print('\n');
         }
         break;

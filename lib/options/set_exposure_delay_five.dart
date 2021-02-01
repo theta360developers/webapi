@@ -12,7 +12,7 @@ Future<http.Response> setExposureDelayFive() async {
     'name': 'camera.setOptions',
     'parameters': {
       'options': {
-        "exposureDelay": 5,
+        'exposureDelay': 5,
       }
     }
   };
@@ -21,8 +21,8 @@ Future<http.Response> setExposureDelayFive() async {
   var body = jsonEncode(data);
 
   var response = await http.post(url,
-      headers: {"Content-Type": "application/json;charset=utf-8"}, body: body);
-  print("${response.statusCode}");
-  prettyPrint("${response.body}");
+      headers: {'Content-Type': 'application/json;charset=utf-8'}, body: body);
+  print('${response.statusCode}');
+  prettyPrint('${response.body}');
   return response;
 }
