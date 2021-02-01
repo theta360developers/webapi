@@ -23,7 +23,7 @@ Future<http.Response> getOptions() async {
   //   }
   // };
 
-  Map data = {
+  var data = {
     'name': 'camera.getOptions',
     'parameters': {
       'optionNames': [

@@ -13,7 +13,7 @@ import 'package:http/http.dart' as http;
 import 'download_ready.dart';
 
 Future<String> takeAndDownload() async {
-  String readyStatus = await downloadReady();
+  var readyStatus = await downloadReady();
 
   if (readyStatus == "ready") {
     var url = 'http://192.168.1.1/osc/state';
@@ -28,7 +28,7 @@ Future<String> takeAndDownload() async {
     print("Writing file from the following URL");
     print(imageFileUrl);
 
-    String imageFileName = imageFileUrl.split("/")[6];
+    var imageFileName = imageFileUrl.split('/')[6];
 
     await File(imageFileName).writeAsBytes(await http.readBytes(imageFileUrl));
     print("download complete");

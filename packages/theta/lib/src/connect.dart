@@ -12,7 +12,7 @@ Future<Map<String, dynamic>> connect(String url, String protocol,
   try {
     if (protocol == 'get') {
       response = await http.get(url, headers: _headers);
-      print('request: ${response.request}');
+      // print('request: ${response.request}');
     } else {
       if (requestBodyMap == null) {
         // print('the request body is null');
@@ -22,7 +22,7 @@ Future<Map<String, dynamic>> connect(String url, String protocol,
         response = await http.post(url,
             headers: _headers, body: jsonEncode(requestBodyMap));
         // print(response.body);
-        print(response.request);
+        // print(response.request);
       }
     }
     if (response.statusCode != 200) {

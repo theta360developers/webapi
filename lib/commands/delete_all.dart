@@ -7,20 +7,20 @@ import 'package:apitest/list_files.dart';
 
 var url = 'http://192.168.1.1/osc/commands/execute';
 Map<String, String> headers = {
-  "Content-Type": "application/json;charset=utf-8"
+  'Content-Type': 'application/json;charset=utf-8'
 };
 
 Future<void> deleteAll() async {
   var client = http.Client();
-  http.Response allFilesResponse = await listFiles();
-  var fileListing = jsonDecode(allFilesResponse.body)["results"]["entries"];
+  var allFilesResponse = await listFiles();
+  var fileListing = jsonDecode(allFilesResponse.body)['results']['entries'];
   print('there are ${fileListing.length} images in the camera');
 
   var urlList = [];
   var numberOfImages = fileListing.length;
 
   for (var i = 0; i < numberOfImages; i++) {
-    urlList.add(fileListing[i]["fileUrl"]);
+    urlList.add(fileListing[i]['fileUrl']);
   }
 
 // loop through images on camera and delete all images

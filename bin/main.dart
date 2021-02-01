@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:theta/theta.dart';
-import '../lib/help.dart';
+import 'package:apitest/help.dart';
 import 'package:apitest/options/reset_my_setting.dart';
 import 'package:apitest/commands/delete_all.dart';
 import 'package:apitest/thumbnails/not-working-list_all_thumnails.dart';
@@ -19,13 +19,10 @@ import 'package:apitest/options/set_exposure_delay_five.dart';
 import 'package:apitest/options/set_exposure_delay_zero.dart';
 import 'package:apitest/options/get_timeshift.dart';
 import 'package:apitest/options/set_capture_preset.dart';
-import 'package:apitest/options/set_hdr.dart';
 import 'package:apitest/options/set_shutter.dart';
 import 'package:apitest/commands/start_capture.dart';
-import 'package:apitest/options/set_my_setting.dart';
 import 'package:apitest/options/set_exposure_compensation_two.dart';
-import 'package:apitest/options/filter_off.dart';
-import '../lib/options/set_language.dart';
+import 'package:apitest/options/set_language.dart';
 import 'package:apitest/thumbnails/get_thumb.dart';
 import 'package:apitest/thumbnails/get_thumb_2.dart';
 import 'package:apitest/commands/reset.dart';
@@ -45,28 +42,57 @@ void prettyPrint(map) {
 void main(List<String> args) async {
   //TODO: implement args for better command line option flexibility
   //check in docs/_notes for a good tutorial video
+  // https://youtu.be/kcF-cakpNo8
   var parser = ArgParser();
   parser.addFlag('hdr',
       help: 'specify internal camera hdr. Image is saved as JPG');
 
-  parser.addFlag('help', abbr: 'h', help: 'Print usage information');
+  parser.addFlag('filter-show',
+      help: 'show current image filter. Example: hdr', negatable: false);
+
+  parser.addFlag('filter-save-show',
+      help: 'show current saved filter. Example: hdr', negatable: false);
+
+  parser.addFlag('hdr-save',
+      help: 'save hdr filter to mySetting to survive reboot');
+
+  parser.addFlag('help',
+      abbr: 'h', help: 'Print usage information', negatable: false);
 
   var parsedArguments = parser.parse(args);
 
   if (parsedArguments.wasParsed('hdr')) {
     print('setting hdr to ${parsedArguments['hdr']}');
+    // this is a boolean
     if (parsedArguments['hdr']) {
-      await setHdr();
-      // TODO: print out current value of _filter
+      await CameraOption.hdrSet();
+      print(await CameraOption.filterSetting);
+      exit(0);
     } else {
-      print('turn off hdr');
-      await filterOff();
-      //TODO: print out current value of _filter
+      await CameraOption.filterOff();
+      print(await CameraOption.filterSetting);
+      exit(0);
     }
-  }
-
-  if (parsedArguments.wasParsed('help')) {
+  } else if (parsedArguments.wasParsed('hdr-save')) {
+    print('saving hdr: ${parsedArguments['hdr-save']}');
+    // this is a boolean
+    if (parsedArguments['hdr-save']) {
+      await CameraOption.hdrSave();
+      print(await CameraOption.filterSavedSetting);
+      exit(0);
+    } else {
+      await CameraOption.filterSavedOff();
+      print(await CameraOption.filterSavedSetting);
+      exit(0);
+    }
+  } else if (parsedArguments.wasParsed('help')) {
     print(parser.usage);
+    exit(0);
+  } else if (parsedArguments.wasParsed('filter-show')) {
+    print(await CameraOption.filterSetting);
+    exit(0);
+  } else if (parsedArguments.wasParsed('filter-save-show')) {
+    print(await CameraOption.filterSavedSetting);
     exit(0);
   }
 
@@ -116,34 +142,34 @@ void main(List<String> args) async {
         }
         break;
 
-      case "listFiles":
+      case 'listFiles':
         {
           /// list files
           /// API reference: https://api.ricoh/docs/theta-web-api-v2.1/commands/camera.list_files/
-          listFiles();
+          await listFiles();
         }
         break;
 
-      case "saveHdr":
+      // case 'saveHdr':
+      //   {
+      //     await saveHdr();
+      //   }
+      //   break;
+
+      case 'setModeImage':
         {
-          await saveHdr();
+          await setModeImage();
         }
         break;
 
-      case "setModeImage":
-        {
-          setModeImage();
-        }
-        break;
-
-      case "getOptions":
+      case 'getOptions':
         {
           /// get options
-          getOptions();
+          await getOptions();
         }
         break;
 
-      case "downloadFile":
+      case 'downloadFile':
         {
           /// download a single file
           downloadFile();
@@ -152,9 +178,8 @@ void main(List<String> args) async {
 
       case 'getMetadata':
         {
-          getLastImageUrl().then((url) {
-            getMetadata(url);
-          });
+          var url = await getLastImageUrl();
+          await getMetadata(url);
         }
         break;
 
@@ -182,67 +207,67 @@ void main(List<String> args) async {
         }
         break;
 
-      case "setExposureDelayFive":
+      case 'setExposureDelayFive':
         {
-          setExposureDelayFive();
+          await setExposureDelayFive();
         }
         break;
 
-      case "setExposureDelayZero":
+      case 'setExposureDelayZero':
         {
-          setExposureDelayZero();
+          await setExposureDelayZero();
         }
         break;
 
-      case "getTimeShift":
+      case 'getTimeShift':
         {
-          getTimeShift();
+          await getTimeShift();
         }
         break;
 
-      case "setCapturePreset":
+      case 'setCapturePreset':
         {
-          setPreset();
+          await setPreset();
         }
         break;
 
-      case "setHdr":
+      // case 'setHdr':
+      //   {
+      //     await setHdr();
+      //   }
+      //   break;
+
+      case 'setShutter':
         {
-          setHdr();
+          await setShutter();
         }
         break;
 
-      case "setShutter":
+      case 'autoBracket':
         {
-          setShutter();
+          await autoBracket();
         }
         break;
 
-      case "autoBracket":
+      case 'startCapture':
         {
-          autoBracket();
+          await startCapture();
         }
         break;
 
-      case "startCapture":
+      case 'exposureCompensation':
         {
-          startCapture();
+          await setExposureCompensationTwo();
         }
         break;
 
-      case "exposureCompensation":
-        {
-          setExposureCompensationTwo();
-        }
-        break;
+      // case 'filterOff':
+      //   {
+      //     await filterOff();
+      //   }
+      //   break;
 
-      case "filterOff":
-        {
-          filterOff();
-        }
-        break;
-
-      case "status":
+      case 'status':
         {
           if (args.length == 2) {
             prettyPrint(await Camera.status(args[1]));
@@ -252,11 +277,11 @@ void main(List<String> args) async {
         }
         break;
 
-      case "setLanguage":
+      case 'setLanguage':
         {
           if (args.length == 2) {
             print('setting lang');
-            setLanguage(args[1]);
+            await setLanguage(args[1]);
           } else {
             print(args.length);
             print(
@@ -267,86 +292,86 @@ void main(List<String> args) async {
         }
         break;
 
-      case "getThumb":
+      case 'getThumb':
         {
-          String lastImageUrl = await getLastImageUrl();
-          getThumb(lastImageUrl);
+          var lastImageUrl = await getLastImageUrl();
+          await getThumb(lastImageUrl);
         }
         break;
 
-      case "getThumb2":
+      case 'getThumb2':
         {
-          String lastImageUrl = await getLastImageUrl();
-          getThumb2(lastImageUrl);
+          var lastImageUrl = await getLastImageUrl();
+          await getThumb2(lastImageUrl);
         }
         break;
 
-      case "listAllThumbnails":
+      case 'listAllThumbnails':
         {
-          listAllThumbnails();
+          await listAllThumbnails();
         }
         break;
 
       case 'deleteAll':
         {
-          deleteAll();
+          await deleteAll();
         }
         break;
 
-      case "reset":
+      case 'reset':
         {
-          reset();
+          await reset();
         }
         break;
 
-      case "sleepOff":
+      case 'sleepOff':
         {
-          sleepOff();
+          await sleepOff();
         }
         break;
 
-      case "offOff":
+      case 'offOff':
         {
-          offOff();
+          await offOff();
         }
         break;
 
-      case "resetMySetting":
+      case 'resetMySetting':
         {
-          resetMySetting();
+          await resetMySetting();
         }
         break;
 
-      case "listUrls":
+      case 'listUrls':
         {
-          listUrls();
+          await listUrls();
         }
         break;
-      case "saveThumbs":
+      case 'saveThumbs':
         {
-          saveThumbs(await listUrls());
-        }
-        break;
-
-      case "getAllThumbs":
-        {
-          getAllThumbs(await listUrls());
+          await saveThumbs(await listUrls());
         }
         break;
 
-      case "writeAllThumbs":
+      case 'getAllThumbs':
         {
-          writeAllThumbs();
+          await getAllThumbs(await listUrls());
         }
         break;
 
-      case "deleteTest":
+      case 'writeAllThumbs':
         {
-          deleteTest();
+          await writeAllThumbs();
         }
         break;
 
-      case "help":
+      case 'deleteTest':
+        {
+          await deleteTest();
+        }
+        break;
+
+      case 'help':
         {
           print(help);
           print(parser.usage);
@@ -355,9 +380,10 @@ void main(List<String> args) async {
 
       default:
         {
-          print(help);
-          print('command line options');
+          print('\nfor extended usage information');
+          print('dart bin/main.dart help');
           print(parser.usage);
+          print('\n');
         }
         break;
     }

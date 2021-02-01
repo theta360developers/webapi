@@ -6,7 +6,7 @@ import 'package:apitest/pretty_print.dart';
 Future<http.Response> reset() async {
   var url = 'http://192.168.1.1/osc/commands/execute';
 
-  Map data = {'name': 'camera.reset'};
+  var data = {'name': 'camera.reset'};
   //encode Map to JSON
   var body = jsonEncode(data);
 

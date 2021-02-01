@@ -4,14 +4,14 @@ import 'package:http/http.dart' as http;
 
 var url = 'http://192.168.1.1/osc/commands/execute';
 Map<String, String> headers = {
-  "Content-Type": "application/json;charset=utf-8"
+  'Content-Type': 'application/json;charset=utf-8'
 };
 
 Future<void> deleteTest() async {
-  Map payload = {
-    "name": "camera.delete",
-    "parameters": {
-      "fileUrls": ["all"]
+  var payload = {
+    'name': 'camera.delete',
+    'parameters': {
+      'fileUrls': ['all']
     }
   };
   var body = jsonEncode(payload);

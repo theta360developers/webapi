@@ -8,11 +8,11 @@ import 'package:apitest/pretty_print.dart';
 Future<http.Response> setHdr() async {
   var url = 'http://192.168.1.1/osc/commands/execute';
 
-  Map data = {
+  var data = {
     'name': 'camera.setOptions',
     'parameters': {
       'options': {
-        "_filter": "hdr",
+        '_filter': 'hdr',
       }
     }
   };
