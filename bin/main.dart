@@ -75,13 +75,6 @@ void main(List<String> args) async {
         }
         break;
 
-      // case 'getMetadata':
-      //   {
-      //     var url = await getLastImageUrl();
-      //     await getMetadata(url);
-      //   }
-      //   break;
-
       case 'downloadReady':
         {
           await downloadReady();
@@ -255,13 +248,6 @@ void main(List<String> args) async {
       case 'deleteTest':
         {
           await deleteTest();
-        }
-        break;
-
-      case 'help':
-        {
-          print('moving to args package.  Help will be updated soon');
-          // print(parser.usage);
         }
         break;
 

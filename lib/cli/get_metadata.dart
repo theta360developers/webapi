@@ -1,4 +1,5 @@
 import 'package:apitest/commands/get_metadata.dart';
+import 'package:apitest/get_last_image_url.dart';
 import 'package:args/command_runner.dart';
 // import 'package:theta/theta.dart';
 import 'dart:io';
@@ -15,6 +16,7 @@ class GetMetadataCli extends Command {
 
   GetMetadataCli() {
     argParser
+      //TODO: add option to get last file
       ..addOption('url',
           help: 'Example: --url=http://192.168.1.1/files/../R0010307.JPG');
     // argParser
@@ -24,9 +26,10 @@ class GetMetadataCli extends Command {
   @override
   void run() async {
     if (!argResults.wasParsed('url')) {
-      print(red('please provide file URI on camera'));
-      print(argParser.usage);
-      exit(1);
+      var url = await getLastImageUrl();
+      await getMetadata(url);
+      print(red('No URL specified. Using last image taken'));
+      exit(0);
     } else {
       //TODO: move to library. move print statement outside of library
       await getMetadata(argResults['url']);
