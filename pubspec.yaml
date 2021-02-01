@@ -6,6 +6,7 @@ dependencies:
   args: ^1.6.0
   theta:
     path: packages/theta
+  dcli: ^0.41.0
 
 environment:
   sdk: '>=2.10.0 <3.0.0'

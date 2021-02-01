@@ -8,9 +8,7 @@ class StateCli extends Command {
   final name = 'state';
 
   @override
-  final description = 'Camera state: batteryLevel, storageUri, _apiVersion, '
-      '_batteryState, _cameraError[], _captureStatus, _capturedPictures, '
-      '_latestFileUri, _recordableTime, _recordedTime, _function';
+  final description = 'Camera state: batteryLevel, storageUri...';
 
   StateCli() {
     argParser
@@ -21,6 +19,7 @@ class StateCli extends Command {
   void run() async {
     if (argResults.arguments.isEmpty) {
       print(pretty(await Camera.state));
+      exit(0);
     } else if (argResults.wasParsed('battery')) {
       var battery = await Camera.batteryLevel;
       print('Camera battery level: $battery');

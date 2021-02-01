@@ -8,9 +8,7 @@ class InfoCli extends Command {
   final name = 'info';
 
   @override
-  final description = 'Camera information: manufacturer, model, serialNumber, '
-      '_wlanMacAddress, _bluetoothMacAddress, firmwareVersion, supportUrl, '
-      'gps, gyro, uptime, api, endpoints, apiLevel.';
+  final description = 'Camera info: model, serialNumber, apiLevel... ';
 
   InfoCli() {
     argParser
@@ -25,6 +23,7 @@ class InfoCli extends Command {
   void run() async {
     if (argResults.arguments.isEmpty) {
       print(pretty(await Camera.info));
+      exit(0);
     } else if (argResults.wasParsed('model')) {
       var model = await Camera.model;
       print('Camera model: $model');

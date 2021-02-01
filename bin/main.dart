@@ -1,8 +1,12 @@
+import 'package:apitest/cli/get_metadata.dart';
+import 'package:apitest/cli/get_options_cli.dart';
+import 'package:apitest/cli/set_mode_image_cli.dart';
 import 'package:theta/theta.dart';
 import 'dart:convert';
 import 'package:apitest/cli/info_cli.dart';
 import 'package:apitest/cli/state_cli.dart';
 import 'package:apitest/cli/take_picture_cli.dart';
+import 'package:apitest/cli/list_files_cli.dart';
 // import 'package:apitest/help.dart';
 import 'package:apitest/options/reset_my_setting.dart';
 import 'package:apitest/commands/delete_all.dart';
@@ -47,39 +51,22 @@ void main(List<String> args) async {
     ..addCommand(HdrCli())
     ..addCommand(InfoCli())
     ..addCommand(StateCli())
-    ..addCommand(TakePictureCli());
+    ..addCommand(TakePictureCli())
+    ..addCommand(ListFilesCli())
+    ..addCommand(SetModeImageCli())
+    ..addCommand(GetOptionsCli())
+    ..addCommand(GetMetadataCli());
   await runner.run(args);
 
   if (args.isEmpty) {
     print('moving to args package.  Help will be updated soon');
   } else {
     switch (args[0]) {
-      case 'listFiles':
-        {
-          /// list files
-          /// API reference: https://api.ricoh/docs/theta-web-api-v2.1/commands/camera.list_files/
-          await listFiles();
-        }
-        break;
-
       // case 'saveHdr':
       //   {
       //     await saveHdr();
       //   }
       //   break;
-
-      case 'setModeImage':
-        {
-          await setModeImage();
-        }
-        break;
-
-      case 'getOptions':
-        {
-          /// get options
-          await getOptions();
-        }
-        break;
 
       case 'downloadFile':
         {
@@ -88,12 +75,12 @@ void main(List<String> args) async {
         }
         break;
 
-      case 'getMetadata':
-        {
-          var url = await getLastImageUrl();
-          await getMetadata(url);
-        }
-        break;
+      // case 'getMetadata':
+      //   {
+      //     var url = await getLastImageUrl();
+      //     await getMetadata(url);
+      //   }
+      //   break;
 
       case 'downloadReady':
         {
