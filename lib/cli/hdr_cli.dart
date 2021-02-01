@@ -1,35 +1,37 @@
-import 'package:args/args.dart';
 import 'package:args/command_runner.dart';
-// import 'package:theta/theta.dart';
-// import 'dart:io';
+import 'package:theta/theta.dart';
+import 'dart:io';
+import 'pretty.dart';
 
-class HdrCommand extends Command {
+class HdrCli extends Command {
   @override
   final name = 'hdr';
 
   @override
   final description = 'Enable, save, disable, and check hdr settings';
 
+  HdrCli() {
+    argParser
+      ..addFlag('enable',
+          help: 'enable HDR until you turn off camera or put it to sleep');
+  }
+
   @override
   void run() async {
     print('running hdr');
-    var hdrParser = ArgParser();
+    if (argResults.arguments.isEmpty) {
+      print(argParser.usage);
+    } else if (argResults.wasParsed('enable')) {
+      //TODO: enable hdr
+      print('TODO: enable hdr');
+      await CameraOption.hdrSet();
+      print(await CameraOption.filterSetting);
+      exit(0);
+    }
+  }
+}
 
-    print(hdrParser.options);
-    hdrParser.addOption('enable',
-        help: 'enable HDR until camera is put to sleep or turned off');
 
-    print(hdrParser.usage);
-
-    // if (argResults.arguments.isNotEmpty) {
-    //   manageHdr(argResults.arguments.first);
-    // } else {
-    //   print(argParser.usage);
-    // }
-
-    // await CameraOption.hdrSet();
-    // print(await CameraOption.filterSetting);
-    // exit(0);
     // else {
     //     await CameraOption.filterOff();
     //     print(await CameraOption.filterSetting);
@@ -57,5 +59,3 @@ class HdrCommand extends Command {
     //   print(await CameraOption.filterSavedSetting);
     //   exit(0);
     // }
-  }
-}
