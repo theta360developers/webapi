@@ -8,7 +8,7 @@ var urls = [];
 Future<List<dynamic>> listUrls() async {
   var url = 'http://192.168.1.1/osc/commands/execute';
 
-  Map data = {
+  var data = {
     'name': 'camera.listFiles',
     'parameters': {
       'fileType': 'image',
@@ -21,11 +21,11 @@ Future<List<dynamic>> listUrls() async {
   var body = jsonEncode(data);
 
   var response = await http.post(url,
-      headers: {"Content-Type": "application/json;charset=utf-8"}, body: body);
-  print("${response.statusCode}");
-  var entries = await jsonDecode(response.body)["results"]["entries"];
+      headers: {'Content-Type': 'application/json;charset=utf-8'}, body: body);
+  print('${response.statusCode}');
+  var entries = await jsonDecode(response.body)['results']['entries'];
   entries.forEach((element) {
-    urls.add(element["fileUrl"]);
+    urls.add(element['fileUrl']);
   });
   print(urls);
   return urls;

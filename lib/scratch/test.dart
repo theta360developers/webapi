@@ -11,7 +11,7 @@ Future<String> isDone(String id) async {
   var payload = jsonEncode(data);
 
   var response = await http.post(url,
-      headers: {"Content-Type": "application/json;charset=utf-8"},
+      headers: {'Content-Type': 'application/json;charset=utf-8'},
       body: payload);
 
   Map<String, dynamic> status = jsonDecode(response.body);
@@ -39,7 +39,7 @@ Future<String> test() async {
     await Future.delayed(const Duration(seconds: 1));
     print('Elapsed time: $elapsedSeconds seconds. State: $currentStatus');
     elapsedSeconds++;
-    if (currentStatus == "done") {
+    if (currentStatus == 'done') {
       keepGoing = false;
     }
   }

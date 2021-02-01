@@ -14,7 +14,7 @@ Future<http.Response> offOff() async {
     'name': 'camera.setOptions',
     'parameters': {
       'options': {
-        "offDelay": 65535,
+        'offDelay': 65535,
       }
     }
   };
@@ -23,8 +23,8 @@ Future<http.Response> offOff() async {
   var body = jsonEncode(data);
 
   var response = await http.post(url,
-      headers: {"Content-Type": "application/json;charset=utf-8"}, body: body);
-  print("${response.statusCode}");
-  prettyPrint("${response.body}");
+      headers: {'Content-Type': 'application/json;charset=utf-8'}, body: body);
+  print('${response.statusCode}');
+  prettyPrint('${response.body}');
   return response;
 }
