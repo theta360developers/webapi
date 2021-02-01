@@ -5,15 +5,14 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:apitest/pretty_print.dart';
 
+Future<http.Response> setExposureCompensationTwo() async {
+  var url = 'http://192.168.1.1/osc/commands/execute';
 
-Future<http.Response> setExposureCompensationTwo () async {
-  var url ='http://192.168.1.1/osc/commands/execute';
-
- Map data = {
+  var data = {
     'name': 'camera.setOptions',
     'parameters': {
       'options': {
-        "exposureCompensation": 1.0,
+        'exposureCompensation': 1.0,
       }
     }
   };
@@ -22,10 +21,8 @@ Future<http.Response> setExposureCompensationTwo () async {
   var body = jsonEncode(data);
 
   var response = await http.post(url,
-      headers: {"Content-Type": "application/json;charset=utf-8"},
-      body: body
-  );
-  print("${response.statusCode}");
-  prettyPrint("${response.body}");
+      headers: {'Content-Type': 'application/json;charset=utf-8'}, body: body);
+  print('${response.statusCode}');
+  prettyPrint('${response.body}');
   return response;
 }

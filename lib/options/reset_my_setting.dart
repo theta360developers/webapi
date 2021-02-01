@@ -8,19 +8,19 @@ import 'package:apitest/pretty_print.dart';
 Future<http.Response> resetMySetting() async {
   var url = 'http://192.168.1.1/osc/commands/execute';
 
-  Map data = {
+  var data = {
     'name': 'camera._setMySetting',
     'parameters': {
       'options': {
-        "exposureProgram": 2,
-        "_filter": "off",
-        "exposureCompensation": 0.0,
-        "whiteBalance": "auto",
-        "iso": 0,
-        "shutterSpeed": 0,
-        "_colorTemperature": 5000
+        'exposureProgram': 2,
+        '_filter': 'off',
+        'exposureCompensation': 0.0,
+        'whiteBalance': 'auto',
+        'iso': 0,
+        'shutterSpeed': 0,
+        '_colorTemperature': 5000
       },
-      "mode": "image"
+      'mode': 'image'
     }
   };
 
@@ -28,8 +28,8 @@ Future<http.Response> resetMySetting() async {
   var body = jsonEncode(data);
 
   var response = await http.post(url,
-      headers: {"Content-Type": "application/json;charset=utf-8"}, body: body);
-  print("${response.statusCode}");
-  prettyPrint("${response.body}");
+      headers: {'Content-Type': 'application/json;charset=utf-8'}, body: body);
+  print('${response.statusCode}');
+  prettyPrint('${response.body}');
   return response;
 }

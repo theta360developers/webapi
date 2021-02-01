@@ -10,10 +10,10 @@ Future<http.Response> setPreset() async {
 
   /// For SC2 and SC2B preset can be "face", "nightView", "lensbylensExposure"
   /// For SC2B, in addition, the preset can be "room"
-  Map data = {
+  var data = {
     'name': 'camera.setOptions',
     'parameters': {
-      'options': {"captureMode": "_preset", "_preset": "room"}
+      'options': {'captureMode': '_preset', '_preset': 'room'}
     }
   };
 
@@ -21,8 +21,8 @@ Future<http.Response> setPreset() async {
   var body = jsonEncode(data);
 
   var response = await http.post(url,
-      headers: {"Content-Type": "application/json;charset=utf-8"}, body: body);
-  print("${response.statusCode}");
-  prettyPrint("${response.body}");
+      headers: {'Content-Type': 'application/json;charset=utf-8'}, body: body);
+  print('${response.statusCode}');
+  prettyPrint('${response.body}');
   return response;
 }

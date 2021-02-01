@@ -13,7 +13,7 @@ void downloadFile() async {
   var body = jsonEncode(data);
 
   var response = await http.post(url,
-      headers: {"Content-Type": "application/json;charset=utf-8"}, body: body);
+      headers: {'Content-Type': 'application/json;charset=utf-8'}, body: body);
 
   Map<String, dynamic> thetaImage = jsonDecode(response.body);
 
@@ -21,10 +21,10 @@ void downloadFile() async {
   // final testFileUrl = 'https://picsum.photos/200/300/?random';
 
   String imageFileUrl = thetaImage['results']['entries'][0]['fileUrl'];
-  print("Writing file from the following URL");
+  print('Writing file from the following URL');
   print(imageFileUrl);
 
-  String imageFileName = imageFileUrl.split("/")[6];
+  var imageFileName = imageFileUrl.split('/')[6];
 
   await File(imageFileName).writeAsBytes(await http.readBytes(imageFileUrl));
 }

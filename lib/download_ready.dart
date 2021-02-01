@@ -23,28 +23,28 @@ Future<String> isDone(String id) async {
 
 Future<String> downloadReady() async {
   print(
-      "Test of taking picture and then checking to see if picture is ready for download");
-  print("---");
+      'Test of taking picture and then checking to see if picture is ready for download');
+  print('---');
   var takePictureResponse = await takePicture();
   String id = takePictureResponse['id'];
   print('The status ID is $id');
 
-  bool keepGoing = true;
-  int elapsedSeconds = 0;
+  var keepGoing = true;
+  var elapsedSeconds = 0;
 
   while (keepGoing) {
     var currentStatus = await isDone(id);
     // print(currentStatus);
 
-    await new Future.delayed(const Duration(seconds: 1));
-    print("Elapsed time: $elapsedSeconds seconds. State: $currentStatus");
+    await Future.delayed(const Duration(seconds: 1));
+    print('Elapsed time: $elapsedSeconds seconds. State: $currentStatus');
     elapsedSeconds++;
-    if (currentStatus == "done") {
+    if (currentStatus == 'done') {
       keepGoing = false;
     }
   }
 
-  String fileUrl = await getLastImageUrl();
-  print("picture ready for download at $fileUrl");
+  var fileUrl = await getLastImageUrl();
+  print('picture ready for download at $fileUrl');
   return 'ready';
 }

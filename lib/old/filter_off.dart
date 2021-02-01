@@ -13,7 +13,7 @@ Future<http.Response> filterOff() async {
     'name': 'camera.setOptions',
     'parameters': {
       'options': {
-        "_filter": "off",
+        '_filter': 'off',
       }
     }
   };
@@ -22,8 +22,8 @@ Future<http.Response> filterOff() async {
   var body = jsonEncode(data);
 
   var response = await http.post(url,
-      headers: {"Content-Type": "application/json;charset=utf-8"}, body: body);
-  print("${response.statusCode}");
-  prettyPrint("${response.body}");
+      headers: {'Content-Type': 'application/json;charset=utf-8'}, body: body);
+  print('${response.statusCode}');
+  prettyPrint('${response.body}');
   return response;
 }

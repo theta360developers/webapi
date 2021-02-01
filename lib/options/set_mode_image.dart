@@ -10,10 +10,10 @@ Future<http.Response> setModeImage() async {
 
   /// setting mode to image will override the _preset.
   /// this will take it out of "room" mode preset
-  Map data = {
+  var data = {
     'name': 'camera.setOptions',
     'parameters': {
-      'options': {"captureMode": "image"}
+      'options': {'captureMode': 'image'}
     }
   };
 
@@ -21,8 +21,8 @@ Future<http.Response> setModeImage() async {
   var body = jsonEncode(data);
 
   var response = await http.post(url,
-      headers: {"Content-Type": "application/json;charset=utf-8"}, body: body);
-  print("${response.statusCode}");
-  prettyPrint("${response.body}");
+      headers: {'Content-Type': 'application/json;charset=utf-8'}, body: body);
+  print('${response.statusCode}');
+  prettyPrint('${response.body}');
   return response;
 }

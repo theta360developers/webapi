@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 
 Map<String, String> headers = {
-  "Content-Type": "application/json;charset=utf-8"
+  'Content-Type': 'application/json;charset=utf-8'
 };
 
 Future<void> saveThumbs(urls) async {

@@ -1,7 +1,7 @@
 import 'package:args/args.dart';
 import 'package:args/command_runner.dart';
-import 'package:theta/theta.dart';
-import 'dart:io';
+// import 'package:theta/theta.dart';
+// import 'dart:io';
 
 class HdrCommand extends Command {
   @override
