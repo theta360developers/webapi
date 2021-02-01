@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:http/http.dart' as http;
 
 Map<String, String> headers = {
-  "Content-Type": "application/json;charset=utf-8"
+  'Content-Type': 'application/json;charset=utf-8'
 };
 
 Future<List<dynamic>> getAllThumbs(urls) async {
@@ -10,7 +10,7 @@ Future<List<dynamic>> getAllThumbs(urls) async {
   // keep network connection open
   var client = http.Client();
 
-  List<dynamic> thumbs = [];
+  var thumbs = [];
 
   try {
     // loop through list of urls

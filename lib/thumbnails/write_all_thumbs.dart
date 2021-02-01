@@ -11,7 +11,7 @@ Future<void> writeAllThumbs() async {
   try {
     var thumbs = await getAllThumbs(await listUrls());
     for (var i = 0; i < thumbs.length; i++) {
-      File('thumbnail-$i.jpg').writeAsBytes(thumbs[i]);
+      await File('thumbnail-$i.jpg').writeAsBytes(thumbs[i]);
     }
   } catch (e) {
     print(e);

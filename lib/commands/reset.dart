@@ -11,9 +11,9 @@ Future<http.Response> reset() async {
   var body = jsonEncode(data);
 
   var response = await http.post(url,
-      headers: {"Content-Type": "application/json;charset=utf-8"}, body: body);
-  print("The HTTP response code is: ${response.statusCode}");
-  print("The HTTP response from camera.reset is:");
-  prettyPrint("${response.body}");
+      headers: {'Content-Type': 'application/json;charset=utf-8'}, body: body);
+  print('The HTTP response code is: ${response.statusCode}');
+  print('The HTTP response from camera.reset is:');
+  prettyPrint('${response.body}');
   return response;
 }

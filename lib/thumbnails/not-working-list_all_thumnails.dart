@@ -9,7 +9,7 @@ int start = 0;
 Future<String> generateUrl() async {
   var url = 'http://192.168.1.1/osc/commands/execute';
 
-  Map singleImage = {
+  var singleImage = {
     'name': 'camera.listFiles',
     'parameters': {'fileType': 'image', 'entryCount': '1', 'maxThumbSize': '0'}
   };
@@ -28,7 +28,7 @@ Future<String> generateUrl() async {
 Future<int> listAllThumbnails() async {
   var url = 'http://192.168.1.1/osc/commands/execute';
 
-  Map executeCommand = {
+  var executeCommand = {
     'name': 'camera.listFiles',
     'parameters': {
       'fileType': 'all',

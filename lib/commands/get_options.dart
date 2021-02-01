@@ -27,18 +27,18 @@ Future<http.Response> getOptions() async {
     'name': 'camera.getOptions',
     'parameters': {
       'optionNames': [
-        "offDelay",
-        "sleepDelay",
-        "remainingSpace",
-        "_colorTemperature",
-        "previewFormat",
-        "captureMode",
-        "_filter",
-        "shutterSpeed",
-        "_autoBracket",
-        "exposureCompensation",
-        "dateTimeZone",
-        "sleepDelay"
+        'offDelay',
+        'sleepDelay',
+        'remainingSpace',
+        '_colorTemperature',
+        'previewFormat',
+        'captureMode',
+        '_filter',
+        'shutterSpeed',
+        '_autoBracket',
+        'exposureCompensation',
+        'dateTimeZone',
+        'sleepDelay'
       ]
     }
   };
@@ -47,8 +47,8 @@ Future<http.Response> getOptions() async {
   var body = jsonEncode(data);
 
   var response = await http.post(url,
-      headers: {"Content-Type": "application/json;charset=utf-8"}, body: body);
-  print("${response.statusCode}");
-  prettyPrint("${response.body}");
+      headers: {'Content-Type': 'application/json;charset=utf-8'}, body: body);
+  print('${response.statusCode}');
+  prettyPrint('${response.body}');
   return response;
 }
