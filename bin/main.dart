@@ -1,8 +1,7 @@
 import 'dart:io';
-
 import 'package:apitest/cli/delete_all_cli.dart';
 import 'package:apitest/cli/download_file_cli.dart';
-import 'package:apitest/cli/thumb_get_all_cli.dart';
+import 'package:apitest/cli/list_urls_cli.dart';
 import 'package:apitest/cli/thumb_get_cli.dart';
 import 'package:apitest/cli/reset_cli.dart';
 import 'package:apitest/cli/sleep_disable_cli.dart';
@@ -23,7 +22,6 @@ import 'package:apitest/cli/state_cli.dart';
 import 'package:apitest/cli/take_picture_cli.dart';
 import 'package:apitest/cli/list_files_cli.dart';
 import 'package:apitest/options/reset_my_setting.dart';
-import 'package:apitest/thumbnails/not-working-list_all_thumnails.dart';
 import 'package:apitest/options/set_autobracket.dart';
 import 'package:apitest/get_last_image_url.dart';
 import 'package:apitest/options/get_timeshift.dart';
@@ -31,9 +29,6 @@ import 'package:apitest/options/set_capture_preset.dart';
 import 'package:apitest/options/set_shutter.dart';
 import 'package:apitest/commands/start_capture.dart';
 import 'package:apitest/options/set_language.dart';
-import 'package:apitest/thumbnails/get_thumb_2.dart';
-import 'package:apitest/list_urls.dart';
-import 'package:apitest/thumbnails/save_thumbs.dart';
 import 'package:args/command_runner.dart';
 import 'package:apitest/cli/hdr_cli.dart';
 
@@ -65,7 +60,8 @@ void main(List<String> args) async {
     ..addCommand(DeleteAllCli())
     ..addCommand(ThumbGetCli())
     //..addCommand(ThumbGetAllCli()) // not sure what this does
-    ..addCommand(ThumbWriteAllCli());
+    ..addCommand(ThumbWriteAllCli())
+    ..addCommand(ListUrlsCli());
 
   await runner.run(args).catchError((error) {
     if (error is! UsageException) throw error;
@@ -134,14 +130,6 @@ void main(List<String> args) async {
         }
         break;
 
-      // returns single thumb as data.  Don't need in command line tool.
-      // case 'getThumb2':
-      //   {
-      //     var lastImageUrl = await getLastImageUrl();
-      //     await getThumb2(lastImageUrl);
-      //   }
-      //   break;
-
       // this may not work
       // case 'listAllThumbnails':
       //   {
@@ -154,18 +142,6 @@ void main(List<String> args) async {
           await resetMySetting();
         }
         break;
-
-      case 'listUrls':
-        {
-          await listUrls();
-        }
-        break;
-      // don't need this as already saving all thumbs to disk.
-      // case 'saveThumbs':
-      //   {
-      //     await saveThumbs(await listUrls());
-      //   }
-      //   break;
 
       default:
         {

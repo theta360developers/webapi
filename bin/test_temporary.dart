@@ -1,7 +1,5 @@
-import 'package:apitest/get_last_image_url.dart';
-import 'package:apitest/thumbnails/get_thumb_2.dart';
+import 'package:apitest/list_urls.dart';
 
 void main(List<String> args) async {
-  var lastImageUrl = await getLastImageUrl();
-  await getThumb2(lastImageUrl);
+  await listUrls();
 }
