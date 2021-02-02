@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:apitest/cli/delete_all_cli.dart';
 import 'package:apitest/cli/download_file_cli.dart';
+import 'package:apitest/cli/thumb_get_all_cli.dart';
 import 'package:apitest/cli/thumb_get_cli.dart';
 import 'package:apitest/cli/reset_cli.dart';
 import 'package:apitest/cli/sleep_disable_cli.dart';
@@ -33,8 +34,6 @@ import 'package:apitest/options/set_language.dart';
 import 'package:apitest/thumbnails/get_thumb_2.dart';
 import 'package:apitest/list_urls.dart';
 import 'package:apitest/thumbnails/save_thumbs.dart';
-import 'package:apitest/thumbnails/get_all_thumbs.dart';
-import 'package:apitest/thumbnails/write_all_thumbs.dart';
 import 'package:args/command_runner.dart';
 import 'package:apitest/cli/hdr_cli.dart';
 
@@ -65,6 +64,7 @@ void main(List<String> args) async {
     ..addCommand(SleepDisableCli())
     ..addCommand(DeleteAllCli())
     ..addCommand(ThumbGetCli())
+    //..addCommand(ThumbGetAllCli()) // not sure what this does
     ..addCommand(ThumbWriteAllCli());
 
   await runner.run(args).catchError((error) {
@@ -134,18 +134,20 @@ void main(List<String> args) async {
         }
         break;
 
-      case 'getThumb2':
-        {
-          var lastImageUrl = await getLastImageUrl();
-          await getThumb2(lastImageUrl);
-        }
-        break;
+      // returns single thumb as data.  Don't need in command line tool.
+      // case 'getThumb2':
+      //   {
+      //     var lastImageUrl = await getLastImageUrl();
+      //     await getThumb2(lastImageUrl);
+      //   }
+      //   break;
 
-      case 'listAllThumbnails':
-        {
-          await listAllThumbnails();
-        }
-        break;
+      // this may not work
+      // case 'listAllThumbnails':
+      //   {
+      //     await listAllThumbnails();
+      //   }
+      //   break;
 
       case 'resetMySetting':
         {
@@ -158,17 +160,12 @@ void main(List<String> args) async {
           await listUrls();
         }
         break;
-      case 'saveThumbs':
-        {
-          await saveThumbs(await listUrls());
-        }
-        break;
-
-      case 'getAllThumbs':
-        {
-          await getAllThumbs(await listUrls());
-        }
-        break;
+      // don't need this as already saving all thumbs to disk.
+      // case 'saveThumbs':
+      //   {
+      //     await saveThumbs(await listUrls());
+      //   }
+      //   break;
 
       default:
         {

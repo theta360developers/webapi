@@ -1,7 +1,7 @@
-import 'package:apitest/commands/get_metadata.dart';
+import 'package:apitest/get_last_image_url.dart';
+import 'package:apitest/thumbnails/get_thumb_2.dart';
 
-void main(List<String> args) {
-  // getMetadata(
-  //     'http://192.168.1.1/files/thetasc26c21a247d9055838792badc5/100RICOH/R0010308.JPG');
-  print('hello');
+void main(List<String> args) async {
+  var lastImageUrl = await getLastImageUrl();
+  await getThumb2(lastImageUrl);
 }

@@ -11,7 +11,8 @@ class ThumbGetCli extends Command {
   final name = 'thumbGet';
 
   @override
-  final description = 'Get image thumbnail from camera. Pass URL of the file';
+  final description =
+      'Print image thumbnail byte data to screen. Pass URL of the file';
 
   ThumbGetCli() {
     argParser

@@ -1,7 +1,7 @@
 import 'package:args/command_runner.dart';
 import 'package:theta/theta.dart';
 import 'dart:io';
-import 'pretty.dart';
+// import 'pretty.dart';
 
 class HdrCli extends Command {
   @override
