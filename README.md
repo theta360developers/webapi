@@ -107,9 +107,39 @@ Differences we discovered through testing include:
 ## Update Camera Firmware
 
 Firmware for RICOH THETA cameras can be updated with the desktop app on Mac or Windows or the mobile app on Android or iOS. 
-The desktop app connects with a USB cable and is a good, stable connection. 
+The desktop app connects with a USB cable and is a good, stable connection.
 
-## Installation
+## Using Windows Binary
+
+run `theta.exe --help` from the command line on Windows 10.
+
+```shell
+PS C:\Users\craig\Documents\Development\ricoh\webapi> .\theta.exe --help
+access RICOH WebAPI
+
+Usage: dart bin/main.dart <command> [arguments]
+
+Global options:
+-h, --help    Print this usage information.
+
+Available commands:
+  getMetadata                  Get image metadata from camera by passing URL of the file
+  getOptions                   get camera options
+  hdr                          Enable, save, delete, disable, and show hdr settings
+  info                         Camera info: model, serialNumber, apiLevel...
+  listFiles                    list all image and video files on camera
+  offDisable                   Disable power off
+  setExposureCompensationTwo   Set exposure compensation to 2.0.
+  setExposureDelayFive         Set camera self timer
+  setExposureDelayZero         Turn off camera self timer
+  setModeImage                 Set camera to image mode
+  state                        Camera state: batteryLevel, storageUri...
+  takePicture                  take picture, similar to pressing shutter button
+
+Run "dart bin/main.dart help <command>" for more information about a command.
+```
+
+## Installation For Development and Testing
 
 1. install [dart](https://dart.dev/) (*)
 1. clone this repo
@@ -145,7 +175,7 @@ To connect to the Internet, you must have two network interfaces on your compute
 home router with Ethernet and use Wi-Fi to connect to the THETA.  You can also use the existing Wi-Fi of your laptop to connect
 to the Internet and a USB Wi-Fi adapter to connect to the THETA.
 
-### Example Use 
+### Example Use When Editing the Code
 
 ```dart
 $ dart bin/main.dart info
