@@ -1,8 +1,10 @@
 import 'dart:io';
+import 'package:apitest/cli/auto_bracket_cli.dart';
 import 'package:apitest/cli/delete_all_cli.dart';
 import 'package:apitest/cli/download_file_cli.dart';
 import 'package:apitest/cli/list_urls_cli.dart';
 import 'package:apitest/cli/preset_capture_mode_cli.dart';
+import 'package:apitest/cli/reset_mysetting_cli.dart';
 import 'package:apitest/cli/start_capture_cli.dart';
 import 'package:apitest/cli/thumb_get_cli.dart';
 import 'package:apitest/cli/reset_cli.dart';
@@ -23,8 +25,6 @@ import 'package:apitest/cli/info_cli.dart';
 import 'package:apitest/cli/state_cli.dart';
 import 'package:apitest/cli/take_picture_cli.dart';
 import 'package:apitest/cli/list_files_cli.dart';
-import 'package:apitest/options/reset_my_setting.dart';
-import 'package:apitest/options/set_autobracket.dart';
 import 'package:apitest/options/get_timeshift.dart';
 import 'package:apitest/options/set_shutter.dart';
 import 'package:apitest/options/set_language.dart';
@@ -58,11 +58,12 @@ void main(List<String> args) async {
     ..addCommand(SleepDisableCli())
     ..addCommand(DeleteAllCli())
     ..addCommand(ThumbGetCli())
-    //..addCommand(ThumbGetAllCli()) // not sure what this does
     ..addCommand(ThumbWriteAllCli())
     ..addCommand(ListUrlsCli())
     ..addCommand(PresetCaptureModeCli())
-    ..addCommand(StartCaptureCli());
+    ..addCommand(StartCaptureCli())
+    ..addCommand(AutoBracketCli())
+    ..addCommand(ResetMySettingCli());
 
   await runner.run(args).catchError((error) {
     if (error is! UsageException) throw error;
@@ -85,12 +86,6 @@ void main(List<String> args) async {
       case 'setShutter':
         {
           await setShutter();
-        }
-        break;
-
-      case 'autoBracket':
-        {
-          await autoBracket();
         }
         break;
 
@@ -119,11 +114,11 @@ void main(List<String> args) async {
         }
         break;
 
-      case 'resetMySetting':
-        {
-          await resetMySetting();
-        }
-        break;
+      // case 'resetMySetting':
+      //   {
+      //     await resetMySetting();
+      //   }
+      //   break;
 
       default:
         {

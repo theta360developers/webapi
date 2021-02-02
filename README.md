@@ -112,6 +112,12 @@ see when the camera is ready to take a picture again.
 but appears to be supported on the SC and S models.
   * the V and Z1 also has a setting for interval shooting optimized for tripod stabilization. Does this exist on SC2?
   What does it mean that "top/bottom correction and stitching conditions are optimized?"
+* does [camera.reset](https://api.ricoh/docs/theta-web-api-v2.1/commands/camera.reset/) also reset mySettings?
+* The [Options overview](https://api.ricoh/docs/theta-web-api-v2.1/options/index/) chart provides a lot of
+information on the differences between camera. However it does not list options for SC2.  Test what is
+possible with the SC2.
+* When should businesses use My Settings?  Explain the behavior.
+
 
 ## Update Camera Firmware
 
