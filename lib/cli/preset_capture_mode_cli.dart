@@ -7,7 +7,7 @@ import 'package:args/command_runner.dart';
 // import 'package:theta/theta.dart';
 import 'dart:io';
 // import 'pretty.dart';
-import 'package:dcli/dcli.dart';
+// import 'package:dcli/dcli.dart';
 
 class PresetCaptureModeCli extends Command {
   @override

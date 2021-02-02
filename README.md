@@ -21,17 +21,16 @@ Official API reference information from RICOH:
 * [THETA API 2.1 Android SDK on RICOH Official GitHub Repository](https://github.com/ricohapi/theta-api2.1-android-sdk)
 * [THETA API 2.1 iOS SDK on RICOH Official GitHub Repository](https://github.com/ricohapi/theta-api2.1-ios-sdk)
 
-
 ## Overview
 
-The RICOH THETA WebAPI is based on the [Google Open Spherical Camera API](https://developers.google.com/streetview/open-spherical-camera/reference). Developers build mobile apps that communicate with the RICOH THETA camera using Wi-Fi and a HTTP protocol using GET and POST commands. 
+The RICOH THETA WebAPI is based on the [Google Open Spherical Camera API](https://developers.google.com/streetview/open-spherical-camera/reference). Developers build mobile apps that communicate with the RICOH THETA camera using Wi-Fi and a HTTP protocol using GET and POST commands.
 
-Our community examples test the HTTP request and response behavior of the RICOH THETA using Dart. You can also use 
-[curl](https://curl.se/) from the command line or a HTTP API tester such as [Postman](https://www.postman.com/). 
+Our community examples test the HTTP request and response behavior of the RICOH THETA using Dart. You can also use
+[curl](https://curl.se/) from the command line or a HTTP API tester such as [Postman](https://www.postman.com/).
 
 Our examples are designed so that you can easily read the JSON request without any knowledge of Dart.
 The contents of the HTTP request will be identical in any programming language.  
-In the example below, Dart code is used to get the state of the 
+In the example below, Dart code is used to get the state of the
 RICOH THETA camera.  The response is in JSON.
 
 ```dart
@@ -72,13 +71,13 @@ Future<http.Response> takePicture () async {
 ```
 
 By using the Dart examples as a reference, you can build your own tests with languages such
-as Swift or Kotlin. 
+as Swift or Kotlin.
 
-Dart is new and we understand that most people are not using Dart to build their mobile and desktop apps. 
+Dart is new and we understand that most people are not using Dart to build their mobile and desktop apps.
 These two tips will help you to use the Dart examples with another language.
 
 1. Although Dart looks like JavaScript, it does not store information as JavaScript objects.
-The requests from Dart are contructed in a Dart map, which looks very similar to JSON. Just 
+The requests from Dart are contructed in a Dart map, which looks very similar to JSON. Just
 be aware that the examples use `jsonEncode` and `jsonDecode` to convert between JSON and Dart maps.
 
 2. Similar to other languages, Dart uses the concepts `async`/`await` and futures for asynchronous programming.
@@ -92,8 +91,8 @@ Camera models tests:
 * Z1 with firmware 1.60.1
 
 The SC2 API has many differences from the API used with the V and Z1.  To test the
-SC2 API, we used the the official RICOH online [API documentation](https://api.ricoh/docs/theta-web-api-v2.1/) as a starting point and supplemented our own tests with trial and 
-error.  When necessary, we used a protocol packet analyzer with the 
+SC2 API, we used the the official RICOH online [API documentation](https://api.ricoh/docs/theta-web-api-v2.1/) as a starting point and supplemented our own tests with trial and
+error.  When necessary, we used a protocol packet analyzer with the
 official RICOH mobile app connected to an SC2 to find the parameters needed for our tests.
 
 Differences we discovered through testing include:
@@ -166,9 +165,9 @@ Contact jcasman@oppkey.com for additional information.
 1. connect workstation to THETA with camera in access point (AP) mode
 1. run `main.dart` file in `bin` with the appropriate command
 
-(*) Flutter 1.21 includes Dart.  If you plan to install Flutter, then you do not need to 
-install a standalone version of Dart.  You must adjust the PATH of your system to 
-use the Dart version that comes with Flutter. On my system, I installed Flutter 
+(*) Flutter 1.21 includes Dart.  If you plan to install Flutter, then you do not need to
+install a standalone version of Dart.  You must adjust the PATH of your system to
+use the Dart version that comes with Flutter. On my system, I installed Flutter
 in `/home/username/opt/flutter`.  My dart binary is in `/home/username/opt/flutter/bin`.
 You must also add the dart-sdk tools to your PATH.`/home/username/opt/flutter/bin/cache/dart-sdk/bin`
 
@@ -228,7 +227,6 @@ $ dart bin/main.dart info
 
 Use `dart bin/main.dart help` for more usage information.
 
-
 ## Troubleshooting Camera
 
 ### Testing Connection with GET info
@@ -253,18 +251,17 @@ code with a known working API that returns a single JSON object, you can use a p
 ## Running Documentation Locally
 
 The documents for these code examples are stored in docs.  You can read them
-online in a blog-like format at [https://theta360developers.github.io/webapi/](https://theta360developers.github.io/webapi/).  If you want to edit the blog locally and 
+online in a blog-like format at [https://theta360developers.github.io/webapi/](https://theta360developers.github.io/webapi/).  If you want to edit the blog locally and
 contribute content, you can run Jekyll locally.
 
 One time installation of required Ruby gems.
 
-```
+```shell
 bundle install
 ```
 
 The Gemfile will be saved to the /docs directory. To view the documents locally, run the following command while in the /docs directory:
 
-```
+```shell
 bundle exec jekyll serve
 ```
-

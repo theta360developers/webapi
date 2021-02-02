@@ -25,11 +25,8 @@ import 'package:apitest/cli/take_picture_cli.dart';
 import 'package:apitest/cli/list_files_cli.dart';
 import 'package:apitest/options/reset_my_setting.dart';
 import 'package:apitest/options/set_autobracket.dart';
-import 'package:apitest/get_last_image_url.dart';
 import 'package:apitest/options/get_timeshift.dart';
-import 'package:apitest/options/set_capture_preset.dart';
 import 'package:apitest/options/set_shutter.dart';
-import 'package:apitest/commands/start_capture.dart';
 import 'package:apitest/options/set_language.dart';
 import 'package:args/command_runner.dart';
 import 'package:apitest/cli/hdr_cli.dart';
@@ -96,12 +93,6 @@ void main(List<String> args) async {
           await autoBracket();
         }
         break;
-
-      // case 'startCapture':
-      //   {
-      //     await startCapture();
-      //   }
-      //   break;
 
       case 'status':
         {
