@@ -5,7 +5,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:apitest/pretty_print.dart';
 
-Future<http.Response> setPreset() async {
+Future<http.Response> setPreset(preset) async {
   var url = 'http://192.168.1.1/osc/commands/execute';
 
   /// For SC2 and SC2B preset can be "face", "nightView", "lensbylensExposure"
@@ -13,7 +13,7 @@ Future<http.Response> setPreset() async {
   var data = {
     'name': 'camera.setOptions',
     'parameters': {
-      'options': {'captureMode': '_preset', '_preset': 'room'}
+      'options': {'captureMode': '_preset', '_preset': preset}
     }
   };
 

@@ -2,6 +2,8 @@ import 'dart:io';
 import 'package:apitest/cli/delete_all_cli.dart';
 import 'package:apitest/cli/download_file_cli.dart';
 import 'package:apitest/cli/list_urls_cli.dart';
+import 'package:apitest/cli/preset_capture_mode_cli.dart';
+import 'package:apitest/cli/start_capture_cli.dart';
 import 'package:apitest/cli/thumb_get_cli.dart';
 import 'package:apitest/cli/reset_cli.dart';
 import 'package:apitest/cli/sleep_disable_cli.dart';
@@ -61,7 +63,9 @@ void main(List<String> args) async {
     ..addCommand(ThumbGetCli())
     //..addCommand(ThumbGetAllCli()) // not sure what this does
     ..addCommand(ThumbWriteAllCli())
-    ..addCommand(ListUrlsCli());
+    ..addCommand(ListUrlsCli())
+    ..addCommand(PresetCaptureModeCli())
+    ..addCommand(StartCaptureCli());
 
   await runner.run(args).catchError((error) {
     if (error is! UsageException) throw error;
@@ -81,12 +85,6 @@ void main(List<String> args) async {
         }
         break;
 
-      case 'setCapturePreset':
-        {
-          await setPreset();
-        }
-        break;
-
       case 'setShutter':
         {
           await setShutter();
@@ -99,11 +97,11 @@ void main(List<String> args) async {
         }
         break;
 
-      case 'startCapture':
-        {
-          await startCapture();
-        }
-        break;
+      // case 'startCapture':
+      //   {
+      //     await startCapture();
+      //   }
+      //   break;
 
       case 'status':
         {
@@ -129,13 +127,6 @@ void main(List<String> args) async {
           }
         }
         break;
-
-      // this may not work
-      // case 'listAllThumbnails':
-      //   {
-      //     await listAllThumbnails();
-      //   }
-      //   break;
 
       case 'resetMySetting':
         {

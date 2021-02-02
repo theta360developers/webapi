@@ -101,11 +101,18 @@ Differences we discovered through testing include:
 * delete all API broken with SC2 firmware 1.31 and earlier and SC2B firmware 6.01.  Fixed with SC2 firmware 1.42 (and higher) and SC2B 6.12 (and higher).  The delete all commanded worked on the Z1 and V on all firmware versions we tested. TODO: The camera appears to be busy for 10 seconds when deleting 100 pictures. Suggest testing this and
 see when the camera is ready to take a picture again.
 * thumbnail display with standard API broken on SC2 and SC2B.  Different workarounds available.  TODO: Retest behavior with SC2 firmware 1.51.
-* camera presets
+* camera presets - TODO: test [lens-by-lens preset](https://support.theta360.com/uk/manual/sc2/content/shooting-preset/shooting_preset_01.html) in car or room with bright sun hitting one lens, but not the other. Test with and without HDR.
 * reset settings behavior is different on SC2 and SC2B.
 * use of state and status to see when the camera is ready for the next command after you take a picture
 * metadata injection into image file not working on SC2. TODO: retest and document SC2 differences versus Z1.
 * the iOS and Android SDKs on the RICOH GitHub repo have problems with the getLivePreview motionJPEG response on SC2 and SC2B.
+
+### Additional Test Plans
+
+* test [startCapture](https://api.ricoh/docs/theta-web-api-v2.1/commands/camera.start_capture/) behavior of SC2 when compared to Z1.  In particular, test if interval composite shooting works with the SC2 as it does not work on the V,
+but appears to be supported on the SC and S models.
+  * the V and Z1 also has a setting for interval shooting optimized for tripod stabilization. Does this exist on SC2?
+  What does it mean that "top/bottom correction and stitching conditions are optimized?"
 
 ## Update Camera Firmware
 
@@ -141,6 +148,15 @@ Available commands:
 
 Run "./theta help <command>" for more information about a command.
 ```
+
+### Using Preset Shooting Modes
+
+The SC2 preset shooting modes are explained in the
+[SC2 User Guide on the RICOH site](https://support.theta360.com/uk/manual/sc2/content/shooting-preset/shooting_preset_01.html).
+
+To change the SC2 or SC2B from preset to standard image, set captureMode to image.
+
+Contact jcasman@oppkey.com for additional information.
 
 ## Installation For Development and Testing
 
@@ -222,14 +238,17 @@ The simplest command to the camera is GET info.
 You can test it in a browser, curl, Postman.  In the test program, you can
 look for the URL below.
 
-    String url = 'http://192.168.1.1/osc/info';
+```dart
+String url = 'http://192.168.1.1/osc/info';
+```
 
 If you are having problems getting a camera connection and want to test your
 code with a known working API that returns a single JSON object, you can use a public Internet test server to return a single JSON object and print it out.
 
-    // String url = 'https://swapi.co/api/people/1';
-    // String url = 'https://jsonplaceholder.typicode.com/users/1';
-
+```dart
+// String url = 'https://swapi.co/api/people/1';
+// String url = 'https://jsonplaceholder.typicode.com/users/1';
+```
 
 ## Running Documentation Locally
 
