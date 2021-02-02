@@ -8,54 +8,57 @@ class HdrCli extends Command {
   final name = 'hdr';
 
   @override
-  final description = 'Enable, save, disable, and check hdr settings';
+  final description = 'Enable, save, delete, disable, and show hdr settings';
 
   HdrCli() {
     argParser
       ..addFlag('enable',
-          help: 'enable HDR until you turn off camera or put it to sleep');
+          help:
+              'enable/disable HDR until you turn off camera or put it to sleep')
+      ..addFlag('save',
+          help: 'save/delete filter to mySetting. Survives camera off')
+      ..addFlag('show',
+          help: 'show current filter settings. does not survive reboot',
+          negatable: false)
+      ..addFlag('show-saved',
+          help: 'show filter saved in mySettings', negatable: false);
   }
 
   @override
   void run() async {
-    print('running hdr');
     if (argResults.arguments.isEmpty) {
       print(argParser.usage);
     } else if (argResults.wasParsed('enable')) {
-      //TODO: enable hdr
-      print('TODO: enable hdr');
-      await CameraOption.hdrSet();
+      if (argResults['enable']) {
+        await CameraOption.hdrSet();
+        print(await CameraOption.filterSetting);
+        exit(0);
+      } else {
+        //if not enable, must be --no-enable
+        await CameraOption.filterOff(); //turn off filter
+        print(await CameraOption.filterSetting); //print out filter settings
+      }
+    } else if (argResults.wasParsed('save')) {
+      if (argResults['save']) {
+        //save hdr filter
+        await CameraOption.hdrSave();
+        print(await CameraOption.filterSavedSetting);
+        exit(0);
+      } else {
+        //delete saved filter settings
+        await CameraOption.filterSavedOff();
+        print(await CameraOption.filterSavedSetting);
+        exit(0);
+      }
+    } else if (argResults.wasParsed('show')) {
+      //print current filter setting
       print(await CameraOption.filterSetting);
       exit(0);
+    } else if (argResults.wasParsed('show-saved')) {
+      print(await CameraOption.filterSavedSetting);
+      exit(0);
+    } else {
+      print(argParser.usage);
     }
   }
 }
-
-
-    // else {
-    //     await CameraOption.filterOff();
-    //     print(await CameraOption.filterSetting);
-    //     exit(0);
-    //   }
-    // } else if (parsedArguments.wasParsed('hdr-save')) {
-    //   print('saving hdr: ${parsedArguments['hdr-save']}');
-    //   // this is a boolean
-    //   if (parsedArguments['hdr-save']) {
-    //     await CameraOption.hdrSave();
-    //     print(await CameraOption.filterSavedSetting);
-    //     exit(0);
-    //   } else {
-    //     await CameraOption.filterSavedOff();
-    //     print(await CameraOption.filterSavedSetting);
-    //     exit(0);
-    //   }
-    // } else if (parsedArguments.wasParsed('help')) {
-    //   print(parser.usage);
-    //   exit(0);
-    // } else if (parsedArguments.wasParsed('filter-show')) {
-    //   print(await CameraOption.filterSetting);
-    //   exit(0);
-    // } else if (parsedArguments.wasParsed('filter-save-show')) {
-    //   print(await CameraOption.filterSavedSetting);
-    //   exit(0);
-    // }

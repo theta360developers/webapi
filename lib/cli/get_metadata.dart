@@ -26,8 +26,8 @@ class GetMetadataCli extends Command {
   @override
   void run() async {
     if (!argResults.wasParsed('url')) {
-      var url = await getLastImageUrl();
-      await getMetadata(url);
+      var lastUrl = await getLastImageUrl();
+      await getMetadata(lastUrl);
       print(red('No URL specified. Using last image taken'));
       exit(0);
     } else {

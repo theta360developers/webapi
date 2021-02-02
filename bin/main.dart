@@ -1,5 +1,10 @@
+import 'dart:io';
+
 import 'package:apitest/cli/get_metadata.dart';
 import 'package:apitest/cli/get_options_cli.dart';
+import 'package:apitest/cli/set_exposure_compensation_two_cli.dart';
+import 'package:apitest/cli/set_exposure_delay_five_cli.dart';
+import 'package:apitest/cli/set_exposure_delay_zero_cli.dart';
 import 'package:apitest/cli/set_mode_image_cli.dart';
 import 'package:theta/theta.dart';
 import 'dart:convert';
@@ -7,20 +12,14 @@ import 'package:apitest/cli/info_cli.dart';
 import 'package:apitest/cli/state_cli.dart';
 import 'package:apitest/cli/take_picture_cli.dart';
 import 'package:apitest/cli/list_files_cli.dart';
-// import 'package:apitest/help.dart';
 import 'package:apitest/options/reset_my_setting.dart';
 import 'package:apitest/commands/delete_all.dart';
 import 'package:apitest/thumbnails/not-working-list_all_thumnails.dart';
 import 'package:apitest/options/set_autobracket.dart';
 import 'package:apitest/download_ready.dart';
-// import 'package:args/args.dart';
-import 'package:apitest/list_files.dart';
-import 'package:apitest/commands/get_options.dart';
 import 'package:apitest/download_file.dart';
 import 'package:apitest/get_last_image_url.dart';
-import 'package:apitest/commands/get_metadata.dart';
 import 'package:apitest/download_file_from_state.dart';
-import 'package:apitest/options/set_exposure_delay_five.dart';
 import 'package:apitest/options/set_exposure_delay_zero.dart';
 import 'package:apitest/options/get_timeshift.dart';
 import 'package:apitest/options/set_capture_preset.dart';
@@ -38,7 +37,6 @@ import 'package:apitest/thumbnails/save_thumbs.dart';
 import 'package:apitest/thumbnails/get_all_thumbs.dart';
 import 'package:apitest/thumbnails/write_all_thumbs.dart';
 import 'package:apitest/commands/delete_test.dart';
-import 'package:apitest/options/set_mode_image.dart';
 import 'package:args/command_runner.dart';
 import 'package:apitest/cli/hdr_cli.dart';
 
@@ -55,8 +53,15 @@ void main(List<String> args) async {
     ..addCommand(ListFilesCli())
     ..addCommand(SetModeImageCli())
     ..addCommand(GetOptionsCli())
-    ..addCommand(GetMetadataCli());
-  await runner.run(args);
+    ..addCommand(GetMetadataCli())
+    ..addCommand(SetExposureDelayFiveCli())
+    ..addCommand(SetExposureDelayZeroCli())
+    ..addCommand(SetExposureCompensationTwoCli());
+  await runner.run(args).catchError((error) {
+    if (error is! UsageException) throw error;
+    print(error);
+    exit(64);
+  });
 
   if (args.isEmpty) {
     print('moving to args package.  Help will be updated soon');
@@ -87,17 +92,11 @@ void main(List<String> args) async {
         }
         break;
 
-      case 'setExposureDelayFive':
-        {
-          await setExposureDelayFive();
-        }
-        break;
-
-      case 'setExposureDelayZero':
-        {
-          await setExposureDelayZero();
-        }
-        break;
+      // case 'setExposureDelayZero':
+      //   {
+      //     await setExposureDelayZero();
+      //   }
+      //   break;
 
       case 'getTimeShift':
         {

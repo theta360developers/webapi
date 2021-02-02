@@ -38,7 +38,8 @@ Future<http.Response> getOptions() async {
         '_autoBracket',
         'exposureCompensation',
         'dateTimeZone',
-        'sleepDelay'
+        'sleepDelay',
+        'exposureDelay'
       ]
     }
   };
