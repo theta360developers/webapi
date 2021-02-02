@@ -1,7 +1,8 @@
 import 'dart:io';
 
-import 'package:apitest/cli/get_metadata.dart';
+import 'package:apitest/cli/get_metadata_cli.dart';
 import 'package:apitest/cli/get_options_cli.dart';
+import 'package:apitest/cli/off_disable_cli.dart';
 import 'package:apitest/cli/set_exposure_compensation_two_cli.dart';
 import 'package:apitest/cli/set_exposure_delay_five_cli.dart';
 import 'package:apitest/cli/set_exposure_delay_zero_cli.dart';
@@ -20,18 +21,15 @@ import 'package:apitest/download_ready.dart';
 import 'package:apitest/download_file.dart';
 import 'package:apitest/get_last_image_url.dart';
 import 'package:apitest/download_file_from_state.dart';
-import 'package:apitest/options/set_exposure_delay_zero.dart';
 import 'package:apitest/options/get_timeshift.dart';
 import 'package:apitest/options/set_capture_preset.dart';
 import 'package:apitest/options/set_shutter.dart';
 import 'package:apitest/commands/start_capture.dart';
-import 'package:apitest/options/set_exposure_compensation_two.dart';
 import 'package:apitest/options/set_language.dart';
 import 'package:apitest/thumbnails/get_thumb.dart';
 import 'package:apitest/thumbnails/get_thumb_2.dart';
 import 'package:apitest/commands/reset.dart';
 import 'package:apitest/options/sleep_off.dart';
-import 'package:apitest/options/off_off.dart';
 import 'package:apitest/list_urls.dart';
 import 'package:apitest/thumbnails/save_thumbs.dart';
 import 'package:apitest/thumbnails/get_all_thumbs.dart';
@@ -56,15 +54,19 @@ void main(List<String> args) async {
     ..addCommand(GetMetadataCli())
     ..addCommand(SetExposureDelayFiveCli())
     ..addCommand(SetExposureDelayZeroCli())
-    ..addCommand(SetExposureCompensationTwoCli());
+    ..addCommand(SetExposureCompensationTwoCli())
+    ..addCommand(OffDisableCli());
+
   await runner.run(args).catchError((error) {
     if (error is! UsageException) throw error;
     print(error);
     exit(64);
   });
 
+// The code below is not used
+// it is being moved to the args package above
   if (args.isEmpty) {
-    print('moving to args package.  Help will be updated soon');
+    print('\n');
   } else {
     switch (args[0]) {
       case 'downloadFile':
@@ -113,12 +115,6 @@ void main(List<String> args) async {
       case 'startCapture':
         {
           await startCapture();
-        }
-        break;
-
-      case 'exposureCompensation':
-        {
-          await setExposureCompensationTwo();
         }
         break;
 
@@ -188,12 +184,6 @@ void main(List<String> args) async {
       case 'sleepOff':
         {
           await sleepOff();
-        }
-        break;
-
-      case 'offOff':
-        {
-          await offOff();
         }
         break;
 
