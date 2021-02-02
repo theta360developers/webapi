@@ -1,5 +1,10 @@
 import 'dart:io';
 
+import 'package:apitest/cli/download_file_cli.dart';
+import 'package:apitest/cli/reset_cli.dart';
+import 'package:apitest/cli/sleep_disable_cli.dart';
+import 'package:apitest/cli/take_and_download_cli.dart';
+import 'package:apitest/cli/take_and_ready_cli.dart';
 import 'package:apitest/cli/get_metadata_cli.dart';
 import 'package:apitest/cli/get_options_cli.dart';
 import 'package:apitest/cli/off_disable_cli.dart';
@@ -17,10 +22,7 @@ import 'package:apitest/options/reset_my_setting.dart';
 import 'package:apitest/commands/delete_all.dart';
 import 'package:apitest/thumbnails/not-working-list_all_thumnails.dart';
 import 'package:apitest/options/set_autobracket.dart';
-import 'package:apitest/download_ready.dart';
-import 'package:apitest/download_file.dart';
 import 'package:apitest/get_last_image_url.dart';
-import 'package:apitest/download_file_from_state.dart';
 import 'package:apitest/options/get_timeshift.dart';
 import 'package:apitest/options/set_capture_preset.dart';
 import 'package:apitest/options/set_shutter.dart';
@@ -28,8 +30,6 @@ import 'package:apitest/commands/start_capture.dart';
 import 'package:apitest/options/set_language.dart';
 import 'package:apitest/thumbnails/get_thumb.dart';
 import 'package:apitest/thumbnails/get_thumb_2.dart';
-import 'package:apitest/commands/reset.dart';
-import 'package:apitest/options/sleep_off.dart';
 import 'package:apitest/list_urls.dart';
 import 'package:apitest/thumbnails/save_thumbs.dart';
 import 'package:apitest/thumbnails/get_all_thumbs.dart';
@@ -55,7 +55,12 @@ void main(List<String> args) async {
     ..addCommand(SetExposureDelayFiveCli())
     ..addCommand(SetExposureDelayZeroCli())
     ..addCommand(SetExposureCompensationTwoCli())
-    ..addCommand(OffDisableCli());
+    ..addCommand(OffDisableCli())
+    ..addCommand(DownloadFileCli())
+    ..addCommand(TakeAndReadyCli())
+    ..addCommand(TakeAndDownloadCli())
+    ..addCommand(ResetCli())
+    ..addCommand(SleepDisableCli());
 
   await runner.run(args).catchError((error) {
     if (error is! UsageException) throw error;
@@ -69,25 +74,6 @@ void main(List<String> args) async {
     print('\n');
   } else {
     switch (args[0]) {
-      case 'downloadFile':
-        {
-          /// download a single file
-          downloadFile();
-        }
-        break;
-
-      case 'downloadReady':
-        {
-          await downloadReady();
-        }
-        break;
-
-      case 'takeAndDownload':
-        {
-          await takeAndDownload();
-        }
-        break;
-
       case 'getTimeShift':
         {
           await getTimeShift();
@@ -172,18 +158,6 @@ void main(List<String> args) async {
       case 'deleteAll':
         {
           await deleteAll();
-        }
-        break;
-
-      case 'reset':
-        {
-          await reset();
-        }
-        break;
-
-      case 'sleepOff':
-        {
-          await sleepOff();
         }
         break;
 
