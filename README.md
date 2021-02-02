@@ -114,7 +114,7 @@ The desktop app connects with a USB cable and is a good, stable connection.
 run `theta.exe --help` from the command line on Windows 10.
 
 ```shell
-PS C:\Users\craig\Documents\Development\ricoh\webapi> .\theta.exe --help
+PS C:\Users\craig\Documents\Development\ricoh\webapi> .\theta.exe help
 access RICOH WebAPI
 
 Usage: dart bin/main.dart <command> [arguments]
@@ -136,7 +136,7 @@ Available commands:
   state                        Camera state: batteryLevel, storageUri...
   takePicture                  take picture, similar to pressing shutter button
 
-Run "dart bin/main.dart help <command>" for more information about a command.
+Run "./theta help <command>" for more information about a command.
 ```
 
 ## Installation For Development and Testing

@@ -43,7 +43,7 @@ void prettyPrint(map) {
 }
 
 void main(List<String> args) async {
-  final runner = CommandRunner('dart bin/main.dart', 'access RICOH WebAPI')
+  final runner = CommandRunner('./theta', 'RICOH WebAPI Tester')
     ..addCommand(HdrCli())
     ..addCommand(InfoCli())
     ..addCommand(StateCli())
