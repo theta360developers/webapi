@@ -28,7 +28,8 @@ class GetMetadataCli extends Command {
     if (!argResults.wasParsed('url')) {
       var lastUrl = await getLastImageUrl();
       await getMetadata(lastUrl);
-      print(red('No URL specified. Using last image taken'));
+      print(red(
+          'No URL specified. Using last image taken. Specify file with --url=http://192...'));
       exit(0);
     } else {
       //TODO: move to library. move print statement outside of library

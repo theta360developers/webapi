@@ -1,8 +1,8 @@
 # RICOH THETA API HTTP Community Tests
 
-Last updated January 30, 2021.
+Last updated February 2, 2021.
 
-IMPORTANT: some of the code examples are now in `/packages/theta/lib/src/`
+IMPORTANT: Some of the code examples are now in `/packages/theta/lib/src/`
 
 Welcome to our repository of RICOH THETA WebAPI tests based on contributions of
 from the [theta360.guide independent community](https://www2.theta360.guide/).  This is
@@ -10,7 +10,7 @@ not an official RICOH document.  For official information, please
 contact RICOH.  You should confirm these community tips with your
 own tests prior to deployment in a business setting.  As these are
 unofficial tips, the official RICOH THETA API may change unexpectedly
-and these techniques could stop working. 
+and these techniques could stop working.
 
 Updates to the community document are posted to the web at
 [https://theta360developers.github.io/webapi/](https://theta360developers.github.io/webapi/)
@@ -97,16 +97,19 @@ error.  When necessary, we used a protocol packet analyzer with the
 official RICOH mobile app connected to an SC2 to find the parameters needed for our tests.
 
 Differences we discovered through testing include:
-  * thumbnail display
-  * camera presets
-  * reset settings
-  * use of state and status to see when the camera is ready for the next command after you take a picture
-  * metadata injection into image file not working
-* the iOS and Android SDKs on the RICOH GitHub repo have problems with the getLivePreview motionJPEG response.
+
+* delete all API broken with SC2 firmware 1.31 and earlier and SC2B firmware 6.01.  Fixed with SC2 firmware 1.42 (and higher) and SC2B 6.12 (and higher).  The delete all commanded worked on the Z1 and V on all firmware versions we tested. TODO: The camera appears to be busy for 10 seconds when deleting 100 pictures. Suggest testing this and
+see when the camera is ready to take a picture again.
+* thumbnail display with standard API broken on SC2 and SC2B.  Different workarounds available.  TODO: Retest behavior with SC2 firmware 1.51.
+* camera presets
+* reset settings behavior is different on SC2 and SC2B.
+* use of state and status to see when the camera is ready for the next command after you take a picture
+* metadata injection into image file not working on SC2. TODO: retest and document SC2 differences versus Z1.
+* the iOS and Android SDKs on the RICOH GitHub repo have problems with the getLivePreview motionJPEG response on SC2 and SC2B.
 
 ## Update Camera Firmware
 
-Firmware for RICOH THETA cameras can be updated with the desktop app on Mac or Windows or the mobile app on Android or iOS. 
+Firmware for RICOH THETA cameras can be updated with the desktop app on Mac or Windows or the mobile app on Android or iOS.
 The desktop app connects with a USB cable and is a good, stable connection.
 
 ## Using Windows Binary
