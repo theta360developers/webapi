@@ -9,8 +9,7 @@ class SetExposureCompensationTwoCli extends Command {
   final name = 'setExposureCompensationTwo';
 
   @override
-  final description =
-      'Set exposure compensation to 2.0. does not work with HDR';
+  final description = 'Set exposure compensation to 2.0.';
 
   SetExposureCompensationTwoCli() {
     // argParser

@@ -67,12 +67,6 @@ void main(List<String> args) async {
     print('moving to args package.  Help will be updated soon');
   } else {
     switch (args[0]) {
-      // case 'saveHdr':
-      //   {
-      //     await saveHdr();
-      //   }
-      //   break;
-
       case 'downloadFile':
         {
           /// download a single file
@@ -92,12 +86,6 @@ void main(List<String> args) async {
         }
         break;
 
-      // case 'setExposureDelayZero':
-      //   {
-      //     await setExposureDelayZero();
-      //   }
-      //   break;
-
       case 'getTimeShift':
         {
           await getTimeShift();
@@ -109,12 +97,6 @@ void main(List<String> args) async {
           await setPreset();
         }
         break;
-
-      // case 'setHdr':
-      //   {
-      //     await setHdr();
-      //   }
-      //   break;
 
       case 'setShutter':
         {
@@ -252,7 +234,6 @@ void main(List<String> args) async {
 
       default:
         {
-          print('moving to args package.  Help will be updated soon');
           print('\n');
         }
         break;
