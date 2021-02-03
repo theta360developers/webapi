@@ -5,6 +5,7 @@ import 'package:apitest/cli/download_file_cli.dart';
 import 'package:apitest/cli/list_urls_cli.dart';
 import 'package:apitest/cli/preset_capture_mode_cli.dart';
 import 'package:apitest/cli/reset_mysetting_cli.dart';
+import 'package:apitest/cli/set_shutter_cli.dart';
 import 'package:apitest/cli/start_capture_cli.dart';
 import 'package:apitest/cli/thumb_get_cli.dart';
 import 'package:apitest/cli/reset_cli.dart';
@@ -63,7 +64,8 @@ void main(List<String> args) async {
     ..addCommand(PresetCaptureModeCli())
     ..addCommand(StartCaptureCli())
     ..addCommand(AutoBracketCli())
-    ..addCommand(ResetMySettingCli());
+    ..addCommand(ResetMySettingCli())
+    ..addCommand(SetShutterCli());
 
   await runner.run(args).catchError((error) {
     if (error is! UsageException) throw error;
@@ -80,12 +82,6 @@ void main(List<String> args) async {
       case 'getTimeShift':
         {
           await getTimeShift();
-        }
-        break;
-
-      case 'setShutter':
-        {
-          await setShutter();
         }
         break;
 
@@ -113,12 +109,6 @@ void main(List<String> args) async {
           }
         }
         break;
-
-      // case 'resetMySetting':
-      //   {
-      //     await resetMySetting();
-      //   }
-      //   break;
 
       default:
         {

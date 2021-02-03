@@ -39,7 +39,8 @@ Future<http.Response> getOptions() async {
         'exposureCompensation',
         'dateTimeZone',
         'sleepDelay',
-        'exposureDelay'
+        'exposureDelay',
+        'shutterSpeed'
       ]
     }
   };

@@ -1,5 +1,5 @@
-import 'package:apitest/list_urls.dart';
+import 'package:apitest/options/set_shutter.dart';
 
 void main(List<String> args) async {
-  await listUrls();
+  await setShutter('0.005');
 }

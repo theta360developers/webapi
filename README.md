@@ -117,6 +117,10 @@ but appears to be supported on the SC and S models.
 information on the differences between camera. However it does not list options for SC2.  Test what is
 possible with the SC2.
 * When should businesses use My Settings?  Explain the behavior.
+* for [shutter speed](https://api.ricoh/docs/theta-web-api-v2.1/options/shutter_speed/), the documentation
+is not clear if the values are strings or numbers. Clarify. It seems like the API allows both strings
+and floating point numbers.  However, the stored value appears to be a number. The range
+of specified values is not specified for SC2 or SC2B.
 
 
 ## Update Camera Firmware
