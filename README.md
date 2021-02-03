@@ -111,6 +111,10 @@ is still in repository under options. set_language.dart.
 
 ### Additional Test Plans
 
+* if the [exposureProgram](https://api.ricoh/docs/theta-web-api-v2.1/options/exposure_program/), is
+set to 2, the normal, default setting.  Do settings like shutterSpeed, iso, aperture have any effect?
+Image a car vendor is taking a vehicle in the shade and we provide advice on iso.  Does the iso
+actually take effect?  Is the exposureCompensation, the only setting that normally takes effect?
 * test [startCapture](https://api.ricoh/docs/theta-web-api-v2.1/commands/camera.start_capture/) behavior of SC2 when compared to Z1.  In particular, test if interval composite shooting works with the SC2 as it does not work on the V,
 but appears to be supported on the SC and S models.
   * the V and Z1 also has a setting for interval shooting optimized for tripod stabilization. Does this exist on SC2?

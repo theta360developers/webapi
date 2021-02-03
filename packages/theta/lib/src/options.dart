@@ -31,6 +31,19 @@ class CameraOption {
     return response;
   }
 
+  static Future<Map<String, dynamic>> setExposureProgram(programValue) async {
+    var data = {
+      'name': 'camera.setOptions',
+      'parameters': {
+        'options': {
+          'exposureProgram': int.parse(programValue),
+        }
+      }
+    };
+    var response = connect(_url, 'post', data);
+    return response;
+  }
+
   /// save hdr filter setting to my settings to survive
   /// camera reboot
   static Future<Map<String, dynamic>> hdrSave() async {

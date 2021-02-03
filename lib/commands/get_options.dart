@@ -40,7 +40,8 @@ Future<http.Response> getOptions() async {
         'dateTimeZone',
         'sleepDelay',
         'exposureDelay',
-        'shutterSpeed'
+        'shutterSpeed',
+        'exposureProgram'
       ]
     }
   };

@@ -1,5 +1,5 @@
-import 'package:apitest/options/set_shutter.dart';
+import 'package:theta/theta.dart';
 
 void main(List<String> args) async {
-  await setShutter('0.005');
+  print(await CameraOption.setExposureProgram('1'));
 }

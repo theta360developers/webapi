@@ -1,11 +1,30 @@
+/// main.dart functions as a command router and runs
+/// the command specified on the terminal. The command runner is stored in lib/cli
+/// the scripts that talk to the camera are in either lib or packages/lib/src
+/// Note that most of the commands will eventually be moved to packages/lib/src
+/// to make it easier to reuse the scripts in other apps, including Flutter apps.
+/// if you want to test a standalone script that is in a function,
+/// call the function from a temporary file such as test_temporary.dart and then run the script.
+/// Example use:
+/// > ./theta info
+/// returns
+/// {
+///  "manufacturer": "RICOH",
+///  "model": "RICOH THETA SC2",
+///  "serialNumber": "2000...5",
+///  "firmwareVersion": "01.51",
+///  ...
 import 'dart:io';
 import 'package:apitest/cli/auto_bracket_cli.dart';
 import 'package:apitest/cli/delete_all_cli.dart';
 import 'package:apitest/cli/download_file_cli.dart';
+import 'package:apitest/cli/exposure_compensation_cli.dart';
+import 'package:apitest/cli/exposure_program_cli.dart';
 import 'package:apitest/cli/get_time_shift_cli.dart';
 import 'package:apitest/cli/list_urls_cli.dart';
 import 'package:apitest/cli/preset_capture_mode_cli.dart';
 import 'package:apitest/cli/reset_mysetting_cli.dart';
+import 'package:apitest/cli/set_language_cli.dart';
 import 'package:apitest/cli/set_shutter_cli.dart';
 import 'package:apitest/cli/start_capture_cli.dart';
 import 'package:apitest/cli/status_cli.dart';
@@ -17,26 +36,16 @@ import 'package:apitest/cli/take_and_ready_cli.dart';
 import 'package:apitest/cli/get_metadata_cli.dart';
 import 'package:apitest/cli/get_options_cli.dart';
 import 'package:apitest/cli/off_disable_cli.dart';
-import 'package:apitest/cli/set_exposure_compensation_two_cli.dart';
 import 'package:apitest/cli/set_exposure_delay_five_cli.dart';
 import 'package:apitest/cli/set_exposure_delay_zero_cli.dart';
 import 'package:apitest/cli/set_mode_image_cli.dart';
 import 'package:apitest/cli/thumb_write_all_cli.dart';
-import 'package:theta/theta.dart';
-import 'dart:convert';
 import 'package:apitest/cli/info_cli.dart';
 import 'package:apitest/cli/state_cli.dart';
 import 'package:apitest/cli/take_picture_cli.dart';
 import 'package:apitest/cli/list_files_cli.dart';
-import 'package:apitest/options/get_timeshift.dart';
-import 'package:apitest/options/set_shutter.dart';
-import 'package:apitest/options/set_language.dart';
 import 'package:args/command_runner.dart';
 import 'package:apitest/cli/hdr_cli.dart';
-
-void prettyPrint(map) {
-  print(JsonEncoder.withIndent('  ').convert(map));
-}
 
 //TODO: add filterOff for all all filters. can copy from the hdr library
 
@@ -52,7 +61,7 @@ void main(List<String> args) async {
     ..addCommand(GetMetadataCli())
     ..addCommand(SetExposureDelayFiveCli())
     ..addCommand(SetExposureDelayZeroCli())
-    ..addCommand(SetExposureCompensationTwoCli())
+    ..addCommand(ExposureCompensationCli())
     ..addCommand(OffDisableCli())
     ..addCommand(DownloadFileCli())
     ..addCommand(TakeAndReadyCli())
@@ -69,50 +78,13 @@ void main(List<String> args) async {
     ..addCommand(ResetMySettingCli())
     ..addCommand(SetShutterCli())
     ..addCommand(GetTimeShiftCli())
-    ..addCommand(StatusCli());
+    ..addCommand(StatusCli())
+    ..addCommand(SetLanguageCli())
+    ..addCommand(ExposureProgramCli());
 
   await runner.run(args).catchError((error) {
     if (error is! UsageException) throw error;
     print(error);
     exit(64);
   });
-
-// The code below is not used
-// it is being moved to the args package above
-  if (args.isEmpty) {
-    print('\n');
-  } else {
-    switch (args[0]) {
-      // case 'status':
-      //   {
-      //     if (args.length == 2) {
-      //       prettyPrint(await Camera.status(args[1]));
-      //     } else {
-      //       print('please supply id.  Example: dart main.dart status 306');
-      //     }
-      //   }
-      //   break;
-
-      // case 'setLanguage':
-      //   {
-      //     if (args.length == 2) {
-      //       print('setting lang');
-      //       await setLanguage(args[1]);
-      //     } else {
-      //       print(args.length);
-      //       print(
-      //           'please supply language.  Example: dart main.dart setLanguage en-US');
-      //       print(
-      //           'supported values: en-US, en-GB, ja, fr, de, zh-TW, zh-CN, it, ko');
-      //     }
-      //   }
-      //   break;
-
-      default:
-        {
-          print('\n');
-        }
-        break;
-    }
-  }
 }
