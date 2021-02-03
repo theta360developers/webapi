@@ -8,12 +8,12 @@ class ExposureCompensationCli extends Command {
   final name = 'exposureCompensation';
 
   @override
-  final description = 'set exposure compensation';
+  final description = 'set exposure compensation with --value=2.0';
 
   ExposureCompensationCli() {
     argParser
       ..addOption('value',
-          help: 'EV exposure compensation. Still and video are set separately',
+          help: 'EV exposure compensation. Example --value=-2.0',
           allowed: [
             '-2.0',
             '-1.7',
