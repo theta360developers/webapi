@@ -9,7 +9,7 @@ class ExposureDelayCli extends Command {
   final name = 'exposureDelay';
 
   @override
-  final description = 'set exposure compensation';
+  final description = 'set self timer delay in seconds';
 
   ExposureDelayCli() {
     argParser
