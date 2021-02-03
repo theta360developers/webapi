@@ -14,7 +14,7 @@ class ExposureDelayCli extends Command {
   ExposureDelayCli() {
     argParser
       ..addOption('seconds',
-          help: 'Self-delay in seconds. 0 is disabled - shoot immediately',
+          help: 'Self-delay in seconds. --seconds=0  - shoot immediately',
           allowed: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']);
     // argParser
     //   ..addFlag('battery', help: 'battery charge level', negatable: false);
