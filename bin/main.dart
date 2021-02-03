@@ -2,11 +2,13 @@ import 'dart:io';
 import 'package:apitest/cli/auto_bracket_cli.dart';
 import 'package:apitest/cli/delete_all_cli.dart';
 import 'package:apitest/cli/download_file_cli.dart';
+import 'package:apitest/cli/get_time_shift_cli.dart';
 import 'package:apitest/cli/list_urls_cli.dart';
 import 'package:apitest/cli/preset_capture_mode_cli.dart';
 import 'package:apitest/cli/reset_mysetting_cli.dart';
 import 'package:apitest/cli/set_shutter_cli.dart';
 import 'package:apitest/cli/start_capture_cli.dart';
+import 'package:apitest/cli/status_cli.dart';
 import 'package:apitest/cli/thumb_get_cli.dart';
 import 'package:apitest/cli/reset_cli.dart';
 import 'package:apitest/cli/sleep_disable_cli.dart';
@@ -65,7 +67,9 @@ void main(List<String> args) async {
     ..addCommand(StartCaptureCli())
     ..addCommand(AutoBracketCli())
     ..addCommand(ResetMySettingCli())
-    ..addCommand(SetShutterCli());
+    ..addCommand(SetShutterCli())
+    ..addCommand(GetTimeShiftCli())
+    ..addCommand(StatusCli());
 
   await runner.run(args).catchError((error) {
     if (error is! UsageException) throw error;
@@ -79,36 +83,30 @@ void main(List<String> args) async {
     print('\n');
   } else {
     switch (args[0]) {
-      case 'getTimeShift':
-        {
-          await getTimeShift();
-        }
-        break;
+      // case 'status':
+      //   {
+      //     if (args.length == 2) {
+      //       prettyPrint(await Camera.status(args[1]));
+      //     } else {
+      //       print('please supply id.  Example: dart main.dart status 306');
+      //     }
+      //   }
+      //   break;
 
-      case 'status':
-        {
-          if (args.length == 2) {
-            prettyPrint(await Camera.status(args[1]));
-          } else {
-            print('please supply id.  Example: dart main.dart status 306');
-          }
-        }
-        break;
-
-      case 'setLanguage':
-        {
-          if (args.length == 2) {
-            print('setting lang');
-            await setLanguage(args[1]);
-          } else {
-            print(args.length);
-            print(
-                'please supply language.  Example: dart main.dart setLanguage en-US');
-            print(
-                'supported values: en-US, en-GB, ja, fr, de, zh-TW, zh-CN, it, ko');
-          }
-        }
-        break;
+      // case 'setLanguage':
+      //   {
+      //     if (args.length == 2) {
+      //       print('setting lang');
+      //       await setLanguage(args[1]);
+      //     } else {
+      //       print(args.length);
+      //       print(
+      //           'please supply language.  Example: dart main.dart setLanguage en-US');
+      //       print(
+      //           'supported values: en-US, en-GB, ja, fr, de, zh-TW, zh-CN, it, ko');
+      //     }
+      //   }
+      //   break;
 
       default:
         {

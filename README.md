@@ -105,6 +105,9 @@ see when the camera is ready to take a picture again.
 * use of state and status to see when the camera is ready for the next command after you take a picture
 * metadata injection into image file not working on SC2. TODO: retest and document SC2 differences versus Z1.
 * the iOS and Android SDKs on the RICOH GitHub repo have problems with the getLivePreview motionJPEG response on SC2 and SC2B.
+* [_language](https://api.ricoh/docs/theta-web-api-v2.1/options/_language/) option does not appear to work
+on SC2 and SC2B. Not clear what it does on Z1 and V.  Took out of current version of test tool.  Script
+is still in repository under options. set_language.dart.
 
 ### Additional Test Plans
 
