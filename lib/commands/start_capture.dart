@@ -3,13 +3,14 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:apitest/pretty_print.dart';
 
-Future<http.Response> startCapture() async {
+Future<http.Response> startCapture(_mode) async {
   var url = 'http://192.168.1.1/osc/commands/execute';
 
   var data = {
     'name': 'camera.startCapture',
-    'parameters': {'_mode': 'bracket'}
+    'parameters': {'_mode': _mode}
   };
+
   //encode Map to JSON
   var body = jsonEncode(data);
 

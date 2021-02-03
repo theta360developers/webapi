@@ -128,6 +128,7 @@ possible with the SC2.
 is not clear if the values are strings or numbers. Clarify. It seems like the API allows both strings
 and floating point numbers.  However, the stored value appears to be a number. The range
 of specified values is not specified for SC2 or SC2B.
+* what does the [_function](https://api.ricoh/docs/theta-web-api-v2.1/options/_function/) option do?
 
 
 ## Update Camera Firmware

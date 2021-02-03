@@ -9,17 +9,33 @@ class StartCaptureCli extends Command {
   final name = 'startCapture';
 
   @override
-  final description = 'Start bracket capture';
+  final description = 'Start capture. Must specifiy capture mode';
 
   StartCaptureCli() {
-    // argParser
+    argParser
+      ..addOption(
+        'mode',
+        help: '--mode=... interval, bracket',
+        allowed: [
+          'interval',
+          'composite',
+          'bracket',
+          'timeShift',
+        ],
+      );
     //   ..addFlag('battery', help: 'battery charge level', negatable: false);
   }
 
   @override
   void run() async {
     //TODO: move to library. move print statement outside of library
-    await startCapture();
-    exit(0);
+    if (!argResults.wasParsed('mode')) {
+      print('specify capture mode');
+      printUsage();
+      exit(1);
+    } else {
+      await startCapture(argResults['mode']);
+      exit(0);
+    }
   }
 }
