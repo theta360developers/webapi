@@ -14,7 +14,7 @@ class SetShutterCli extends Command {
   SetShutterCli() {
     argParser
       ..addOption('speed',
-          help: 'specify shutter speed as floating point number --speed=0.0004',
+          help: 'Specify shutter speed as floating point number --speed=0.0004',
           allowed: [
             '0.00004',
             '0.00005',
