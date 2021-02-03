@@ -19,6 +19,7 @@ import 'package:apitest/cli/auto_bracket_cli.dart';
 import 'package:apitest/cli/delete_all_cli.dart';
 import 'package:apitest/cli/download_file_cli.dart';
 import 'package:apitest/cli/exposure_compensation_cli.dart';
+import 'package:apitest/cli/exposure_delay_cli.dart';
 import 'package:apitest/cli/exposure_program_cli.dart';
 import 'package:apitest/cli/get_time_shift_cli.dart';
 import 'package:apitest/cli/list_urls_cli.dart';
@@ -36,8 +37,6 @@ import 'package:apitest/cli/take_and_ready_cli.dart';
 import 'package:apitest/cli/get_metadata_cli.dart';
 import 'package:apitest/cli/get_options_cli.dart';
 import 'package:apitest/cli/off_disable_cli.dart';
-import 'package:apitest/cli/set_exposure_delay_five_cli.dart';
-import 'package:apitest/cli/set_exposure_delay_zero_cli.dart';
 import 'package:apitest/cli/set_mode_image_cli.dart';
 import 'package:apitest/cli/thumb_write_all_cli.dart';
 import 'package:apitest/cli/info_cli.dart';
@@ -59,8 +58,7 @@ void main(List<String> args) async {
     ..addCommand(SetModeImageCli())
     ..addCommand(GetOptionsCli())
     ..addCommand(GetMetadataCli())
-    ..addCommand(SetExposureDelayFiveCli())
-    ..addCommand(SetExposureDelayZeroCli())
+    ..addCommand(ExposureDelayCli())
     ..addCommand(ExposureCompensationCli())
     ..addCommand(OffDisableCli())
     ..addCommand(DownloadFileCli())

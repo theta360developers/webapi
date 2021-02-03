@@ -1,4 +1,3 @@
-import 'package:apitest/cli/pretty.dart';
 import 'package:apitest/options/set_exposure_compensation.dart';
 import 'package:args/command_runner.dart';
 import 'dart:io';
@@ -14,8 +13,7 @@ class ExposureCompensationCli extends Command {
   ExposureCompensationCli() {
     argParser
       ..addOption('value',
-          help:
-              '-2.0, -1.7, -1.3, -1.0, -0.7, -0.3, 0.0, 0.3, 0.7, 1.0, 1.3, 1.7, 2.0',
+          help: 'EV exposure compensation. Still and video are set separately',
           allowed: [
             '-2.0',
             '-1.7',
