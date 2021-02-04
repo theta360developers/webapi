@@ -115,6 +115,11 @@ A successful command will look like this:
 
 See this [YouTube video introducing the tool](https://youtu.be/yf--PIDahN8)
 
+Usage Videos
+
+* [Download thumbs, set HDR, disable power off](https://youtu.be/UXOlJwEc8gQ)
+* [Reset settings, reset my settings, delete all files from camera](https://youtu.be/OZqUMtQEWCU)
+
 ## Troubleshooting
 
 ### ping camera
