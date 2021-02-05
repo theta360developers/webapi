@@ -1,3 +1,5 @@
-## 1.0.0
+# THETA WebAPI Tester Changelog
 
-- Initial version, created by Stagehand
+## 0.1 Febrary 4, 2021
+
+
