@@ -1,3 +1,6 @@
+# markdown lint
+.markdownlint.yaml
+
 # production files
 theta.exe
 theta

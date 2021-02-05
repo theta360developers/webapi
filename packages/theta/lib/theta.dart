@@ -7,3 +7,4 @@ export 'src/protocols.dart';
 export 'src/utils.dart';
 export 'src/commands.dart';
 export 'src/options.dart';
+export 'src/files.dart';
