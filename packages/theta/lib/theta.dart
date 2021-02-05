@@ -1,6 +1,6 @@
-/// Support for doing something awesome.
+/// Flutter and Dart support for RICOH THETA WebAPI
 ///
-/// More dartdocs go here.
+///
 library theta;
 
 export 'src/protocols.dart';
