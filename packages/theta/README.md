@@ -19,7 +19,7 @@ dependencies:
 import 'package:theta/theta.dart';
 ```
 
-## Example Use
+## Example Command Line Use
 
 ```dart
 ...
@@ -27,3 +27,11 @@ yourFunction() async {
     print(await Camera.info);
 }
 ```
+
+## Example Use with Flutter
+
+[Flutter demo repo](https://github.com/codetricity/theta_webapi_flutter_minimal)
+
+![screenshot of flutter app](https://raw.githubusercontent.com/codetricity/theta_webapi_flutter_minimal/main/docs/images/android_demo.gif)
+
+
