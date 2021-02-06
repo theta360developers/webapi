@@ -24,8 +24,7 @@ class StatusCli extends Command {
       print(red('Specify id with --id=9580'));
       exit(1);
     } else {
-      //TODO: move to library. move print statement outside of library
-      print(pretty(await Camera.status(argResults['id'])));
+      print(pretty(await Camera.status(int.parse(argResults['id']))));
       exit(0);
     }
   }
