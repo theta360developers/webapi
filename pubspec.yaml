@@ -5,7 +5,10 @@ dependencies:
   http: ^0.12.2
   args: ^1.6.0
   theta:
-    path: packages/theta
+    git:
+      url: https://github.com/codetricity/theta
+      ref: main
+    # path: packages/theta
   dcli: ^0.41.0
 
 environment:

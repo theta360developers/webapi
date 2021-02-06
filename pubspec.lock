@@ -291,9 +291,11 @@ packages:
   theta:
     dependency: "direct main"
     description:
-      path: "packages/theta"
-      relative: true
-    source: path
+      path: "."
+      ref: main
+      resolved-ref: "5a3457e3e5b8cc6fd48e44cdbd5fae08a5da16e4"
+      url: "https://github.com/codetricity/theta"
+    source: git
     version: "0.1.0"
   typed_data:
     dependency: transitive

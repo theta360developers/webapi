@@ -1,8 +1,9 @@
 # RICOH THETA API HTTP Community Tests
 
-Last updated February 2, 2021.
+Last updated February 5, 2021.
 
-IMPORTANT: Some of the code examples are now in `/packages/theta/lib/src/`
+IMPORTANT: Some of the code examples are now in the
+[theta library on GitHub](https://github.com/codetricity/theta) in `/packages/theta/lib/src/`
 
 Welcome to our repository of RICOH THETA WebAPI tests based on contributions of
 from the [theta360.guide independent community](https://www2.theta360.guide/).  This is
