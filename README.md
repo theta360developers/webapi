@@ -1,13 +1,16 @@
 # RICOH THETA API HTTP Community Tests
 
-Last updated February 5, 2021.
+Last updated February 6, 2021.
 
 IMPORTANT: Some of the code examples are now in the
 [theta library on GitHub](https://github.com/codetricity/theta) in `/packages/theta/lib/src/`
 
-Welcome to our repository of RICOH THETA WebAPI tests based on contributions of
-from the [theta360.guide independent community](https://www2.theta360.guide/).  This is
-not an official RICOH document.  For official information, please
+The documentation for the library is being built out [here](https://codetricity.github.io/theta/).
+
+This is an example command line implementation of RICOH THETA WebAPI
+tests based on contributions of
+from the [theta360.guide independent community](https://www2.theta360.guide/).
+This is not an official RICOH document.  For official information, please
 contact RICOH.  You should confirm these community tips with your
 own tests prior to deployment in a business setting.  As these are
 unofficial tips, the official RICOH THETA API may change unexpectedly
@@ -24,13 +27,15 @@ Official API reference information from RICOH:
 
 ## Overview
 
-The RICOH THETA WebAPI is based on the [Google Open Spherical Camera API](https://developers.google.com/streetview/open-spherical-camera/reference). Developers build mobile apps that communicate with the RICOH THETA camera using Wi-Fi and a HTTP protocol using GET and POST commands.
+The RICOH THETA WebAPI is based on the [Google Open Spherical Camera API](https://developers.google.com/streetview/open-spherical-camera/reference). Developers build mobile
+apps that communicate with the RICOH THETA camera using Wi-Fi
+and a HTTP protocol using GET and POST commands.
 
 Our community examples test the HTTP request and response behavior of the RICOH THETA using Dart. You can also use
 [curl](https://curl.se/) from the command line or a HTTP API tester such as [Postman](https://www.postman.com/).
 
-Our examples are designed so that you can easily read the JSON request without any knowledge of Dart.
-The contents of the HTTP request will be identical in any programming language.  
+Some examples are designed so that you can easily read the JSON request without any knowledge of Dart.
+The contents of the HTTP request will be identical in any programming language.
 In the example below, Dart code is used to get the state of the
 RICOH THETA camera.  The response is in JSON.
 
