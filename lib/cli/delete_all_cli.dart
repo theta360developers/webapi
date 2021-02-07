@@ -1,6 +1,6 @@
-import 'package:apitest/commands/delete_all.dart';
+// import 'package:apitest/commands/delete_all.dart';
 import 'package:args/command_runner.dart';
-// import 'package:theta/theta.dart';
+import 'package:theta/theta.dart';
 import 'dart:io';
 // import 'pretty.dart';
 
@@ -19,8 +19,7 @@ class DeleteAllCli extends Command {
 
   @override
   void run() async {
-    //TODO: move to library. move print statement outside of library
-    await deleteAll();
+    await Ambulance.deleteAll();
     exit(0);
   }
 }

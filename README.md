@@ -214,6 +214,7 @@ is still in repository under options. set_language.dart.
 
 ### Additional Test Plans
 
+* retest "reset" command as it is likely not working as expected on SC2.
 * if the [exposureProgram](https://api.ricoh/docs/theta-web-api-v2.1/options/exposure_program/), is
 set to 2, the normal, default setting.  Do settings like shutterSpeed, iso, aperture have any effect?
 Image a car vendor is taking a vehicle in the shade and we provide advice on iso.  Does the iso

@@ -6,5 +6,5 @@ String pretty(map) {
 }
 
 void main(List<String> args) async {
-  print(await ThetaFile.listUrls(50));
+  print(await Ambulance.reset);
 }
