@@ -1,13 +1,21 @@
 # RICOH THETA API HTTP Community Tests
 
-Last updated February 6, 2021.
+Last updated February 7, 2021.
 
-IMPORTANT: Some of the code examples are now in the
+IMPORTANT: Most of the code examples to communicate with the camera are now in the
 [theta library on GitHub](https://github.com/codetricity/theta) in `/packages/theta/lib/src/`
 
-The documentation for the library is being built out [here](https://codetricity.github.io/theta/).
+The documentation for the Dart/Flutter package
+is being built out [here](https://codetricity.github.io/theta/).
 
-This is an example command line implementation of RICOH THETA WebAPI
+The original tests are easier to read, but more difficult to reuse in Flutter apps.
+The original tests are in `./lib/standalone` of this repository. Most of the standalone
+tests do not have error checking to see if the camera to workstation connection
+is down. This is okay for one-time tests on the command line to check the
+functionality of the API, but you'll likely want to implement more robust checks
+if you chain the commands together or use the commands in a mobile app.
+
+All RICOH THETA WebAPI
 tests based on contributions of
 from the [theta360.guide independent community](https://www2.theta360.guide/).
 This is not an official RICOH document.  For official information, please
@@ -34,7 +42,8 @@ and a HTTP protocol using GET and POST commands.
 Our community examples test the HTTP request and response behavior of the RICOH THETA using Dart. You can also use
 [curl](https://curl.se/) from the command line or a HTTP API tester such as [Postman](https://www.postman.com/).
 
-Some examples are designed so that you can easily read the JSON request without any knowledge of Dart.
+Standalone examples are designed so that you can easily read the JSON
+request without any knowledge of Dart.
 The contents of the HTTP request will be identical in any programming language.
 In the example below, Dart code is used to get the state of the
 RICOH THETA camera.  The response is in JSON.
@@ -82,12 +91,100 @@ as Swift or Kotlin.
 Dart is new and we understand that most people are not using Dart to build their mobile and desktop apps.
 These two tips will help you to use the Dart examples with another language.
 
-1. Although Dart looks like JavaScript, it does not store information as JavaScript objects.
-The requests from Dart are contructed in a Dart map, which looks very similar to JSON. Just
-be aware that the examples use `jsonEncode` and `jsonDecode` to convert between JSON and Dart maps.
+1. Although Dart looks like JavaScript, it does not store information as
+JavaScript objects. The requests from Dart are contructed in a Dart map, which
+looks very similar to JSON. Just be aware that the examples use `jsonEncode`
+and `jsonDecode` to convert between JSON and Dart maps.
 
-2. Similar to other languages, Dart uses the concepts `async`/`await` and futures for asynchronous programming.
-If these concepts are new, you can largely ignore them for curl, Python, bash, and Postman tests.  Focus on the http endpoint and JSON payload.
+2. Similar to other languages, Dart uses the concepts `async`/`await`
+and futures for asynchronous programming. If these concepts are new,
+you can largely ignore them for curl, Python, bash, and Postman tests.
+Focus on the http endpoint and JSON payload.
+
+## Using the Code Examples
+
+There are different ways for you to use this repository.
+
+### Use Command Line Example Program
+
+You can use this repository as a command line application to test the
+RICOH THETA API.
+
+There are two ways to use the command line application.
+
+1. pre-compiled binaries for Windows and Linux are in the
+[releases section](https://github.com/theta360developers/webapi/releases).
+The binaries are faster to run, but more difficult to use in a
+edit-build-test workflow. You can also build the binary yourself
+with [dart2native](https://dart.dev/tools/dart2native).
+
+2. if you have Dart installed on your computer, you can run the code
+in debug mode, which is slower, but much better for the edit-test
+development workflow.
+
+```shell
+dart bin/main.dart info
+```
+
+To quickly get started using the pre-compiled binaries, watch these
+three videos in sequence.
+
+1. [RICOH THETA API Command Line Tester introduction](https://youtu.be/yf--PIDahN8)
+2. [Download Thumbnails, Set HDR, Disable Power Off with RICOH THETA WebAP](https://youtu.be/UXOlJwEc8gQ)
+3. [RICOH THETA API - reset settings, reset my settings, delete all images, manage hdr](https://youtu.be/OZqUMtQEWCU)
+
+### Run Single or Multiple Commands From Standalone Scripts
+
+The main function is in `bin/main.dart`. 
+
+You can create another file with a different main function. For example,
+this script is saved in `bin/test_standalone.dart`.
+
+```dart
+import 'package:apitest/standalone/protocols/info.dart';
+
+void main() {
+  getInfo();
+}
+```
+
+Run it like this:
+
+```shell
+> dart .\bin\test_standalone.dart
+{
+  "manufacturer": "RICOH",
+  "model": "RICOH THETA SC2",
+```
+
+### Run Single or Multiple Commands From theta Package
+
+If you import the [theta package](https://github.com/codetricity/theta),
+you will have access to
+all the [commands in the library](https://codetricity.github.io/theta/)
+without having to import additional files.
+
+```dart
+import 'dart:convert';
+import 'package:theta/theta.dart';
+
+String pretty(map) {
+  return (JsonEncoder.withIndent('  ').convert(map));
+}
+
+void main(List<String> args) async {
+  print(await ThetaFile.listUrls(50));
+}
+```
+
+Run the script with:
+
+```shell
+> dart .\bin\test_standalone.dart
+{
+  "manufacturer": "RICOH",
+  "model": "RICOH THETA SC2",
+```
 
 ## Status
 
