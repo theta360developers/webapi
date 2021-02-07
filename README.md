@@ -105,7 +105,7 @@ Focus on the http endpoint and JSON payload.
 
 There are different ways for you to use this repository.
 
-### Use Command Line Example Program
+### 1. Use Command Line Example Program
 
 You can use this repository as a command line application to test the
 RICOH THETA API.
@@ -133,7 +133,7 @@ three videos in sequence.
 2. [Download Thumbnails, Set HDR, Disable Power Off with RICOH THETA WebAP](https://youtu.be/UXOlJwEc8gQ)
 3. [RICOH THETA API - reset settings, reset my settings, delete all images, manage hdr](https://youtu.be/OZqUMtQEWCU)
 
-### Run Single or Multiple Commands From Standalone Scripts
+### 2. Run Single or Multiple Commands From Standalone Scripts
 
 The main function is in `bin/main.dart`. 
 
@@ -157,7 +157,7 @@ Run it like this:
   "model": "RICOH THETA SC2",
 ```
 
-### Run Single or Multiple Commands From theta Package
+### 3. Run Single or Multiple Commands From theta Package
 
 If you import the [theta package](https://github.com/codetricity/theta),
 you will have access to
