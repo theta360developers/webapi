@@ -29,7 +29,7 @@ import 'package:apitest/cli/set_language_cli.dart';
 import 'package:apitest/cli/set_shutter_cli.dart';
 import 'package:apitest/cli/start_capture_cli.dart';
 import 'package:apitest/cli/status_cli.dart';
-import 'package:apitest/cli/thumb_get_cli.dart';
+import 'package:apitest/cli/thumb_write_cli.dart';
 import 'package:apitest/cli/reset_cli.dart';
 import 'package:apitest/cli/sleep_disable_cli.dart';
 import 'package:apitest/cli/take_and_download_cli.dart';
@@ -38,7 +38,6 @@ import 'package:apitest/cli/get_metadata_cli.dart';
 import 'package:apitest/cli/get_options_cli.dart';
 import 'package:apitest/cli/off_disable_cli.dart';
 import 'package:apitest/cli/set_mode_image_cli.dart';
-import 'package:apitest/cli/thumb_write_all_cli.dart';
 import 'package:apitest/cli/info_cli.dart';
 import 'package:apitest/cli/state_cli.dart';
 import 'package:apitest/cli/take_picture_cli.dart';
@@ -67,8 +66,7 @@ void main(List<String> args) async {
     ..addCommand(ResetCli())
     ..addCommand(SleepDisableCli())
     ..addCommand(DeleteAllCli())
-    ..addCommand(ThumbGetCli())
-    ..addCommand(ThumbWriteAllCli())
+    ..addCommand(ThumbWriteCli())
     ..addCommand(ListUrlsCli())
     ..addCommand(PresetCaptureModeCli())
     ..addCommand(StartCaptureCli())
