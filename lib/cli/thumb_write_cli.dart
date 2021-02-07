@@ -1,4 +1,3 @@
-import 'package:apitest/thumbnails/write_all_thumbs.dart';
 import 'package:theta/theta.dart';
 import 'package:args/command_runner.dart';
 import 'dart:io';
@@ -30,8 +29,15 @@ class ThumbWriteCli extends Command {
           .writeAsBytes(await ThetaFile.getLastThumbBytes());
       exit(0);
     } else if (argResults.wasParsed('all')) {
-      //TODO: move to library. move print statement outside of library
-      await writeAllThumbs();
+      try {
+        var thumbs = await ThetaFile.getThumbs(await ThetaFile.totalEntries);
+        for (var i = 0; i < thumbs.length; i++) {
+          await File('thumbnail-$i.jpg').writeAsBytes(thumbs[i]);
+        }
+      } catch (e) {
+        print(e);
+      }
+
       exit(0);
     } else {
       printUsage();
