@@ -134,7 +134,8 @@ possible with the SC2.
 is not clear if the values are strings or numbers. Clarify. It seems like the API allows both strings
 and floating point numbers.  However, the stored value appears to be a number. The range
 of specified values is not specified for SC2 or SC2B.
-* what does the [_function](https://api.ricoh/docs/theta-web-api-v2.1/options/_function/) option do?
+* what does the [_function](https://api.ricoh/docs/theta-web-api-v2.1/options/_function/) option do? It looks like it is "normal", "selfTimer", "mySetting" from the state.  There is a note that it is for Z1 and later.
+* How do we use [CheckForUpdates](https://api.ricoh/docs/theta-web-api-v2.1/protocols/check_for_updates/)?
 
 
 ## Update Camera Firmware
