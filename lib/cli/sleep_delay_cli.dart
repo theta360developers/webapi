@@ -3,14 +3,14 @@ import 'dart:io';
 import 'package:theta/theta.dart';
 // import 'pretty.dart';
 
-class SleepCli extends Command {
+class SleepDelayCli extends Command {
   @override
-  final name = 'sleep';
+  final name = 'sleepDelay';
 
   @override
   final description = 'Set or disable camera auto-sleep.';
 
-  SleepCli() {
+  SleepDelayCli() {
     argParser
       ..addFlag('off',
           help: 'turn auto-sleep off.  Camera will never sleep',
@@ -26,7 +26,7 @@ class SleepCli extends Command {
     if (argResults.arguments.isEmpty) {
       printUsage();
     } else if (argResults.wasParsed('off')) {
-      await CameraOption.sleep(65535);
+      await CameraOption.sleepDelay(65535);
       exit(0);
     } else if (argResults.wasParsed('seconds')) {
       var seconds = int.tryParse(argResults['seconds']) ?? -1;
@@ -38,7 +38,7 @@ class SleepCli extends Command {
         print('requires a number between 60 and 65535');
         exit(1);
       } else {
-        await CameraOption.sleep(int.parse(argResults['seconds']));
+        await CameraOption.sleepDelay(int.parse(argResults['seconds']));
         exit(0);
       }
     } else {
