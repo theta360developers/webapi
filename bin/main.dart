@@ -35,7 +35,7 @@ import 'package:apitest/cli/take_and_download_cli.dart';
 import 'package:apitest/cli/take_and_ready_cli.dart';
 import 'package:apitest/cli/get_metadata_cli.dart';
 import 'package:apitest/cli/get_options_cli.dart';
-import 'package:apitest/cli/off_disable_cli.dart';
+import 'package:apitest/cli/off_delay_cli.dart';
 import 'package:apitest/cli/set_mode_image_cli.dart';
 import 'package:apitest/cli/info_cli.dart';
 import 'package:apitest/cli/state_cli.dart';
@@ -58,7 +58,7 @@ void main(List<String> args) async {
     ..addCommand(GetMetadataCli())
     ..addCommand(ExposureDelayCli())
     ..addCommand(ExposureCompensationCli())
-    ..addCommand(OffDisableCli())
+    ..addCommand(OffDelayCli())
     ..addCommand(DownloadFileCli())
     ..addCommand(TakeAndReadyCli())
     ..addCommand(TakeAndDownloadCli())
