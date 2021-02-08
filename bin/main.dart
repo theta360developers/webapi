@@ -24,14 +24,13 @@ import 'package:apitest/cli/exposure_program_cli.dart';
 import 'package:apitest/cli/get_time_shift_cli.dart';
 import 'package:apitest/cli/list_urls_cli.dart';
 import 'package:apitest/cli/preset_capture_mode_cli.dart';
-import 'package:apitest/cli/reset_mysetting_cli.dart';
 import 'package:apitest/cli/set_language_cli.dart';
 import 'package:apitest/cli/set_shutter_cli.dart';
 import 'package:apitest/cli/start_capture_cli.dart';
 import 'package:apitest/cli/status_cli.dart';
 import 'package:apitest/cli/thumb_write_cli.dart';
 import 'package:apitest/cli/reset_cli.dart';
-import 'package:apitest/cli/sleep_disable_cli.dart';
+import 'package:apitest/cli/sleep_cli.dart';
 import 'package:apitest/cli/take_and_download_cli.dart';
 import 'package:apitest/cli/take_and_ready_cli.dart';
 import 'package:apitest/cli/get_metadata_cli.dart';
@@ -64,14 +63,13 @@ void main(List<String> args) async {
     ..addCommand(TakeAndReadyCli())
     ..addCommand(TakeAndDownloadCli())
     ..addCommand(ResetCli())
-    ..addCommand(SleepDisableCli())
+    ..addCommand(SleepCli())
     ..addCommand(DeleteAllCli())
     ..addCommand(ThumbWriteCli())
     ..addCommand(ListUrlsCli())
     ..addCommand(PresetCaptureModeCli())
     ..addCommand(StartCaptureCli())
     ..addCommand(AutoBracketCli())
-    ..addCommand(ResetMySettingCli())
     ..addCommand(SetShutterCli())
     ..addCommand(GetTimeShiftCli())
     ..addCommand(StatusCli())
