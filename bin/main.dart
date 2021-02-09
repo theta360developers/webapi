@@ -25,6 +25,7 @@ import 'package:apitest/cli/get_time_shift_cli.dart';
 import 'package:apitest/cli/list_urls_cli.dart';
 import 'package:apitest/cli/preset_capture_mode_cli.dart';
 import 'package:apitest/cli/set_language_cli.dart';
+import 'package:apitest/cli/set_option_cli.dart';
 import 'package:apitest/cli/set_shutter_cli.dart';
 import 'package:apitest/cli/start_capture_cli.dart';
 import 'package:apitest/cli/status_cli.dart';
@@ -35,6 +36,7 @@ import 'package:apitest/cli/take_and_download_cli.dart';
 import 'package:apitest/cli/take_and_ready_cli.dart';
 import 'package:apitest/cli/get_metadata_cli.dart';
 import 'package:apitest/cli/get_options_cli.dart';
+import 'package:apitest/cli/get_option_cli.dart';
 import 'package:apitest/cli/off_delay_cli.dart';
 import 'package:apitest/cli/set_mode_image_cli.dart';
 import 'package:apitest/cli/info_cli.dart';
@@ -74,7 +76,9 @@ void main(List<String> args) async {
     ..addCommand(GetTimeShiftCli())
     ..addCommand(StatusCli())
     ..addCommand(SetLanguageCli())
-    ..addCommand(ExposureProgramCli());
+    ..addCommand(ExposureProgramCli())
+    ..addCommand(GetOptionCli())
+    ..addCommand(SetOptionCli());
 
   await runner.run(args).catchError((error) {
     if (error is! UsageException) throw error;

@@ -6,5 +6,5 @@ String pretty(map) {
 }
 
 void main(List<String> args) async {
-  print(await Ambulance.reset);
+  print(await CameraOption.setOption('captureMode', 'image'));
 }
