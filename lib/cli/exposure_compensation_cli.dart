@@ -1,7 +1,8 @@
-import 'package:apitest/options/set_exposure_compensation.dart';
+// import 'package:apitest/options/set_exposure_compensation.dart';
 import 'package:args/command_runner.dart';
 import 'dart:io';
 import 'package:dcli/dcli.dart';
+import 'package:theta/theta.dart';
 
 class ExposureCompensationCli extends Command {
   @override
@@ -29,8 +30,6 @@ class ExposureCompensationCli extends Command {
             '1.7',
             '2.0'
           ]);
-    // argParser
-    //   ..addFlag('battery', help: 'battery charge level', negatable: false);
   }
 
   @override
@@ -41,7 +40,12 @@ class ExposureCompensationCli extends Command {
       printUsage();
       exit(1);
     } else {
-      await setExposureCompensation(double.parse(argResults['value']));
+      await CameraOption.setOption('exposureCompensation', argResults['value']);
+      var response = await CameraOption.getOption('exposureCompensation');
+      var exposureCompensationValue =
+          response['results']['options']['exposureCompensation'];
+      print(
+          'The EV is now $exposureCompensationValue. Did it work?  If so, take a moment to celebrate.');
       exit(0);
     }
   }

@@ -1,6 +1,6 @@
-import 'package:apitest/options/set_shutter.dart';
+// import 'package:apitest/options/set_shutter.dart';
 import 'package:args/command_runner.dart';
-// import 'package:theta/theta.dart';
+import 'package:theta/theta.dart';
 import 'dart:io';
 // import 'pretty.dart';
 
@@ -85,11 +85,22 @@ class SetShutterCli extends Command {
   void run() async {
     //TODO: move to library. move print statement outside of library
     if (argResults.wasParsed('speed')) {
-      await setShutter(argResults['speed']);
-      exit(0);
+      //ignore: omit_local_variable_types
+      double speed = double.tryParse(argResults['speed']) ?? -1.0;
+      if (speed == -1.0) {
+        print('Please use a valid speed');
+        printUsage();
+        exit(1);
+      } else {
+        await CameraOption.setOption('shutterSpeed', speed);
+        exit(0);
+      }
+      // await setShutter(argResults['speed']);
+
     } else {
       print('specify speed option --speed=0.002');
       printUsage();
+      exit(1);
     }
   }
 }
