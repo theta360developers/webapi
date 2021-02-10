@@ -21,12 +21,18 @@
 # confirm settings
 ./theta.exe getOptions
 
+sleep 1s
+
 # set exposureCompensation to -2.0
 ./theta.exe exposureCompensation --value=-2.0
+
+sleep 1s
 
 # take picture and download to local computer
 # it will be in the same directory as theta.exe
 ./theta.exe takeAndDownload
+
+sleep 1s
 
 # set exposureCompensatio to 2.0
 ./theta.exe exposureCompensation --value=2.0
