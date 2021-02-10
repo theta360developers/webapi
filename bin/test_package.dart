@@ -6,6 +6,5 @@ import 'package:theta/theta.dart';
 // }
 
 void main(List<String> args) async {
-  print(await CameraOption.setOption('captureMode', 'image'));
-  print(await ThetaFile.totalEntries);
+  await Camera.checkForUpdates('FIG_0006');
 }
