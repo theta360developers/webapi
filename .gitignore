@@ -2,7 +2,7 @@
 .markdownlint.yaml
 
 # production files
-theta.exe
+# theta.exe
 theta
 
 .vscode
