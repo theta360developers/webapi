@@ -51,7 +51,7 @@ echo start endurance loop test
 # example of loop to take  pictures for timelapse or testing
 # increase the number below to 300 to take 300 pictures
 # example {1..300}
-for counter in {1..100}
+for counter in {1..500}
 do
     ./theta.exe takeAndReady
     echo that was picture $counter
