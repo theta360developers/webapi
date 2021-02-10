@@ -34,8 +34,11 @@
 # take picture and leave on camera
 ./theta.exe takeAndReady
 
-# example of loop to take 5 pictures for timelapse
-for counter in {1..5}
+echo start timelapse photography loop test
+# example of loop to take 2 pictures for timelapse
+# increase the number 2 below to 300 to take 300 pictures
+# example {1..300}
+for counter in {1..2}
 do
     ./theta.exe takeAndReady
     echo that was picture $counter
@@ -49,5 +52,6 @@ done
 echo timelapse done
 
 # grab all the thumbnails and write to local storage
-./theta.exe thumbWrite --all
+./theta.exe download --thumb=all
+echo thumbnail download test completed
 

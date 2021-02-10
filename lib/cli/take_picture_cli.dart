@@ -17,7 +17,7 @@ class TakePictureCli extends Command {
 
   @override
   void run() async {
-    print(pretty(await takePicture()));
+    print(pretty(await ThetaRun.takePicture()));
     exit(0);
   }
 }

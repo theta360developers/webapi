@@ -17,7 +17,6 @@
 import 'dart:io';
 import 'package:apitest/cli/auto_bracket_cli.dart';
 import 'package:apitest/cli/delete_all_cli.dart';
-import 'package:apitest/cli/download_file_cli.dart';
 import 'package:apitest/cli/exposure_compensation_cli.dart';
 import 'package:apitest/cli/exposure_delay_cli.dart';
 import 'package:apitest/cli/exposure_program_cli.dart';
@@ -31,7 +30,6 @@ import 'package:apitest/cli/set_shutter_cli.dart';
 import 'package:apitest/cli/shutter_volume_cli.dart';
 import 'package:apitest/cli/start_capture_cli.dart';
 import 'package:apitest/cli/status_cli.dart';
-import 'package:apitest/cli/thumb_write_cli.dart';
 import 'package:apitest/cli/reset_cli.dart';
 import 'package:apitest/cli/sleep_delay_cli.dart';
 import 'package:apitest/cli/take_and_download_cli.dart';
@@ -47,6 +45,7 @@ import 'package:apitest/cli/take_picture_cli.dart';
 import 'package:apitest/cli/list_files_cli.dart';
 import 'package:args/command_runner.dart';
 import 'package:apitest/cli/hdr_cli.dart';
+import 'package:apitest/cli/download_cli.dart';
 
 //TODO: add filterOff for all all filters. can copy from the hdr library
 
@@ -63,13 +62,11 @@ void main(List<String> args) async {
     ..addCommand(ExposureDelayCli())
     ..addCommand(ExposureCompensationCli())
     ..addCommand(OffDelayCli())
-    ..addCommand(DownloadFileCli())
     ..addCommand(TakeAndReadyCli())
     ..addCommand(TakeAndDownloadCli())
     ..addCommand(ResetCli())
     ..addCommand(SleepDelayCli())
     ..addCommand(DeleteAllCli())
-    ..addCommand(ThumbWriteCli())
     ..addCommand(ListUrlsCli())
     ..addCommand(PresetCaptureModeCli())
     ..addCommand(StartCaptureCli())
@@ -82,7 +79,8 @@ void main(List<String> args) async {
     ..addCommand(GetOptionCli())
     ..addCommand(SetOptionCli())
     ..addCommand(SetMySettingCli())
-    ..addCommand(ShutterVolumeCli());
+    ..addCommand(ShutterVolumeCli())
+    ..addCommand(DownloadCli());
 
   await runner.run(args).catchError((error) {
     if (error is! UsageException) throw error;

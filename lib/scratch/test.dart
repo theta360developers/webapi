@@ -23,7 +23,7 @@ Future<String> isDone(String id) async {
 }
 
 Future<String> test() async {
-  var takePictureResponse = await takePicture();
+  var takePictureResponse = await ThetaRun.takePicture();
   // print(takePictureResponse);
   // Map<String, dynamic> pictureInfo = jsonDecode(takePictureResponse);
   String id = takePictureResponse['id'];

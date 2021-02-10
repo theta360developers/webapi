@@ -25,7 +25,7 @@ Future<String> downloadReady() async {
   print(
       'Test of taking picture and then checking to see if picture is ready for download');
   print('---');
-  var takePictureResponse = await takePicture();
+  var takePictureResponse = await ThetaRun.takePicture();
   String id = takePictureResponse['id'];
   print('The status ID is $id');
 
