@@ -15,6 +15,8 @@
 # turn off self timer
 ./theta.exe exposureDelay --seconds=0
 
+# turn off shutter volume "beep"
+./theta.exe shutterVolume --off
 
 # confirm settings
 ./theta.exe getOptions

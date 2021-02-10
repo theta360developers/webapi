@@ -7,7 +7,8 @@ class SetOptionCli extends Command {
   final name = 'setOption';
 
   @override
-  final description = 'Set single option';
+  final description =
+      'Set single option. --name=_colorTemperature --value=5000';
 
   SetOptionCli() {
     argParser

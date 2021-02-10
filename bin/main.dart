@@ -28,6 +28,7 @@ import 'package:apitest/cli/set_language_cli.dart';
 import 'package:apitest/cli/set_my_setting_cli.dart';
 import 'package:apitest/cli/set_option_cli.dart';
 import 'package:apitest/cli/set_shutter_cli.dart';
+import 'package:apitest/cli/shutter_volume_cli.dart';
 import 'package:apitest/cli/start_capture_cli.dart';
 import 'package:apitest/cli/status_cli.dart';
 import 'package:apitest/cli/thumb_write_cli.dart';
@@ -80,7 +81,8 @@ void main(List<String> args) async {
     ..addCommand(ExposureProgramCli())
     ..addCommand(GetOptionCli())
     ..addCommand(SetOptionCli())
-    ..addCommand(SetMySettingCli());
+    ..addCommand(SetMySettingCli())
+    ..addCommand(ShutterVolumeCli());
 
   await runner.run(args).catchError((error) {
     if (error is! UsageException) throw error;

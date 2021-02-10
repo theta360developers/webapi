@@ -41,7 +41,8 @@ Future<http.Response> getOptions() async {
         'sleepDelay',
         'exposureDelay',
         'shutterSpeed',
-        'exposureProgram'
+        'exposureProgram',
+        '_shutterVolume'
       ]
     }
   };
