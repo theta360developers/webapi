@@ -83,7 +83,6 @@ class SetShutterCli extends Command {
 
   @override
   void run() async {
-    //TODO: move to library. move print statement outside of library
     if (argResults.wasParsed('speed')) {
       //ignore: omit_local_variable_types
       double speed = double.tryParse(argResults['speed']) ?? -1.0;

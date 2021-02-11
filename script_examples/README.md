@@ -1,0 +1,54 @@
+# bash script for RICOH THETA WebAPI
+
+bash scripts to run the command line tester from Oppkey on the RICOH THETA cameras.
+The tester is incomplete.  We use it for our own testing and make it available so
+people can replicate our tests or run their own tests. Good alternatives to this
+tool are [curl](https://curl.se/) and [Postman](https://www.postman.com/).  As this
+tool is incomplete, it can't replace curl or Postman.  However, it can help you
+to browse the THETA API functionality and test behavior without having to constantly reference
+the API documentation. 
+
+To see available commands run `./theta.exe --help`
+
+```shell
+PS C:\Users\craig\Documents\Development\ricoh\webapi> .\theta.exe --help
+RICOH WebAPI Tester
+
+Usage: ./theta <command> [arguments]       
+
+Global options:
+-h, --help    Print this usage information.
+
+Available commands:
+  autoBracket            apply test 3 image auto bracket settings
+  deleteAll              DANGER: Delete all image and video files from camera
+  downloadFile           Download newest file and save to local computer
+  exposureCompensation   set exposure compensation with --value=2.0
+  exposureDelay          set self timer delay in seconds
+  exposureProgram        set exposure program 1 (manual), 2 (auto), 3 (aperture Z1 only), 4 (shutter), 9 (iso)        
+  getMetadata            Get image metadata from camera by passing URL of the file
+  getOptions             get camera options
+  getTimeShift           get Time Shift settings. SC2B, V, Z1 only
+  hdr                    Enable, save, delete, disable, and show hdr settings
+  info                   Camera info: model, serialNumber, apiLevel...
+  listFiles              list all image and video files on camera
+  listUrls               print and return URLs as an array of strings
+  offDisable             Disable power off
+  preset                 SC2 only. Preset shooting modes. face, night, lens-by-lens
+  reset                  Reset camera settings. Camera will turn off. Need to reconnect
+  resetMySetting         Reset mySettings (saved settings) to factory default
+  setLanguage            Z1, V only. Set language with --lang=en-US
+  setModeImage           Set camera to image mode
+  setShutter             set shutter speed
+  sleepDisable           Disable camera auto-sleep.
+  startCapture           Start capture. Must specifiy capture mode
+  state                  Camera state: batteryLevel, storageUri...
+  status                 Show camera status. Requires id value returned from takePicture
+  takeAndDownload        Take picture. Show elapsed time. Download to local disk.
+  takeAndReady           Take picture. Show elapsed time. Show file URI when ready for download
+  takePicture            take picture, similar to pressing shutter button
+  thumbGet               Print image thumbnail byte data to screen. Pass URL of the file
+  thumbWriteAll          Download and save all thumbnails to local storage.
+
+Run "./theta help <command>" for more information about a command.
+```
