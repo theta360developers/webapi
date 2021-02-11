@@ -52,3 +52,71 @@ Available commands:
 
 Run "./theta help <command>" for more information about a command.
 ```
+
+## setting complex options
+
+Most of the commands and options are specified on the same line as `theta.exe`.
+
+For most options, you do not need to create an options file.  If there is
+only one parameter, specify the parameter with this convention.
+
+```shell
+.\theta.exe setOption --name=captureMode --value=video 
+```
+
+If the option consists of multiple parts, you can store the option parameters
+in a file as a JSON string.  You can then use the file with the command below.
+
+```bash
+theta.exe setOption --jsonFile=options/bracket_2_config.json
+```
+
+You can see the parameters with `./theta.exe getOptions`
+
+```shell
+> .\theta.exe getOptions
+200
+{
+  "name": "camera.getOptions",
+  "results": {
+    "options": {
+      "_autoBracket": {
+        "_bracketNumber": 2,
+        "_bracketParameters": [
+          {
+            "aperture": 2.1,
+            ...
+```
+
+### format of options file
+
+The options file contains a JSON string.  It is not a dart map, though the
+formats look almost identical. 
+
+#### single option example of complex _autobracket
+
+```shell
+cat options/bracket_2_config.json
+{
+    "_autoBracket": {
+      "_bracketNumber": 2,
+      "_bracketParameters": [
+        {
+          "shutterSpeed": 0.004,
+          "iso": 400,
+          "_colorTemperature": 5100,
+          "exposureProgram": 1,
+          "whiteBalance": "auto"
+        },
+        {
+          "shutterSpeed": 0.004,
+          "iso": 320,
+          "_colorTemperature": 5100,
+          "exposureProgram": 1,
+          "whiteBalance": "auto"
+        }
+      ]
+    }
+  }
+  ```
+
