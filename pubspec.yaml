@@ -5,11 +5,11 @@ dependencies:
   http: ^0.12.2
   args: ^1.6.0
   theta:
-    git:
-      url: https://github.com/codetricity/theta
-      ref: main
-    change the path below to the path above for production use
-    # path: ../theta
+    # git:
+    #   url: https://github.com/codetricity/theta
+    #   ref: main
+    # change the path below to the path above for production use
+    path: ../theta
   dcli: ^0.41.0
 
 environment:

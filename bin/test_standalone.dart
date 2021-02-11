@@ -16,6 +16,8 @@
 
 import 'package:apitest/standalone/protocols/info.dart';
 
-void main() {
+// import 'dart:io';
+
+void main() async {
   getInfo();
 }

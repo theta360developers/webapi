@@ -9,13 +9,8 @@ import 'package:theta/theta.dart';
 // }
 
 void main(List<String> args) async {
-  // var urlList = await ThetaFile.listUrls(await ThetaFile.totalEntries);
-  var urlList = await ThetaFile.listUrls(2);
-
-  for (var url in urlList) {
-    print('Starting work on file at $url');
-    var imageFilename = url.split('/')[6];
-    print('Starting download and write process for $imageFilename');
-    await File(imageFilename).writeAsBytes(await http.readBytes(url));
-  }
+  // var jsonConfig = (await File('options/option_config.json').readAsString());
+  var jsonConfig = (await File('options/bracket_2_config.json').readAsString());
+  var response = await CameraOption.setOptionJson(jsonConfig);
+  print(response);
 }

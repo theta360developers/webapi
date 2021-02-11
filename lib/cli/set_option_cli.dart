@@ -13,7 +13,10 @@ class SetOptionCli extends Command {
   SetOptionCli() {
     argParser
       ..addOption('name', help: '--name=captureMode')
-      ..addOption('value', help: '--value=image');
+      ..addOption('value', help: '--value=image')
+      ..addOption('jsonFile',
+          help:
+              'do not use unless name and value are unused. --jsonFile=options/bracket_3_config.json');
   }
 
   @override
@@ -40,6 +43,12 @@ class SetOptionCli extends Command {
       var currentSetting = await CameraOption.getOption(argResults['name']);
       print(currentSetting['results']['options']);
       exit(0);
+    } else if (argResults.wasParsed('jsonFile')) {
+      var jsonConfig = (await File(argResults['jsonFile']).readAsString());
+      var response = await CameraOption.setOptionJson(jsonConfig);
+      print(response);
+    } else {
+      printUsage();
     }
   }
 }
