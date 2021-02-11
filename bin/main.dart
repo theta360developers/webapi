@@ -15,6 +15,8 @@
 ///  "firmwareVersion": "01.51",
 ///  ...
 import 'dart:io';
+import 'package:args/args.dart';
+import 'package:yaml/yaml.dart';
 import 'package:apitest/cli/auto_bracket_cli.dart';
 import 'package:apitest/cli/delete_all_cli.dart';
 import 'package:apitest/cli/exposure_compensation_cli.dart';
@@ -46,6 +48,8 @@ import 'package:apitest/cli/list_files_cli.dart';
 import 'package:args/command_runner.dart';
 import 'package:apitest/cli/hdr_cli.dart';
 import 'package:apitest/cli/download_cli.dart';
+import 'package:apitest/cli/stop_capture_cli.dart';
+import 'package:apitest/cli/app_cli.dart';
 
 //TODO: add filterOff for all all filters. can copy from the hdr library
 
@@ -80,7 +84,9 @@ void main(List<String> args) async {
     ..addCommand(SetOptionCli())
     ..addCommand(SetMySettingCli())
     ..addCommand(ShutterVolumeCli())
-    ..addCommand(DownloadCli());
+    ..addCommand(DownloadCli())
+    ..addCommand(StopCaptureCli())
+    ..addCommand(AppCli());
 
   await runner.run(args).catchError((error) {
     if (error is! UsageException) throw error;

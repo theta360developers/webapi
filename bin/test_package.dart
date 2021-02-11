@@ -10,7 +10,8 @@ import 'package:theta/theta.dart';
 
 void main(List<String> args) async {
   // var jsonConfig = (await File('options/option_config.json').readAsString());
-  var jsonConfig = (await File('options/bracket_2_config.json').readAsString());
-  var response = await CameraOption.setOptionJson(jsonConfig);
+  // var jsonConfig = (await File('options/bracket_2_config.json').readAsString());
+  // var response = await CameraOption.setOptionJson(jsonConfig);
+  var response = await ThetaRun.stopCapture();
   print(response);
 }
