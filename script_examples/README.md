@@ -1,6 +1,6 @@
-# bash script for RICOH THETA WebAPI
+# bash scripts for RICOH THETA WebAPI
 
-bash scripts to run the command line tester from Oppkey on the RICOH THETA cameras.
+You can use bash scripts to run the command line tester from Oppkey on the RICOH THETA cameras.
 The tester is incomplete.  We use it for our own testing and make it available so
 people can replicate our tests or run their own tests. Good alternatives to this
 tool are [curl](https://curl.se/) and [Postman](https://www.postman.com/).  As this

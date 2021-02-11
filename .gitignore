@@ -12,7 +12,6 @@ _site
 *.com
 *.class
 *.dll
-*.exe
 *.o
 *.so
 ### Windows ###

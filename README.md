@@ -1,6 +1,6 @@
 # RICOH THETA API HTTP Community Tests
 
-Last updated February 7, 2021.
+Last updated February 11, 2021.
 
 IMPORTANT: Most of the code examples to communicate with the camera are now in the
 [theta library on GitHub](https://github.com/codetricity/theta) in `/packages/theta/lib/src/`
@@ -306,6 +306,28 @@ Downloading charcode 1.1.3...
 Downloading meta 1.1.8...
 Got dependencies!
 ```
+
+### Update to new theta package
+
+```shell
+pub update
+```
+
+### Forcing Update of theta package
+
+The package is on GitHub and may not update.  If `pub update` does not show the updated
+package methods, you can rebuild the package cache with
+
+```shell
+pub cache repair
+```
+
+You may need to reactivate packages.
+
+```shell
+pub global reactivate dhttpd
+```
+
 
 ### Camera to Workstation Connection
 

@@ -42,7 +42,7 @@ packages:
       name: collection
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.14.12"
+    version: "1.14.13"
   convert:
     dependency: transitive
     description:
@@ -70,14 +70,14 @@ packages:
       name: dcli
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.41.0"
+    version: "0.41.12"
   equatable:
     dependency: transitive
     description:
       name: equatable
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.5"
+    version: "1.2.6"
   ffi:
     dependency: transitive
     description:
@@ -126,7 +126,7 @@ packages:
       name: http_parser
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.3"
+    version: "3.1.4"
   ini:
     dependency: transitive
     description:
@@ -182,7 +182,7 @@ packages:
       name: meta
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.8"
+    version: "1.2.4"
   node_interop:
     dependency: transitive
     description:
@@ -210,7 +210,7 @@ packages:
       name: pedantic
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.9.0"
+    version: "1.9.2"
   pointycastle:
     dependency: transitive
     description:
@@ -224,7 +224,7 @@ packages:
       name: posix
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.3.0"
+    version: "1.3.2"
   pub_semver:
     dependency: transitive
     description:
@@ -259,7 +259,7 @@ packages:
       name: source_span
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.6.0"
+    version: "1.7.0"
   stack_trace:
     dependency: transitive
     description:
@@ -291,9 +291,11 @@ packages:
   theta:
     dependency: "direct main"
     description:
-      path: "../theta"
-      relative: true
-    source: path
+      path: "."
+      ref: main
+      resolved-ref: b505c09a4ed88bd3dd86eaaf9482e10ce464ded1
+      url: "https://github.com/codetricity/theta"
+    source: git
     version: "0.1.0"
   typed_data:
     dependency: transitive
@@ -301,7 +303,7 @@ packages:
       name: typed_data
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.6"
+    version: "1.2.0"
   uri:
     dependency: transitive
     description:
@@ -329,7 +331,7 @@ packages:
       name: vin_decoder
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.2"
+    version: "0.1.3"
   yaml:
     dependency: transitive
     description:
