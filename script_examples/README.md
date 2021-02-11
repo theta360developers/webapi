@@ -57,8 +57,8 @@ Run "./theta help <command>" for more information about a command.
 
 Most of the commands and options are specified on the same line as `theta.exe`.
 
-For most options, you do not need to create an options file.  If there is
-only one parameter, specify the parameter with this convention.
+For most options, you do not need to create an options file.  If the value
+of the option is a single word or number, specify the value with this convention.
 
 ```shell
 .\theta.exe setOption --name=captureMode --value=video 
