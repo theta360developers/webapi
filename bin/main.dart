@@ -49,7 +49,7 @@ import 'package:args/command_runner.dart';
 import 'package:apitest/cli/hdr_cli.dart';
 import 'package:apitest/cli/download_cli.dart';
 import 'package:apitest/cli/stop_capture_cli.dart';
-import 'package:apitest/cli/app_cli.dart';
+// import 'package:apitest/cli/app_cli.dart';
 
 //TODO: add filterOff for all all filters. can copy from the hdr library
 
@@ -85,8 +85,7 @@ void main(List<String> args) async {
     ..addCommand(SetMySettingCli())
     ..addCommand(ShutterVolumeCli())
     ..addCommand(DownloadCli())
-    ..addCommand(StopCaptureCli())
-    ..addCommand(AppCli());
+    ..addCommand(StopCaptureCli());
 
   await runner.run(args).catchError((error) {
     if (error is! UsageException) throw error;
