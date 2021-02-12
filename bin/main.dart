@@ -15,6 +15,7 @@
 ///  "firmwareVersion": "01.51",
 ///  ...
 import 'dart:io';
+import 'package:apitest/cli/app_cli.dart';
 import 'package:args/args.dart';
 import 'package:yaml/yaml.dart';
 import 'package:apitest/cli/auto_bracket_cli.dart';
@@ -85,7 +86,8 @@ void main(List<String> args) async {
     ..addCommand(SetMySettingCli())
     ..addCommand(ShutterVolumeCli())
     ..addCommand(DownloadCli())
-    ..addCommand(StopCaptureCli());
+    ..addCommand(StopCaptureCli())
+    ..addCommand(AppCli());
 
   await runner.run(args).catchError((error) {
     if (error is! UsageException) throw error;

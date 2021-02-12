@@ -1,5 +1,9 @@
 name: apitest
+# IMPORTANT: copy the contents of this file into ./lib/cli/00_pubspec_contents.dart
+# when the version or description is changed.
 version: 0.1.1-alpha
+# IMPORTANT: copy the contents of this file into ./lib/cli/00_pubspec_contents.dart
+# when the version or description is changed.
 description: >-
   RICOH THETA WebAPI test implementation with Dart by Oppkey and the community.
   Based on RICOH THETA API v2.1 
