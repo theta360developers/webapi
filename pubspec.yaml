@@ -18,6 +18,7 @@ dependencies:
     # path: ../theta
   dcli: ^0.41.0
   yaml: ^2.2.1
+  path: ^1.7.0  
 
 environment:
   sdk: '>=2.10.0 <3.0.0'

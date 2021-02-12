@@ -1,6 +1,7 @@
 import 'package:args/command_runner.dart';
 import 'dart:io';
 import 'package:yaml/yaml.dart';
+import 'package:path/path.dart' as p;
 
 class AppCli extends Command {
   @override
@@ -20,7 +21,9 @@ class AppCli extends Command {
 
   @override
   void run() async {
-    var file = await File('pubspec.yaml');
+    var pathToYaml =
+        p.join(p.dirname(Platform.script.toFilePath()), '../pubspec.yaml');
+    var file = await File(pathToYaml);
     var yamlString = file.readAsStringSync();
     var conf = loadYaml(yamlString);
     if (argResults.arguments.isEmpty) {
