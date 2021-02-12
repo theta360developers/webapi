@@ -25,6 +25,7 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 *.lnk
+*.exe
 ### MacOS ###
 *.DS_Store
 .AppleDouble
@@ -63,7 +64,7 @@ Temporary Items
 
 
 # production files
-# theta.exe
+theta.exe
 theta
 
 .vscode
