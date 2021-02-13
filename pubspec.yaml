@@ -1,7 +1,7 @@
 name: apitest
 # IMPORTANT: copy the contents of this file into ./lib/cli/00_pubspec_contents.dart
 # when the version or description is changed.
-version: 0.1.1-alpha
+version: 0.1.2-alpha
 # IMPORTANT: copy the contents of this file into ./lib/cli/00_pubspec_contents.dart
 # when the version or description is changed.
 description: >-
