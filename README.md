@@ -1,6 +1,6 @@
 # RICOH THETA API HTTP Community Tests
 
-Last updated February 11, 2021.
+Last updated February 12, 2021.
 
 IMPORTANT: Most of the code examples to communicate with the camera are now in the
 [theta library on GitHub](https://github.com/codetricity/theta) in `/packages/theta/lib/src/`
@@ -112,11 +112,12 @@ RICOH THETA API.
 
 There are two ways to use the command line application.
 
-1. pre-compiled binaries for Windows and Linux are in the
+1. pre-compiled binaries for Windows, MacOS X, Raspberry Pi, and Linux x86 are in the
 [releases section](https://github.com/theta360developers/webapi/releases).
 The binaries are faster to run, but more difficult to use in a
 edit-build-test workflow. You can also build the binary yourself
-with [dart2native](https://dart.dev/tools/dart2native).
+with [dart2native](https://dart.dev/tools/dart2native).  The binaries are useful
+in bash scripts.
 
 2. if you have Dart installed on your computer, you can run the code
 in debug mode, which is slower, but much better for the edit-test
