@@ -1,0 +1,63 @@
+{
+    "_autoBracket": {
+      "_bracketNumber": 7,
+      "_bracketParameters": [
+        {
+          "iso": 100,
+          "aperture": 2.1,
+          "shutterSpeed": 0.625,
+          "_colorTemperature": 2500,
+          "exposureProgram": 1,
+          "whiteBalance": "auto"
+        },
+        {
+            "iso": 100,
+            "aperture": 2.1,
+            "shutterSpeed": 0.16666666,
+            "_colorTemperature": 2500,
+            "exposureProgram": 1,
+            "whiteBalance": "auto"
+          },      
+          {
+            "iso": 100,
+            "aperture": 2.1,
+            "shutterSpeed": 0.04,
+            "_colorTemperature": 2500,
+            "exposureProgram": 1,
+            "whiteBalance": "auto"
+          },
+          {
+            "iso": 100,
+            "aperture": 2.1,
+            "shutterSpeed": 0.01,
+            "_colorTemperature": 2500,
+            "exposureProgram": 1,
+            "whiteBalance": "auto"
+          },
+          {
+            "iso": 100,
+            "aperture": 2.1,
+            "shutterSpeed": 0.0025,
+            "_colorTemperature": 2500,
+            "exposureProgram": 1,
+            "whiteBalance": "auto"
+          },
+          {
+            "iso": 100,
+            "aperture": 2.1,
+            "shutterSpeed": 0.000625,
+            "_colorTemperature": 2500,
+            "exposureProgram": 1,
+            "whiteBalance": "auto"
+          },
+          {
+            "iso": 100,
+            "aperture": 2.1,
+            "shutterSpeed": 0.00015625,
+            "_colorTemperature": 2500,
+            "exposureProgram": 1,
+            "whiteBalance": "auto"
+          }
+      ]
+    }
+  }

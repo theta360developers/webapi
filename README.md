@@ -1,6 +1,6 @@
 # RICOH THETA API HTTP Community Tests
 
-Last updated February 12, 2021.
+Last updated February 14, 2021.
 
 IMPORTANT: Most of the code examples to communicate with the camera are now in the
 [theta library on GitHub](https://github.com/codetricity/theta) in `/packages/theta/lib/src/`
@@ -338,6 +338,11 @@ The IP address of the camera will always be 192.168.1.1. You cannot change the I
 To connect to the Internet, you must have two network interfaces on your computer.  For example, your computer can connect to your
 home router with Ethernet and use Wi-Fi to connect to the THETA.  You can also use the existing Wi-Fi of your laptop to connect
 to the Internet and a USB Wi-Fi adapter to connect to the THETA.
+
+Please note: THETA is set so that Wi-Fi is unavailable while connected to USB. However, in development mode, Wi-Fi becomes available while connected to USB using this command:
+```
+adb shell settings put global usb_debug true
+```
 
 ### Example Use When Editing the Code
 
