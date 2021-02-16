@@ -1,19 +1,19 @@
 # RICOH THETA API HTTP Community Tests
 
-Last updated February 14, 2021.
+Last updated February 16, 2021.
 
-IMPORTANT: Most of the code examples to communicate with the camera are now in the
-[theta library on GitHub](https://github.com/codetricity/theta) in `/packages/theta/lib/src/`
+Command line tester for RICOH THETA WebAPI. [Register to get it](https://theta360.guide/special/sc2/).
 
-The documentation for the Dart/Flutter package
-is being built out [here](https://codetricity.github.io/theta/).
+Linux, Mac, Raspberry Pi
 
-The original tests are easier to read, but more difficult to reuse in Flutter apps.
-The original tests are in `./lib/standalone` of this repository. Most of the standalone
-tests do not have error checking to see if the camera to workstation connection
-is down. This is okay for one-time tests on the command line to check the
-functionality of the API, but you'll likely want to implement more robust checks
-if you chain the commands together or use the commands in a mobile app.
+`./theta --help`
+
+Windows 10
+
+`.\theta.exe --help`
+
+
+## Disclaimer on Community Tests
 
 All RICOH THETA WebAPI
 tests based on contributions of
@@ -24,16 +24,38 @@ own tests prior to deployment in a business setting.  As these are
 unofficial tips, the official RICOH THETA API may change unexpectedly
 and these techniques could stop working.
 
-Updates to the community document are posted to the web at
-[https://theta360developers.github.io/webapi/](https://theta360developers.github.io/webapi/)
+## Resources for this Project
 
-Official API reference information from RICOH:
+* [Community blog for webAPI](https://theta360developers.github.io/webapi/)
+* [theta Dart library on GitHub](https://github.com/codetricity/theta) - community.
+Examples of accessing the camera API are in `/packages/theta/lib/src/`
+* [documentation for theta Dart library](https://codetricity.github.io/theta/)
+* look in `/lib/standalone` of this repository for examples of accessing the camera.
+
+
+## Official API reference information on THETA WebAPI from RICOH:
 
 * [RICOH Developer Connection THETA Web API v2.1](https://api.ricoh/docs/theta-web-api-v2.1/)
 * [THETA API 2.1 Android SDK on RICOH Official GitHub Repository](https://github.com/ricohapi/theta-api2.1-android-sdk)
 * [THETA API 2.1 iOS SDK on RICOH Official GitHub Repository](https://github.com/ricohapi/theta-api2.1-ios-sdk)
 
-## Overview
+ 
+## Using Command Line Example Program
+
+You can use this repository as a command line application to test the
+RICOH THETA API.
+
+Pre-compiled binaries for Windows, MacOS X, Raspberry Pi, and Linux x86 are in the
+[available on the SC2 site with email registration](https://theta360.guide/special/sc2/).
+
+Getting started videos.
+
+1. [RICOH THETA API Command Line Tester introduction](https://youtu.be/yf--PIDahN8)
+2. [Download Thumbnails, Set HDR, Disable Power Off with RICOH THETA WebAP](https://youtu.be/UXOlJwEc8gQ)
+3. [RICOH THETA API - reset settings, reset my settings, delete all images, manage hdr](https://youtu.be/OZqUMtQEWCU)
+
+
+## RICOH THETA WebAPI for Developers
 
 The RICOH THETA WebAPI is based on the [Google Open Spherical Camera API](https://developers.google.com/streetview/open-spherical-camera/reference). Developers build mobile
 apps that communicate with the RICOH THETA camera using Wi-Fi
@@ -105,36 +127,7 @@ Focus on the http endpoint and JSON payload.
 
 There are different ways for you to use this repository.
 
-### 1. Use Command Line Example Program
-
-You can use this repository as a command line application to test the
-RICOH THETA API.
-
-There are two ways to use the command line application.
-
-1. pre-compiled binaries for Windows, MacOS X, Raspberry Pi, and Linux x86 are in the
-[releases section](https://github.com/theta360developers/webapi/releases).
-The binaries are faster to run, but more difficult to use in a
-edit-build-test workflow. You can also build the binary yourself
-with [dart2native](https://dart.dev/tools/dart2native).  The binaries are useful
-in bash scripts.
-
-2. if you have Dart installed on your computer, you can run the code
-in debug mode, which is slower, but much better for the edit-test
-development workflow.
-
-```shell
-dart bin/main.dart info
-```
-
-To quickly get started using the pre-compiled binaries, watch these
-three videos in sequence.
-
-1. [RICOH THETA API Command Line Tester introduction](https://youtu.be/yf--PIDahN8)
-2. [Download Thumbnails, Set HDR, Disable Power Off with RICOH THETA WebAP](https://youtu.be/UXOlJwEc8gQ)
-3. [RICOH THETA API - reset settings, reset my settings, delete all images, manage hdr](https://youtu.be/OZqUMtQEWCU)
-
-### 2. Run Single or Multiple Commands From Standalone Scripts
+### Run Single or Multiple Commands From Standalone Scripts
 
 The main function is in `bin/main.dart`. 
 
@@ -158,7 +151,7 @@ Run it like this:
   "model": "RICOH THETA SC2",
 ```
 
-### 3. Run Single or Multiple Commands From theta Package
+### Run Single or Multiple Commands From theta Package
 
 If you import the [theta package](https://github.com/codetricity/theta),
 you will have access to
@@ -187,7 +180,7 @@ Run the script with:
   "model": "RICOH THETA SC2",
 ```
 
-## Status
+## Test Environment
 
 Camera models tests:
 
@@ -241,45 +234,6 @@ of specified values is not specified for SC2 or SC2B.
 
 Firmware for RICOH THETA cameras can be updated with the desktop app on Mac or Windows or the mobile app on Android or iOS.
 The desktop app connects with a USB cable and is a good, stable connection.
-
-## Using Windows Binary
-
-run `theta.exe --help` from the command line on Windows 10.
-
-```shell
-PS C:\Users\craig\Documents\Development\ricoh\webapi> .\theta.exe help
-access RICOH WebAPI
-
-Usage: dart bin/main.dart <command> [arguments]
-
-Global options:
--h, --help    Print this usage information.
-
-Available commands:
-  getMetadata                  Get image metadata from camera by passing URL of the file
-  getOptions                   get camera options
-  hdr                          Enable, save, delete, disable, and show hdr settings
-  info                         Camera info: model, serialNumber, apiLevel...
-  listFiles                    list all image and video files on camera
-  offDisable                   Disable power off
-  setExposureCompensationTwo   Set exposure compensation to 2.0.
-  setExposureDelayFive         Set camera self timer
-  setExposureDelayZero         Turn off camera self timer
-  setModeImage                 Set camera to image mode
-  state                        Camera state: batteryLevel, storageUri...
-  takePicture                  take picture, similar to pressing shutter button
-
-Run "./theta help <command>" for more information about a command.
-```
-
-### Using Preset Shooting Modes
-
-The SC2 preset shooting modes are explained in the
-[SC2 User Guide on the RICOH site](https://support.theta360.com/uk/manual/sc2/content/shooting-preset/shooting_preset_01.html).
-
-To change the SC2 or SC2B from preset to standard image, set captureMode to image.
-
-Contact jcasman@oppkey.com for additional information.
 
 ## Installation For Development and Testing
 
@@ -399,7 +353,7 @@ code with a known working API that returns a single JSON object, you can use a p
 // String url = 'https://jsonplaceholder.typicode.com/users/1';
 ```
 
-## Running Documentation Locally
+## Running WebAPI Blog Locally
 
 The documents for these code examples are stored in docs.  You can read them
 online in a blog-like format at [https://theta360developers.github.io/webapi/](https://theta360developers.github.io/webapi/).  If you want to edit the blog locally and
