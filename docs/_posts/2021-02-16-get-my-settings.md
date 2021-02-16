@@ -18,7 +18,7 @@ turned on or when it establishes Wi-Fi connecton.  If the Wi-Fi connection goes 
 you bring it back up, the SC2 will load My Settings.
 
 With API call, `camera._getMySetting` will load all the settings stored in My Settings
-on the V, Z1, SC2, and SC2B.  NOTE: Need to test the SC2 and SC2B. For the S and SC,
+on the V, Z1, SC2, and SC2B. For the S and SC,
 the options must be passed as an array.
 
 ## Z1 testing
