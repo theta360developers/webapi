@@ -36,7 +36,7 @@ class SetMySettingCli extends Command {
       }
       print('it looks like the setting was set correctly.  I hope...');
       print(response);
-      print('on the SC2 and SC2B there is no way to view the saved settings');
+      print('use getMySetting to verify.');
       exit(0);
     }
   }
