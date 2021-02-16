@@ -8,7 +8,8 @@ class GetMySettingCli extends Command {
   final name = 'getMySetting';
 
   @override
-  final description = 'Display settings from My Settings';
+  final description =
+      'Display settings from My Settings on V, Z1, SC2, SCB. Will not work SC, or S';
 
   GetMySettingCli() {
     // argParser..addOption('name', help: '--name=whiteBalance');
