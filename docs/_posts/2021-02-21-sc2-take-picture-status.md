@@ -56,3 +56,25 @@ Future<String> isDone(String id) async {
   return state;
 }
 ```
+
+At the end of 200 files, I received this:
+
+```shell
+thumbnail download test completed
+thumbnails are in local storage for inspection
+```
+
+## Test 2 - 5 second delay
+
+```bash
+for counter in {1..200}
+do
+    ./theta.exe takeAndReady
+    echo that was picture $counter
+    ((counter++))
+    # waiting 5 seconds for SC2 test
+    echo waiting 5 seconds for the next shot
+    sleep 5s
+done
+echo finished endurance test
+```
