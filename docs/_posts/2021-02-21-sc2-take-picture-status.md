@@ -34,3 +34,25 @@ do
 done
 echo finished endurance test
 ```
+
+## Example of Camera Status Check
+
+This is the check used in the tests.
+
+```dart
+Future<String> isDone(String id) async {
+  var url = 'http://192.168.1.1/osc/commands/status';
+  var data = {'id': id};
+
+  var payload = jsonEncode(data);
+
+  var response = await http.post(url,
+      headers: {'Content-Type': 'application/json;charset=utf-8'},
+      body: payload);
+
+  Map<String, dynamic> status = jsonDecode(response.body);
+  String state = status['state'];
+
+  return state;
+}
+```
