@@ -91,7 +91,7 @@ thumbnail download test completed
 thumbnails are in local storage for inspection
 ```
 
-## Test 2 - 5 second delay
+## Example with 5 second delay
 
 ```bash
 for counter in {1..200}
