@@ -30,7 +30,8 @@ If I insert a delay of 10 seconds between pictures, I can take 200 pictures.
 | 2 | 2 second | 10 seconds | 200 | fail |
 | 3 | 10 seconds | 18 seconds | 200 | success |
 | 4 | 5 seconds | 13 seconds | 200 | fail |
-| 5 | 8 seconds | 16 seconds | 200 | ? |
+| 5 | 8 seconds | 16 seconds | 200 | success |
+| 6 | 6 seconds | 14 seconds | 200 | ? |
 
 
 ## Test Environment
@@ -42,6 +43,7 @@ If I insert a delay of 10 seconds between pictures, I can take 200 pictures.
 be needed and should not impact the test
 * SC2 is connected to Windows 10 computer with 2.4GHz Wi-Fi
 * camera is within 50cm of computer
+* camera is indoor, in the shade, during winter
 
 ## Test Scripts
 
