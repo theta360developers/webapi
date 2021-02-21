@@ -34,7 +34,8 @@ If I insert a delay of 10 seconds between pictures, I can take 200 pictures.
 | 6 | 6 seconds | 14 seconds | 200 | success |
 | 7 | 5 seconds | 13 seconds | 200 | success |
 | 8 | 3 seconds | 11 seconds | 100 | success |
-| 9 | 1 second | 9 seconds | 100 | ? |
+| 9 | 1 second | 9 seconds | 100 | success |
+| 10 | 0 seconds | 8 seconds | 100 | ? |
 
 ## Test Environment
 
