@@ -1,6 +1,6 @@
 ---
 title:  "Jekyll on Windows 10 WSL2 with auto-regeneration"
-tags: documentation-tools
+tags: documentation-tools jekyll
 date:   2021-02-07
 categories: tester
 cover: /images/2021_02/jekyll_setup.png
