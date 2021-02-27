@@ -3,7 +3,7 @@ title:  "Raspberry Pi Robot with 360 Images"
 tags: robot bash raspberry-pi
 date:   2021-02-27
 categories: tester
-cover: /images/2021_02/theta_robot.jpg
+cover: /images/2021_02/theta_robot.png
 header:
   theme: dark
   background: 'linear-gradient(135deg, rgb(34, 139, 87), rgb(139, 34, 139))'
@@ -13,7 +13,7 @@ article_header:
   background_color: '#203028'
   background_image:
     gradient: 'linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))'
-    src: /images/2021_02/theta_robot.jpg
+    src: /images/2021_02/theta_robot.png
 author: Craig Oda
 license: false
 ---
