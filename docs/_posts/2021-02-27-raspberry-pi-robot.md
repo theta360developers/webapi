@@ -98,3 +98,16 @@ I needed to manually delete the default route to the THETA and
 just route traffic from the 192.168.1.0 subnet on the Raspberry Pi
 to the THETA.
 
+### SC2 API Quirks
+
+Although the last iteration of this project used an SC2, it took
+a while to overcome the API quirks of the SC2.  Some things
+I had to work through:
+
+* when the SC2 loses Wi-Fi connection, it loses the current settings
+and loads my settings when Wi-Fi connection is restored
+* the SC2 takes at least 8 seconds to take a non-HDR shot compared to 4 seconds for the Z1
+* The SC2 may respond to camera.reset differently from the Z1.  I'm still looking into this
+* The SC2 can only use 2.4GHz, not the 5GHz that the Z1 supports.  As the 
+Wi-Fi chipset is different in the SC2, there may be additional quirks with my
+specific Wi-Fi adapter that I need to look into
