@@ -18,10 +18,10 @@ author: Craig Oda
 license: false
 ---
 
-We recently used our [THETA robot](https://youtu.be/DNqKH-3lJ4U) to test remote interval shooting
+I recently used our [THETA robot](https://youtu.be/DNqKH-3lJ4U) to test remote interval shooting
 and automated cloud upload with RICOH THETA SC2, V, and Z1 cameras.
 
-We used a Raspberry Pi 4 as both the controller for the camera and
+I used a Raspberry Pi 4 as both the controller for the camera and
 to communicate with the THETA camera.  The RPi4 has an additional
 USB Wi-Fi adapter to communicate with both the THETA using
 the WebAPI and the Internet.
@@ -64,3 +64,37 @@ This example uses Digital Ocean's $5/month account for cloud storage.
 Robot uses onboard mobile data from an Android phone to upload
 images to the cloud using LTE data.  Robot can now monitor an area
 that does not have a Wi-Fi hotspot but has mobile data coverage.
+
+## Lessons Learned
+
+### Untethered Battery Power Management
+
+The onboard power source of the robot is too weak to effectively run
+the RPi4 with all the accessories I jammed onto the Robot.
+The Raspberry Pi Dramble blog has
+more [test results](https://www.pidramble.com/wiki/benchmarks/power-consumption)
+on RPi power consumption.
+
+As I normally test the Raspberry Pi when it is plugged into a wall outlet,
+the move to battery power was a bit of a culture shock for me.  I need
+to be more careful to the power consumption of accessories such
+as a Wi-Fi adapter plugged into the Raspberry Pi when it is untethered.
+
+### Mobile Network Workarounds
+
+Moving from the Wi-Fi router in my office to a mobile hotspot using
+LTE was also more tricky than I assumed.  On the surface, it is the
+same, but as I'm using a Pixel 2 as a hotspot and not an actual
+mobile router, I needed to type `ip neigh` from the Pixel to find
+the IP address of the Raspberry Pi.  I then used a laptop to
+ssh into the Raspberry Pi and set up the scripts I used to control
+the camera.  
+
+### network routing on the Raspberry Pi
+
+When the Raspberry Pi booted with two Wi-Fi interfaces,
+it set up two default gateways which conflicted with each other.
+I needed to manually delete the default route to the THETA and
+just route traffic from the 192.168.1.0 subnet on the Raspberry Pi
+to the THETA.
+
