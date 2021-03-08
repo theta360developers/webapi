@@ -73,3 +73,5 @@ void run() async {
     exit(0);
   }
 ```
+
+## Video and Image Modes
