@@ -1,7 +1,6 @@
 import 'package:apitest/cli/pretty.dart';
 import 'package:args/command_runner.dart';
 import 'dart:io';
-import 'package:dcli/dcli.dart';
 import 'package:theta/theta.dart';
 
 class ExposureProgramCli extends Command {
@@ -25,7 +24,7 @@ class ExposureProgramCli extends Command {
   @override
   void run() async {
     if (!argResults.wasParsed('value')) {
-      print(red('Specify program value. Example --value=2 or --value=9'));
+      print('Specify program value. Example --value=2 or --value=9');
       printUsage();
       exit(1);
     } else {

@@ -16,8 +16,6 @@
 ///  ...
 import 'dart:io';
 import 'package:apitest/cli/app_cli.dart';
-import 'package:args/args.dart';
-import 'package:yaml/yaml.dart';
 import 'package:apitest/cli/auto_bracket_cli.dart';
 import 'package:apitest/cli/delete_all_cli.dart';
 import 'package:apitest/cli/exposure_compensation_cli.dart';

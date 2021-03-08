@@ -1,7 +1,5 @@
-import 'package:apitest/cli/pretty.dart';
 import 'package:args/command_runner.dart';
 import 'dart:io';
-import 'package:dcli/dcli.dart';
 import 'package:theta/theta.dart';
 
 class ShutterVolumeCli extends Command {

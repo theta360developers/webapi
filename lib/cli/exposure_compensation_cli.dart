@@ -1,7 +1,6 @@
 // import 'package:apitest/options/set_exposure_compensation.dart';
 import 'package:args/command_runner.dart';
 import 'dart:io';
-import 'package:dcli/dcli.dart';
 import 'package:theta/theta.dart';
 
 class ExposureCompensationCli extends Command {
@@ -35,8 +34,7 @@ class ExposureCompensationCli extends Command {
   @override
   void run() async {
     if (!argResults.wasParsed('value')) {
-      print(red(
-          'Specify compensation value. Example --value=-2.0 or --value=0.0'));
+      print('Specify compensation value. Example --value=-2.0 or --value=0.0');
       printUsage();
       exit(1);
     } else {

@@ -1,7 +1,6 @@
 import 'package:args/command_runner.dart';
 import 'dart:io';
 import 'package:theta/theta.dart';
-import 'package:dcli/dcli.dart';
 
 class ExposureDelayCli extends Command {
   @override
@@ -20,8 +19,7 @@ class ExposureDelayCli extends Command {
   @override
   void run() async {
     if (!argResults.wasParsed('seconds')) {
-      print(red(
-          'Specify compensation value. Example --seconds=0 or --seconds=10'));
+      print('Specify compensation value. Example --seconds=0 or --seconds=10');
       printUsage();
       exit(1);
     } else {

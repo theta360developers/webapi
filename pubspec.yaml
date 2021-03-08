@@ -1,7 +1,7 @@
 name: apitest
 # IMPORTANT: copy the contents of this file into ./lib/cli/00_pubspec_contents.dart
 # when the version or description is changed.
-version: 0.1.2-alpha
+version: 0.1.3-alpha
 # IMPORTANT: copy the contents of this file into ./lib/cli/00_pubspec_contents.dart
 # when the version or description is changed.
 description: >-
@@ -20,9 +20,9 @@ dependencies:
       ref: main
     # change the path below to the path above for production use
     # path: ../theta
-  dcli: ^0.41.0
+  # dcli: ^0.41.0
   yaml: ^2.2.1
-  path: ^1.7.0  
+  # path: ^1.7.0  
 
 environment:
   sdk: '>=2.10.0 <3.0.0'

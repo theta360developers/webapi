@@ -1,7 +1,6 @@
 import 'package:apitest/cli/pretty.dart';
 import 'package:args/command_runner.dart';
 import 'dart:io';
-import 'package:dcli/dcli.dart';
 import 'package:theta/theta.dart';
 
 class StatusCli extends Command {
@@ -21,7 +20,7 @@ class StatusCli extends Command {
   @override
   void run() async {
     if (!argResults.wasParsed('id')) {
-      print(red('Specify id with --id=9580'));
+      print('Specify id with --id=9580');
       exit(1);
     } else {
       print(pretty(await Camera.status(int.parse(argResults['id']))));
