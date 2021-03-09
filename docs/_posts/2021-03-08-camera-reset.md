@@ -14,7 +14,9 @@ shows that the camera.reset API command does not work with the SC2.
 
 To reset the SC2, we must set each option to the original options one by one.
 
-## Identifying Options To Reset on SC2
+In addition to individual options, there are video and image modes that are stored separately.
+
+## Identifying Image Options To Reset on SC2 to Clear My Settings
 
 ```json
 > dart .\bin\main.dart getMySetting       
@@ -34,6 +36,18 @@ To reset the SC2, we must set each option to the original options one by one.
 ```
 
 Pay attention to which values are strings and which numbers.
+
+## Identifying Saved Settings for Video My Settings
+
+Unfortunately, I can't get the saved settings for video as of March 8, 2021.  I can
+save the video settings and the settings work.  However, I can't display saved settings.
+
+I've identified these settings for video:
+
+* exposureCompensation,
+* whiteBalance,
+* _colorTemperature
+
 
 ## Reset MySettings on SC2
 
@@ -76,10 +90,13 @@ var data = {
 
 ### Showing Video Settings Stored in My Settings
 
-When I attempt to get the settings stored in My Settings, the SC2 locks up and becomes
+As shown in the example at the top of the article, getMySettings will work to show image settings.
+However, when I attempt to get the __video__ settings stored in My Settings, the SC2 locks up and becomes
 unresponsive.  This appears to be a bug.  I have not confirmed it with RICOH.
 
-Setting the videos parameters in MySettings appears to work.
+Setting the videos parameters in MySettings appears to work.  The workaround is to
+save the video settings into my settings and manually test the settings by inspecting
+the video files.
 
 #### Test with EV Set to 2.0 (Bright)
 
@@ -98,7 +115,7 @@ and then connected to Wi-Fi again.
 
 Expectation: Video will be bright.
 
-Result
+Result: Success.  Video looks bright, as expected.
 
 ![ev for video set to 2.0](/webapi/images/2021_03/video_ev_2_0.png)
 
@@ -112,6 +129,8 @@ Result
 ```
 
 Turn off Wi-Fi and reconnect to trigger saved, 'My Settings'.
+
+Result: Success.  Video looks dark as expected.
 
 ![ev for video set to -2.0](/webapi/images/2021_03/video_ev_minus_2_0.png)
 
