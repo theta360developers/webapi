@@ -28,16 +28,24 @@ class ResetCli extends Command {
       await CameraOption.setMySetting('exposureProgram', 2);
       print('setting _filter to off (no hdr or other filters)');
       await CameraOption.setMySetting('_filter', 'off');
-      print('setting exposureCompensation to 0.0 (all auto)');
+      print('setting image exposureCompensation to 0.0 (all auto)');
       await CameraOption.setMySetting('exposureCompensation', 0.0);
-      print('setting whiteBalance to auto');
+      print('setting image whiteBalance to auto');
       await CameraOption.setMySetting('whiteBalance', 'auto');
       print('setting iso to 0 (auto iso)');
       await CameraOption.setMySetting('iso', 0);
       print('setting shutterSpeed to 0 (auto shutter speed)');
       await CameraOption.setMySetting('shutterSpeed', 0);
-      print('setting _colorTemperature to 5000');
+      print('setting image _colorTemperature to 5000');
       await CameraOption.setMySetting('_colorTemperature', 5000);
+      // video settings
+      print('preparing to reset video settings');
+      print('setting video exposureCompensation to 0.0');
+      await CameraOption.setMySettingVideo('exposureCompensation', 0.0);
+      print('setting video whiteBalance to auto');
+      await CameraOption.setMySettingVideo('whiteBalance', 'auto');
+      print('setting video _colorTemperature to 5000');
+      await CameraOption.setMySettingVideo('_colorTemperature', '5000');
     }
 
     await Ambulance.reset();

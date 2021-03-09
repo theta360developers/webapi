@@ -41,6 +41,43 @@ Version 0.1.3-alpha of the theta webapi tester will reset MySettings
 on the SC2.  The individual reset commands are only needed on the SC2
 and SC2B models.  The Z1 and the V do not need these special commands.
 
+
+### Video and Image Modes
+
+My Settings are saved for video and image modes separately.
+
+#### Video Example
+
+```dart
+var data = {
+  'name': 'camera._setMySetting',
+  'parameters': {
+    'options': {
+      optionName: parsedValue,
+    },
+    'mode': 'video'
+  }
+};
+```
+
+### Image Example
+
+```dart
+var data = {
+  'name': 'camera._setMySetting',
+  'parameters': {
+    'options': {
+      optionName: parsedValue,
+    },
+    'mode': 'image'
+  }
+};
+```
+
+
+
+### Code Example to Reset Video and Image Settings in My Settings
+
 In the example below, `Ambulance.reset` simply calls `camera.reset`.
 The name `Ambulance` was chosen as a warning to help people accidentally wiping
 out their settings.
@@ -52,21 +89,29 @@ void run() async {
 
     if (model.contains('SC2')) {
       print(
-      'You are using a RICOH THETA SC2. We will perform addition reset commands');
+          'You are using a RICOH THETA SC2. We will perform addition reset commands');
       print('setting exposureProgram to 2 (auto)');
       await CameraOption.setMySetting('exposureProgram', 2);
       print('setting _filter to off (no hdr or other filters)');
       await CameraOption.setMySetting('_filter', 'off');
-      print('setting exposureCompensation to 0.0 (all auto)');
+      print('setting image exposureCompensation to 0.0 (all auto)');
       await CameraOption.setMySetting('exposureCompensation', 0.0);
-      print('setting whiteBalance to auto');
+      print('setting image whiteBalance to auto');
       await CameraOption.setMySetting('whiteBalance', 'auto');
       print('setting iso to 0 (auto iso)');
       await CameraOption.setMySetting('iso', 0);
       print('setting shutterSpeed to 0 (auto shutter speed)');
       await CameraOption.setMySetting('shutterSpeed', 0);
-      print('setting _colorTemperature to 5000');
+      print('setting image _colorTemperature to 5000');
       await CameraOption.setMySetting('_colorTemperature', 5000);
+      // video settings
+      print('preparing to reset video settings');
+      print('setting video exposureCompensation to 0.0');
+      await CameraOption.setMySettingVideo('exposureCompensation', 0.0);
+      print('setting video whiteBalance to auto');
+      await CameraOption.setMySettingVideo('whiteBalance', 'auto');
+      print('setting video _colorTemperature to 5000');
+      await CameraOption.setMySettingVideo('_colorTemperature', '5000');
     }
 
     await Ambulance.reset();
@@ -74,4 +119,4 @@ void run() async {
   }
 ```
 
-## Video and Image Modes
+
