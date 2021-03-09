@@ -74,6 +74,46 @@ var data = {
 };
 ```
 
+### Showing Video Settings Stored in My Settings
+
+When I attempt to get the settings stored in My Settings, the SC2 locks up and becomes
+unresponsive.  This appears to be a bug.  I have not confirmed it with RICOH.
+
+Setting the videos parameters in MySettings appears to work.
+
+#### Test with EV Set to 2.0 (Bright)
+
+Video.
+
+```dart
+  var response =
+      await (CameraOption.setMySettingVideo('exposureCompensation', 2.0));
+  print(response);
+option received is 2.0 of type double
+{name: camera._setMySetting, state: done}
+```
+
+To trigger my settings, I turned the Wi-Fi off by pressing the Wi-Fi button
+and then connected to Wi-Fi again.
+
+Expectation: Video will be bright.
+
+Result
+
+![ev for video set to 2.0](/webapi/images/2021_03/video_ev_2_0.png)
+
+#### Test with ev set to -2.0 (Dark)
+
+```dart
+  var response =
+      await (CameraOption.setMySettingVideo('exposureCompensation', -2.0));
+  print(response);
+}
+```
+
+Turn off Wi-Fi and reconnect to trigger saved, 'My Settings'.
+
+![ev for video set to -2.0](/webapi/images/2021_03/video_ev_minus_2_0.png)
 
 
 ### Code Example to Reset Video and Image Settings in My Settings
@@ -120,3 +160,24 @@ void run() async {
 ```
 
 
+## My Settings for Video Files
+
+![setting my settings](/webapi/images/2021_03/mysettings_test.png)
+
+### Setting to -2.0 (dark)
+
+```shell
+> dart .\bin\main.dart setMySetting --video --name=exposureCompensation 
+--value=-2.0
+```
+
+Result: worked.  See result above.
+
+### Setting to 2.0 (light)
+
+```shell
+> dart .\bin\main.dart setMySetting --video --name=exposureCompensation 
+--value=2.0
+```
+
+result: worked.  See result above.

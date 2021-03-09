@@ -11,18 +11,28 @@ class SetMySettingCli extends Command {
 
   SetMySettingCli() {
     argParser
+      ..addFlag('video',
+          help:
+              'save video settings. exposureCompensation, whiteBalance, _colorTemperature only',
+          negatable: false)
       ..addOption('name', help: '--name=_filter')
       ..addOption('value', help: '--value=hdr');
   }
 
   @override
   void run() async {
+    var response;
     if (argResults.arguments.isEmpty) {
       printUsage();
       exit(0);
     } else if (argResults.wasParsed('name') && argResults.wasParsed('value')) {
-      var response = await CameraOption.setMySetting(
-          argResults['name'], argResults['value']);
+      if (argResults.wasParsed('video')) {
+        response = await CameraOption.setMySettingVideo(
+            argResults['name'], argResults['value']);
+      } else {
+        response = await CameraOption.setMySetting(
+            argResults['name'], argResults['value']);
+      }
       if (response.containsKey('error')) {
         print('\nThere is a problem. Did you set both the name and value?');
         print('Is this option supported in your camera model?');

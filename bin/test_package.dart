@@ -13,6 +13,8 @@ void main(List<String> args) async {
   // var jsonConfig = (await File('options/bracket_2_config.json').readAsString());
   // var response = await CameraOption.setOptionJson(jsonConfig);
   // var response = await ThetaRun.stopCapture();
-  var response = await (CameraOption.getMySetting());
+  // var response = await (CameraOption.getMySettingVideo()); // not working
+  var response =
+      await (CameraOption.setMySettingVideo('exposureCompensation', -2.0));
   print(response);
 }
