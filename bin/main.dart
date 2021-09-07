@@ -30,6 +30,7 @@ import 'package:apitest/cli/set_option_cli.dart';
 import 'package:apitest/cli/set_shutter_cli.dart';
 import 'package:apitest/cli/shutter_volume_cli.dart';
 import 'package:apitest/cli/start_capture_cli.dart';
+import 'package:apitest/cli/start_video_cli.dart';
 import 'package:apitest/cli/status_cli.dart';
 import 'package:apitest/cli/reset_cli.dart';
 import 'package:apitest/cli/sleep_delay_cli.dart';
@@ -87,6 +88,7 @@ void main(List<String> args) async {
     ..addCommand(DownloadCli())
     ..addCommand(StopCaptureCli())
     ..addCommand(AppCli())
+    ..addCommand(StartVideoCli())
     ..addCommand(GetMySettingCli());
 
   await runner.run(args).catchError((error) {
